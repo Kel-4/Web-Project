@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/', 'DataBukuController@index');
+
+Route::get('/tambah', 'DataBukuController@create');
+
+Route::post('/simpan', 'DataBukuController@store');
+
+Route::post('/ubah', 'DataBukuController@show');
+
+
