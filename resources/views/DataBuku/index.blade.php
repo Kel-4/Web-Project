@@ -40,7 +40,7 @@
         <ul>
             <br>
             <li><a href=""><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href=""><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
             <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
             <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>

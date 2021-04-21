@@ -29,4 +29,9 @@ Route::post('/update/{id}', 'DataBukuController@update');
 
 Route::get('/hapus/{id}', 'DataBukuController@destroy');
 
+Route::get('/DataPengunjung', 'PengunjungController@index');
+
+Route::get('/DataPengunjung/tambah', 'PengunjungController@create');
+
+Route::delete('/DataPengunjung/{DataPengunjung}', 'PengunjungController@destroy');
 
