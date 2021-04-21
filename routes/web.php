@@ -17,16 +17,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::get('/', 'DataBukuController@index');
+Route::get('/daftarbuku/', 'DataBukuController@index');
 
-Route::get('/tambah', 'DataBukuController@create');
+Route::get('/daftarbuku/tambah', 'DataBukuController@create');
 
-Route::post('/simpan', 'DataBukuController@store');
+Route::post('/daftarbuku/simpan', 'DataBukuController@store');
 
-Route::get('/ubah/{id}', 'DataBukuController@edit');
+Route::get('/daftarbuku/ubah/{id}', 'DataBukuController@edit');
 
-Route::post('/update/{id}', 'DataBukuController@update');
+Route::post('/daftarbuku/update/{id}', 'DataBukuController@update');
 
-Route::get('/hapus/{id}', 'DataBukuController@destroy');
+Route::get('/daftarbuku/hapus/{id}', 'DataBukuController@destroy');
 
 

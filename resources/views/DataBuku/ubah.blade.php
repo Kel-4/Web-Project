@@ -49,9 +49,9 @@
         <div class="container">
             <br>
             <center><h1>UBAH DATA BUKU</h1></center><br><br>
-            <a href="/" class="badge bg-info">Kembali</a><br><br>
+            <a href="/daftarbuku" class="badge bg-info">Kembali</a><br><br>
             
-            <form action="/update/{{ $DataBuku->id }}" method="post">
+            <form action="/daftarbuku/update/{{ $DataBuku->id }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>ID</label>
