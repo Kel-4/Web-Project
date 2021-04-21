@@ -23,6 +23,10 @@ Route::get('/tambah', 'DataBukuController@create');
 
 Route::post('/simpan', 'DataBukuController@store');
 
-Route::post('/ubah', 'DataBukuController@show');
+Route::get('/ubah/{id}', 'DataBukuController@edit');
+
+Route::post('/update/{id}', 'DataBukuController@update');
+
+Route::get('/hapus/{id}', 'DataBukuController@destroy');
 
 

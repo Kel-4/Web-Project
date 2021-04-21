@@ -55,8 +55,7 @@ class DataBukuController extends Controller
      */
     public function show($id)
     {
-        $DataBuku = DataBuku::find($id);
-        return view('DataBuku.ubah', ['DataBuku' => $DataBuku]);
+        // 
     }
 
     /**
@@ -67,7 +66,8 @@ class DataBukuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $DataBuku = DataBuku::find($id);
+        return view('DataBuku.ubah', ['DataBuku' => $DataBuku]);
     }
 
     /**
@@ -79,7 +79,14 @@ class DataBukuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $DataBuku = DataBuku::find($id);
+        $DataBuku->id_buku = $request->id_buku;
+        $DataBuku->judul = $request->judul;
+        $DataBuku->penerbit = $request->penerbit;
+        $DataBuku->rak = $request->rak;
+        $DataBuku->gambar = $request->gambar;
+        $DataBuku->save();
+        return redirect('/');
     }
 
     /**
@@ -90,6 +97,8 @@ class DataBukuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $DataBuku = Databuku::find($id);
+        $DataBuku->delete();
+        return redirect('/');
     }
 }
