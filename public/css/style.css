@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-image: url('../images/bgmain.jpeg');
+
+    /* Full height */
+    /* height: 100%; */
+
+    /* Center and scale the image nicely */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+#nav-web {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+.side-navbar .btn:focus {
+    border: none;
+}
+.side-navbar .btn {
+    border: none;
+}
+.side-navbar {
+    position: fixed;
+    border: 1px;
+    top: 82px;
+    bottom: 0;
+    left: -600px;
+    width: 300px;
+    background-color: rgba(37, 37, 37, 0.9);
+    line-height: 40px;
+    transition: 0.5s;
+}
+#menu-bar:checked ~ .side-navbar {
+    left: 0;
+}
+.side-navbar ul {
+    list-style-type: none;
+    margin-left: -25px;
+}
+.side-navbar ul .btn {
+    margin-left: -17px;
+}
+.side-navbar ul i {
+    margin-right: 10px;
+}
+.side-navbar li {
+    padding: 20px;
+    transition: 0.5s;
+    background-size: 50% auto;
+    width: 100%;
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+}
+.side-navbar li:hover {
+    background-color: white;
+}
+.side-navbar li:hover a {
+    color: black;
+}
+
+.side-navbar li a {
+    color: white;
+    text-decoration: none;
+    font-size: calc(13px + 6 * ((90vw - 280px) / 690));
+}
+.side-navbar {
+    /* margin-left: -100px; */
+}
+@media (min-width: 992px) {
+    .side-navbar {
+        top: 84px;
+    }
+}
+.container a {
+    text-decoration: none;
+}
+.container table {
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+@media (max-width: 576px) {
+    .side-navbar {
+        top: 0;
+    }
+}
+@media (max-width: 1140px) {
+    body {
+        height: 100%;
+        background-size: auto;
+    }
+}
