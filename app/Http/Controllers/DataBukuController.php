@@ -44,7 +44,7 @@ class DataBukuController extends Controller
             'gambar' => $request->gambar
         ]);
 
-        return redirect('/');
+        return redirect('/daftarbuku');
     }
 
     /**
@@ -86,7 +86,7 @@ class DataBukuController extends Controller
         $DataBuku->rak = $request->rak;
         $DataBuku->gambar = $request->gambar;
         $DataBuku->save();
-        return redirect('/');
+        return redirect('/daftarbuku');
     }
 
     /**
@@ -99,6 +99,6 @@ class DataBukuController extends Controller
     {
         $DataBuku = Databuku::find($id);
         $DataBuku->delete();
-        return redirect('/');
+        return redirect('/daftarbuku');
     }
 }

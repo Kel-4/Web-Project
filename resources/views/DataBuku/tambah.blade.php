@@ -50,9 +50,9 @@
     <div class="container">
         <br>
         <center><h1>TAMBAH DATA</h1></center><br><br>
-        <a href="/" class="badge bg-info">Kembali</a><br><br>
+        <a href="/daftarbuku" class="badge bg-info">Kembali</a><br><br>
         
-        <form action="/simpan" method="post">
+        <form action="/daftarbuku/simpan" method="post">
             {{ csrf_field() }}
             <div class="form-group">
                 <label>ID</label>
