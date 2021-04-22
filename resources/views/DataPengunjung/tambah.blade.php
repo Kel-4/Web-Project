@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
         <link rel="stylesheet" href="css/style.css">
-        <title>Halaman Daftar Buku</title>
+        <title>Data Pengunjung</title>
     </head>
   <body>
     
@@ -41,45 +41,57 @@
         <ul>
             <br>
             <li><a href=""><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href=""><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
             <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
             <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
     </div> 
 
-    <div class="container">
-        <br>
-        <center><h1>TAMBAH DATA</h1></center><br><br>
-        <a href="/daftarbuku" class="badge bg-info">Kembali</a><br><br>
+        <div class="container">
+            <br>
+                <center><h1>TAMBAH DATA</h1></center><br><br>
+            <a href="/DataPengunjung" class="badge bg-info">Kembali</a><br><br>
         
-        <form action="/daftarbuku/simpan" method="post">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <label>ID</label>
-                <input type="text" name="id_buku" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Judul</label>
-                <input type="text" name="judul" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Penerbit</label>
-                <input type="text" name="penerbit" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Rak</label>
-                <input type="text" name="rak" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Gambar</label>
-                <input type="file" name="gambar" class="form-control">
-            </div>
-            <div class="form-group">
-            <br><br>
-                <button type="submit" class="btn btn-success">Tambah</button>
-            </div>
-        </form>
-    </div>
+                <form method='post' action="/DataPengunjung">
+                    @csrf
+                    <div class="from-group">
+                        <label for="id_pengunjung">ID Pengunjung</label>
+                        <input type="text" class="form-control @error('id_pengunjung') is-invalid @enderror" id="id_pengunjung" placeholder="Masukkan ID" name='id_pengunjung' value="{{ old('id_pengunjung') }}">
+                        @error('id_pengunjung')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="from-group">
+                        <label for="nama">Nama</label>
+                        <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name='nama' value="{{ old('nama') }}">
+                        @error('nama')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="from-group"> 
+                        <label for="tanggal_terdaftar">Tanggal terdaftar</label>
+                        <input type="text" class="form-control @error('tanggal_terdaftar') is-invalid @enderror" id="tanggal_terdaftar" placeholder="Tanggal terdaftar" name='tanggal_terdaftar' value="{{ old('tanggal_terdaftar') }}">
+                        @error('tanggal_terdaftar')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="from-group">
+                        <label for="kontak">Kontak</label>
+                        <input type="text" class="form-control @error('kontak') is-invalid @enderror" id="kontak" placeholder="Masukkan kontak" name='kontak' value="{{ old('kontak') }}">
+                        @error('kontak')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="from-group">
+                        <label for="alamat">Alamat</label>
+                        <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Masukkan alamat" name='alamat' value="{{ old('alamat') }}">
+                        @error('alamat')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary my-3">Tambah</button>
+                </form>
+        </div>
 
     <footer class="bg-dark fixed-bottom">
         <div class="p-2">

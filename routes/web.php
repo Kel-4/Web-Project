@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     }
 // });
 
+
 Route::get('/','login\LoginController@index')->name('login');
 
 Route::post('/login','login\LoginController@login')->name('login');
@@ -40,4 +41,22 @@ Route::post('/daftarbuku/update/{id}', 'DataBukuController@update')->middleware(
 Route::get('/daftarbuku/hapus/{id}', 'DataBukuController@destroy')->middleware('CekLoginMiddleware');
 
 
+Route::get('/daftarbuku', 'DataBukuController@index');
+
+Route::get('/daftarbuku/tambah', 'DataBukuController@create');
+
+Route::post('/daftarbuku/simpan', 'DataBukuController@store');
+
+Route::get('/daftarbuku/ubah/{id}', 'DataBukuController@edit');
+
+Route::post('/daftarbuku/update/{id}', 'DataBukuController@update');
+
+Route::get('/daftarbuku/hapus/{id}', 'DataBukuController@destroy');
+
+
+Route::get('/DataPengunjung', 'PengunjungController@index');
+
+Route::get('/DataPengunjung/tambah', 'PengunjungController@create');
+
+Route::delete('/DataPengunjung/{DataPengunjung}', 'PengunjungController@destroy');
 

@@ -40,7 +40,7 @@
         <ul>
             <br>
             <li><a href=""><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href=""><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
             <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
             <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
@@ -49,7 +49,7 @@
     <div class="container">
         <br>
         <center><h1>DAFTAR BUKU</h1></center><br><br>
-        <a href="/tambah" class="badge bg-success">Tambah Buku</a><br><br>
+        <a href="/daftarbuku/tambah" class="badge bg-success">Tambah Buku</a><br><br>
         <table class="table rounded-3 table-bordered table-secondary ">
             <thead class="table-dark">
                 <tr>
@@ -70,8 +70,8 @@
                     <td>{{ $buku->rak }}</td>
                     <td>{{ $buku->gambar }}</td>
                     <td>
-                        <a href="/hapus/{{ $buku->id }}" class="badge bg-danger">hapus</a>
-                        <a href="/ubah/{{ $buku->id }}" class="badge bg-warning">ubah</a>
+                        <a href="/daftarbuku/hapus/{{ $buku->id }}" class="badge bg-danger">hapus</a>
+                        <a href="/daftarbuku/ubah/{{ $buku->id }}" class="badge bg-warning">ubah</a>
                     </td>
                 </tr>
                 @endforeach

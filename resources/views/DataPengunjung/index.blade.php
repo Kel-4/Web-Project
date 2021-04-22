@@ -12,16 +12,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-        <!-- Iconify Script -->
-        <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
-
+        <!-- Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
         <link rel="stylesheet" href="css/style.css">
-        <title>Halaman Daftar Buku</title>
+
+        <title>Data Pengunjung</title>
     </head>
-  <body>
-    
+    <body>
+  
     <nav class="navbar">
         <div class="container">
             <label for="menu-bar" style="cursor: pointer;">
@@ -41,7 +40,7 @@
         <ul>
             <br>
             <li><a href=""><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href=""><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
             <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
             <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
@@ -49,42 +48,41 @@
 
     <div class="container">
         <br>
-        <center><h1>TAMBAH DATA</h1></center><br><br>
-        <a href="/daftarbuku" class="badge bg-info">Kembali</a><br><br>
-        
-        <form action="/daftarbuku/simpan" method="post">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <label>ID</label>
-                <input type="text" name="id_buku" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Judul</label>
-                <input type="text" name="judul" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Penerbit</label>
-                <input type="text" name="penerbit" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Rak</label>
-                <input type="text" name="rak" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Gambar</label>
-                <input type="file" name="gambar" class="form-control">
-            </div>
-            <div class="form-group">
-            <br><br>
-                <button type="submit" class="btn btn-success">Tambah</button>
-            </div>
-        </form>
+        <center><h1>DATA PENGUNJUNG</h1></center><br><br>
+        <a href="/DataPengunjung/tambah" class="badge bg-success">Tambah Data</a><br><br>
+        <table class="table rounded-3 table-bordered table-secondary ">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID Pengunjung</th>
+                    <th>Nama</th>
+                    <th>Tanggal terdaftar</th>
+                    <th>Kontak</th>
+                    <th>Alamat</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($pengunjung as $data)
+                <tr>
+                    <td>{{ $data->id_pengunjung }}</td>
+                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->tanggal_terdaftar }}</td>
+                    <td>{{ $data->kontak }}</td>
+                    <td>{{ $data->alamat }}</td>
+                    <td>
+                        <a href="" class="badge bg-danger">hapus</a>
+                        <a href="" class="badge bg-warning">ubah</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 
     <footer class="bg-dark fixed-bottom">
-        <div class="p-2">
-            <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
-        </div>
+    <div class="p-2">
+        <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
+    </div>
     </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->
