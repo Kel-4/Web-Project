@@ -49,8 +49,30 @@
     <div class="container">
         <br>
         <center><h1>DAFTAR BUKU</h1></center><br><br>
-        <a href="/daftarbuku/tambah" class="badge bg-success">Tambah Buku</a><br><br>
-        <table class="table rounded-3 table-bordered table-secondary ">
+
+        
+        <h4><a href="/daftarbuku/tambah" class="badge bg-success">Tambah Buku</a></h4>
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Info ?</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Aplikasi Pengelolaan Perpustakaan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Aplikasi ini akan melakukan pengelolaan data perpustakaan, seperti daftar buku, daftar pengunjung, peminjaman, dan pengembalian.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <table class="table table-bordered table-secondary" style="text-align:center">
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
@@ -68,7 +90,7 @@
                     <td>{{ $buku->judul }}</td>
                     <td>{{ $buku->penerbit }}</td>
                     <td>{{ $buku->rak }}</td>
-                    <td>{{ $buku->gambar }}</td>
+                    <td><img width="30px"src="data_file/novel.jpg"></td>
                     <td>
                         <a href="/daftarbuku/hapus/{{ $buku->id }}" class="badge bg-danger">hapus</a>
                         <a href="/daftarbuku/ubah/{{ $buku->id }}" class="badge bg-warning">ubah</a>

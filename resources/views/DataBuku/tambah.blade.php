@@ -50,9 +50,9 @@
     <div class="container">
         <br>
         <center><h1>TAMBAH DATA</h1></center><br><br>
-        <a href="/daftarbuku" class="badge bg-info">Kembali</a><br><br>
+        <h4><a href="/daftarbuku" class="badge bg-info">Kembali</a></h4><br><br>
         
-        <form action="/daftarbuku/simpan" method="post">
+        <form  enctype="multipart/form-data" action="/daftarbuku/simpan" method="post">
             {{ csrf_field() }}
             <div class="form-group">
                 <label>ID</label>
@@ -81,7 +81,7 @@
         </form>
     </div>
 
-    <footer class="bg-dark fixed-bottom">
+    <footer class="bg-dark fixed-bottom mt-5">
         <div class="p-2">
             <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
         </div>

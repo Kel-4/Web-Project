@@ -36,6 +36,11 @@ class DataBukuController extends Controller
      */
     public function store(Request $request)
     {
+        $file = $request->file('gambar');
+        $filename = $file->getClientOriginalName(); 
+        $dir = 'data_file';
+        $file ->move($dir, $filename);
+
         DataBuku::create([
             'id_buku' => $request->id_buku,
             'judul' => $request->judul,
