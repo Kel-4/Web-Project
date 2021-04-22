@@ -70,11 +70,7 @@
                     <td>{{ $data->kontak }}</td>
                     <td>{{ $data->alamat }}</td>
                     <td>
-                        <form action="{{ $data_pengunjung->id }}" method="post" class="d-inline">
-                        @method('delete')
-                        @csrf
-                        <button type='submit' class='badge bg-danger'>Delete</button>
-                        </form>
+                        <a href="" class="badge bg-danger">hapus</a>
                         <a href="" class="badge bg-warning">ubah</a>
                     </td>
                 </tr>
