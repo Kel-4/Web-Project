@@ -15,7 +15,7 @@
         <!-- Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
         <title>Halaman Daftar Buku</title>
     </head>
@@ -26,7 +26,7 @@
                 <label for="menu-bar" style="cursor: pointer;">
                 <i class="fas fa-bars fa-2x"></i>
                 </label>
-                <h1 class="fw-bold" style="color: blue;"><img src="images/logo.png" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
+                <h1 class="fw-bold" style="color: blue;"><img src="{{asset('images/logo.png')}}" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
                 <div class="navbar2">
                 <div class="d-flex">
                     <h5><i class="fas fa-user-circle"></i> User</h5>
