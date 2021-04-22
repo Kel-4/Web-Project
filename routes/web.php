@@ -13,20 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
+// Route::get('/dashboard', function () {
+//     if (session('berhasil_login')) {
+//        return view('index');
+//     }else{
+//         return redirect('/');
+//     }
 // });
 
-Route::get('/', 'DataBukuController@index');
+Route::get('/','login\LoginController@index')->name('login');
 
-Route::get('/tambah', 'DataBukuController@create');
+Route::post('/login','login\LoginController@login')->name('login');
 
-Route::post('/simpan', 'DataBukuController@store');
+Route::post('/logout','login\LoginController@logout')->name('logout');
 
-Route::get('/ubah/{id}', 'DataBukuController@edit');
+Route::get('/daftarbuku', 'DataBukuController@index')->middleware('CekLoginMiddleware');
 
-Route::post('/update/{id}', 'DataBukuController@update');
+Route::get('/daftarbuku/tambah', 'DataBukuController@create')->middleware('CekLoginMiddleware');
 
-Route::get('/hapus/{id}', 'DataBukuController@destroy');
+Route::post('/daftarbuku/simpan', 'DataBukuController@store')->middleware('CekLoginMiddleware');
+
+Route::get('/daftarbuku/ubah/{id}', 'DataBukuController@edit')->middleware('CekLoginMiddleware');
+
+Route::post('/daftarbuku/update/{id}', 'DataBukuController@update')->middleware('CekLoginMiddleware');
+
+Route::get('/daftarbuku/hapus/{id}', 'DataBukuController@destroy')->middleware('CekLoginMiddleware');
+
 
 
