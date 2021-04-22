@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Pengunjung;
 
 class PengunjungController extends Controller
 {
@@ -14,9 +14,12 @@ class PengunjungController extends Controller
      */
     public function index()
     {
-        //
-        $pengunjung = DB::table('data_pengunjung')->get();
-        return view('DataPengunjung.index', ['pengunjung' => $pengunjung]);
+        //$pengunjung = DB::table('data_pengunjung')->get();
+        //return view('DataPengunjung.index', ['pengunjung' => $pengunjung]);
+
+        $pengunjung = Pengunjung::all();
+        return view('DataPengunjung.index', ['pengunjung'=>$pengunjung]);
+
     }
 
     /**
@@ -39,6 +42,15 @@ class PengunjungController extends Controller
     public function store(Request $request)
     {
         //
+        Pengunjung::create([
+            'id_pengunjung' => $request->id_pengunjung,
+            'nama' => $request->nama,
+            'tanggal_terdaftar' => $request->tanggal_terdaftar,
+            'kontak' => $request->kontak,
+            'alamat' => $request->alamat
+        ]);
+
+        return redirect('/DataPengunjung'); 
     }
 
     /**
@@ -61,6 +73,8 @@ class PengunjungController extends Controller
     public function edit($id)
     {
         //
+        $pengunjung = Pengunjung::find($id);
+        return view('DataPengunjung.ubah', ['pengunjung' => $pengunjung]);
     }
 
     /**
@@ -73,6 +87,14 @@ class PengunjungController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $pengunjung = Pengunjung::find($id);
+        $pengunjung->id_pengunjung = $request->id_pengunjung;
+        $pengunjung->nama = $request->nama;
+        $pengunjung->tanggal_terdaftar = $request->tanggal_terdaftar;
+        $pengunjung->kontak = $request->kontak;
+        $pengunjung->alamat = $request->alamat;
+        $pengunjung->save();
+        return redirect('/DataPengunjung');
     }
 
     /**
@@ -84,6 +106,8 @@ class PengunjungController extends Controller
     public function destroy($id)
     {
         //
-        
+        $pengunjung = Pengunjung::find($id);
+        $pengunjung->delete();
+        return redirect('/DataPengunjung');
     }
 }

@@ -9,6 +9,5 @@ class Pengunjung extends Model
 {
     use HasFactory;
     protected $table = 'data_pengunjung';
-    protected $fillable =['id_pengunjung', 'nama', 'tanggal_terdaftar', 'kontak', 'alamat'];
-    protected $primaryKey = 'id';
+    protected $fillable = ['id_pengunjung', 'nama', 'tanggal_terdaftar', 'kontak', 'alamat'];
 }
