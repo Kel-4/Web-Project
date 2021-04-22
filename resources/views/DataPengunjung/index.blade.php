@@ -74,7 +74,7 @@
                         @method('delete')
                         @csrf
                         <button type='submit' class='badge bg-danger'>Delete</button>
-                    </form>
+                        </form>
                         <a href="" class="badge bg-warning">ubah</a>
                     </td>
                 </tr>
