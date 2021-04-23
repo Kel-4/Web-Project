@@ -16,9 +16,9 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
-
         <title>Halaman Daftar Buku</title>
     </head>
+
     <body>
     
         <nav class="navbar">
@@ -48,36 +48,38 @@
 
         <div class="container">
             <br>
-            <center><h1>UBAH DATA BUKU</h1></center><br><br>
+            <center><h1><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;UBAH DATA</h1></center><br><br>
             <h4><a href="/daftarbuku" class="badge bg-info">Kembali</a></h4><br><br>
             
-            <form  enctype="multipart/form-data" action="/daftarbuku/update/{{ $DataBuku->id }}" method="post">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label>ID</label>
-                    <input type="text" name="id_buku" class="form-control" value="{{ $DataBuku->id_buku }}">
-                </div>
-                <div class="form-group">
-                    <label>Judul</label>
-                    <input type="text" name="judul" class="form-control" value="{{ $DataBuku->judul }}">
-                </div>
-                <div class="form-group">
-                    <label>Penerbit</label>
-                    <input type="text" name="penerbit" class="form-control" value="{{ $DataBuku->penerbit }}">
-                </div>
-                <div class="form-group">
-                    <label>Rak</label>
-                    <input type="text" name="rak" class="form-control" value="{{ $DataBuku->rak }}">
-                </div>
-                <div class="form-group">
-                    <label>Gambar</label>
-                    <input type="file" name="gambar" class="form-control" value="{{ $DataBuku->gambar }}">
-                </div>
-                <div class="form-group">
-                <br><br>
-                    <button type="submit" class="btn btn-warning">Ubah</button>
-                </div>
-            </form>
+            <div class="hero rounded-3 px-5 pb-5 pt-5">
+                <form  enctype="multipart/form-data" action="/daftarbuku/update/{{ $DataBuku->id }}" method="post">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label>ID</label>
+                        <input type="text" name="id_buku" class="form-control" value="{{ $DataBuku->id_buku }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Judul</label>
+                        <input type="text" name="judul" class="form-control" value="{{ $DataBuku->judul }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Penerbit</label>
+                        <input type="text" name="penerbit" class="form-control" value="{{ $DataBuku->penerbit }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Rak</label>
+                        <input type="text" name="rak" class="form-control" value="{{ $DataBuku->rak }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Gambar</label>
+                        <input type="file" name="gambar" class="form-control" value="{{ $DataBuku->gambar }}">
+                    </div>
+                    <div class="form-group">
+                    <br><br>
+                        <button type="submit" class="btn btn-warning px-5">Ubah</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <footer class="bg-dark fixed-bottom">

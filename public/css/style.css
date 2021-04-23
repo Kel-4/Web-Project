@@ -87,8 +87,15 @@ body {
         top: 84px;
     }
 }
-.container button {
-    margin-bottom: 100px;
+#info {
+    padding: 20px;
+}
+.info1 {
+    display: inline-block;
+    padding: 10px;
+}
+.hero {
+    background-color: rgba(129, 208, 247, 0.7);
 }
 .container a {
     text-decoration: none;
@@ -97,6 +104,16 @@ body {
     border-collapse: collapse;
     border-radius: 10px;
     overflow: hidden;
+}
+tr:nth-child(odd) {
+    background-color: rgba(196, 196, 196, 0.7);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.table thead th { 
+    background-color: rgba(255, 113, 113, 0.8);
 }
 @media (max-width: 576px) {
     .side-navbar {
