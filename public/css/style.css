@@ -105,6 +105,13 @@ body {
     border-radius: 10px;
     overflow: hidden;
 }
+.table {
+    border: 1px solid #000000;
+  }
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th{
+    border: 1px solid #000000;
+}
 tr:nth-child(odd) {
     background-color: rgba(196, 196, 196, 0.7);
 }
