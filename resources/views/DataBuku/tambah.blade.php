@@ -12,9 +12,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-        <!-- Iconify Script -->
-        <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
-
+        <!-- Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -49,39 +47,41 @@
 
     <div class="container">
         <br>
-        <center><h1>TAMBAH DATA</h1></center><br><br>
-        <a href="/daftarbuku" class="badge bg-info">Kembali</a><br><br>
+        <center><h1><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;TAMBAH DATA</h1></center><br><br>
+        <h4><a href="/daftarbuku" class="badge bg-info">Kembali</a></h4><br><br>
         
-        <form action="/daftarbuku/simpan" method="post">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <label>ID</label>
-                <input type="text" name="id_buku" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Judul</label>
-                <input type="text" name="judul" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Penerbit</label>
-                <input type="text" name="penerbit" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Rak</label>
-                <input type="text" name="rak" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Gambar</label>
-                <input type="file" name="gambar" class="form-control">
-            </div>
-            <div class="form-group">
-            <br><br>
-                <button type="submit" class="btn btn-success">Tambah</button>
-            </div>
-        </form>
+        <div class="hero rounded-3 px-5 pb-5 pt-5">
+            <form enctype="multipart/form-data" action="/daftarbuku/simpan" method="post">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" name="id_buku" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Judul</label>
+                    <input type="text" name="judul" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Penerbit</label>
+                    <input type="text" name="penerbit" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Rak</label>
+                    <input type="text" name="rak" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Gambar</label>
+                    <input type="file" name="gambar" class="form-control" required>
+                </div>
+                <div class="form-group">
+                <br><br>
+                    <button type="submit" class="btn btn-success px-5">Tambah</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <footer class="bg-dark fixed-bottom">
+    <footer class="bg-dark fixed-bottom mt-5">
         <div class="p-2">
             <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
         </div>
@@ -93,9 +93,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>

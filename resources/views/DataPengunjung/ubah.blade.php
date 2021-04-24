@@ -16,9 +16,9 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
-        <title>Halaman Daftar Buku</title>
-    </head>
 
+        <title>Halaman Data Pengunjung</title>
+    </head>
     <body>
     
         <nav class="navbar">
@@ -29,7 +29,7 @@
                 <h1 class="fw-bold" style="color: blue;"><img src="{{asset('images/logo.png')}}" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
                 <div class="navbar2">
                 <div class="d-flex">
-                    <h5><i class="fas fa-user-circle"></i> User</h5>
+                <h5><i class="fas fa-user-circle"></i> {{ Auth::user()->name }} <a href="{{ route('logout') }}" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a> </h5>
                 </div>
                 </div>
             </div>
@@ -48,36 +48,35 @@
 
         <div class="container">
             <br>
-            <center><h1><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;UBAH DATA</h1></center><br><br>
-            <h4><a href="/daftarbuku" class="badge bg-info">Kembali</a></h4><br><br>
+            <center><h1><i class="far fa-edit" aria-hidden="true"></i>&nbsp; UBAH DATA PENGUNJUNG</h1></center><br><br>
+            <a href="/DataPengunjung" class="badge bg-info">Kembali</a><br><br>
             
             <div class="hero rounded-3 px-5 pb-5 pt-5">
-                <form  enctype="multipart/form-data" action="/daftarbuku/update/{{ $DataBuku->id }}" method="post">
+                <form enctype="multipart/form-data" action="/DataPengunjung/update/{{ $pengunjung->id }}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label>ID</label>
-                        <input type="text" name="id_buku" class="form-control" value="{{ $DataBuku->id_buku }}">
+                        <label>ID Pengunjung</label>
+                        <input type="text" name="id_pengunjung" class="form-control" value="{{ $pengunjung->id_pengunjung }}">
                     </div>
                     <div class="form-group">
-                        <label>Judul</label>
-                        <input type="text" name="judul" class="form-control" value="{{ $DataBuku->judul }}">
+                        <label>Nama</label>
+                        <input type="text" name="nama" class="form-control" value="{{ $pengunjung->nama }}">
                     </div>
                     <div class="form-group">
-                        <label>Penerbit</label>
-                        <input type="text" name="penerbit" class="form-control" value="{{ $DataBuku->penerbit }}">
+                        <label>Tanggal terdaftar</label>
+                        <input type="text" name="tanggal_terdaftar" class="form-control" value="{{ $pengunjung->tanggal_terdaftar }}">
                     </div>
                     <div class="form-group">
-                        <label>Rak</label>
-                        <input type="text" name="rak" class="form-control" value="{{ $DataBuku->rak }}">
+                        <label>Kontak</label>
+                        <input type="text" name="kontak" class="form-control" value="{{ $pengunjung->kontak }}">
                     </div>
                     <div class="form-group">
-                        <label>Gambar</label>
-                        <input type="file" name="gambar" class="form-control" value=" $DataBuku->gambar">
-                        <img src="{{asset('gambar')}}/{{ $DataBuku->gambar }}" alt="gambar buku" style="max-width:100px; margin-top:20px;">
+                        <label>Alamat</label>
+                        <input type="text" name="alamat" class="form-control" value="{{ $pengunjung->alamat }}">
                     </div>
                     <div class="form-group">
                     <br><br>
-                        <button type="submit" class="btn btn-warning px-5">Ubah</button>
+                        <button type="submit" class="btn btn-warning">Ubah</button>
                     </div>
                 </form>
             </div>
@@ -95,9 +94,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
+    
     </body>
 </html>

@@ -12,9 +12,16 @@ class DataBukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $data = DataBuku::all();
+    public function index(Request $request)
+    {   
+        if($request->has('cari')){
+            $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')->get();
+        } else {
+            $data = DataBuku::paginate(5);
+        }
         return view('DataBuku.index', ['data'=>$data]);
     }
 
@@ -36,15 +43,23 @@ class DataBukuController extends Controller
      */
     public function store(Request $request)
     {
-        DataBuku::create([
-            'id_buku' => $request->id_buku,
-            'judul' => $request->judul,
-            'penerbit' => $request->penerbit,
-            'rak' => $request->rak,
-            'gambar' => $request->gambar
-        ]);
+        $id_buku = $request->id_buku;
+        $judul = $request->judul;
+        $penerbit = $request->penerbit;
+        $rak = $request->rak;
+        $gambar = $request->file('gambar');
+        $NamaGambar = time().'.'.$gambar->extension();
+        $gambar->move(public_path('gambar'),$NamaGambar);
 
-        return redirect('/daftarbuku');
+        $DataBuku = new DataBuku();
+        $DataBuku->id_buku = $id_buku;
+        $DataBuku->judul = $judul;
+        $DataBuku->penerbit = $penerbit;
+        $DataBuku->rak = $rak;
+        $DataBuku->gambar = $NamaGambar;
+        $DataBuku->save();
+
+        return redirect('/daftarbuku')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -86,7 +101,7 @@ class DataBukuController extends Controller
         $DataBuku->rak = $request->rak;
         $DataBuku->gambar = $request->gambar;
         $DataBuku->save();
-        return redirect('/daftarbuku');
+        return redirect('/daftarbuku')->with('success', 'Data Berhasil Diubah!');
     }
 
     /**
@@ -99,6 +114,6 @@ class DataBukuController extends Controller
     {
         $DataBuku = Databuku::find($id);
         $DataBuku->delete();
-        return redirect('/daftarbuku');
+        return redirect('/daftarbuku')->with('success', 'Data Telah Dihapus!');
     }
 }

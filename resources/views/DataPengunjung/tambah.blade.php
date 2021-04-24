@@ -17,8 +17,8 @@
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="css/style.css">
-        <title>Data Pengunjung</title>
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <title>Halaman Data Pengunjung</title>
     </head>
   <body>
     
@@ -27,10 +27,10 @@
             <label for="menu-bar" style="cursor: pointer;">
             <i class="fas fa-bars fa-2x"></i>
             </label>
-            <h1 class="fw-bold" style="color: blue;"><img src="images/logo.png" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
+            <h1 class="fw-bold" style="color: blue;"><img src="{{asset('images/logo.png')}}" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
             <div class="navbar2">
             <div class="d-flex">
-                <h5><i class="fas fa-user-circle"></i> User</h5>
+            <h5><i class="fas fa-user-circle"></i> {{ Auth::user()->name }} <a href="{{ route('logout') }}" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a> </h5>
             </div>
             </div>
         </div>
@@ -47,51 +47,56 @@
         </ul>
     </div> 
 
-        <div class="container">
-            <br>
-                <center><h1>TAMBAH DATA</h1></center><br><br>
-            <a href="/DataPengunjung" class="badge bg-info">Kembali</a><br><br>
+    <div class="container">
+        <br>
+        <center><h1><i class="fas fa-user-plus" aria-hidden="true"></i>&nbsp;TAMBAH DATA</h1></center><br><br>
+        <a href="/DataPengunjung" class="badge bg-info">Kembali</a><br><br>
         
-                <form method='post' action="/DataPengunjung">
-                    @csrf
-                    <div class="from-group">
-                        <label for="id_pengunjung">ID Pengunjung</label>
-                        <input type="text" class="form-control @error('id_pengunjung') is-invalid @enderror" id="id_pengunjung" placeholder="Masukkan ID" name='id_pengunjung' value="{{ old('id_pengunjung') }}">
+        <div class="hero rounded-3 px-5 pb-5 pt-5">
+            <form enctype="multipart/form-data" action="/DataPengunjung/simpan" method="post">
+                @csrf
+                <div class="form-group">
+                    <label>ID Pengunjung</label>
+                    <input type="text" name="id_pengunjung" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('id_pengunjung') }}">
                         @error('id_pengunjung')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
-                    </div>
-                    <div class="from-group">
-                        <label for="nama">Nama</label>
-                        <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name='nama' value="{{ old('nama') }}">
-                        @error('nama')
+                </div>
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" name="nama" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('nama') }}">
+                    @error('nama')
                             <div class="invalid-feedback">{{  $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="from-group"> 
-                        <label for="tanggal_terdaftar">Tanggal terdaftar</label>
-                        <input type="text" class="form-control @error('tanggal_terdaftar') is-invalid @enderror" id="tanggal_terdaftar" placeholder="Tanggal terdaftar" name='tanggal_terdaftar' value="{{ old('tanggal_terdaftar') }}">
-                        @error('tanggal_terdaftar')
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label>Tanggal terdaftar</label>
+                    <input type="text" name="tanggal_terdaftar" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('tanggal_terdaftar') }}" placeholder="YYYY-MM-DD">
+                    @error('tanggal_terdaftar')
                             <div class="invalid-feedback">{{  $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="from-group">
-                        <label for="kontak">Kontak</label>
-                        <input type="text" class="form-control @error('kontak') is-invalid @enderror" id="kontak" placeholder="Masukkan kontak" name='kontak' value="{{ old('kontak') }}">
-                        @error('kontak')
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label>Kontak</label>
+                    <input type="text" name="kontak" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('kontak') }}" placeholder="+62 | ">
+                    @error('kontak')
                             <div class="invalid-feedback">{{  $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="from-group">
-                        <label for="alamat">Alamat</label>
-                        <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Masukkan alamat" name='alamat' value="{{ old('alamat') }}">
-                        @error('alamat')
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label>Alamat</label>
+                    <input type="text" name="alamat" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('alamat') }}">
+                    @error('alamat')
                             <div class="invalid-feedback">{{  $message }}</div>
-                        @enderror
-                    </div>
-                    <button type="submit" class="btn btn-primary my-3">Tambah</button>
-                </form>
+                    @enderror
+                </div>
+                <div class="form-group">
+                <br><br>
+                    <button type="submit" class="btn btn-success">Tambah</button>
+                </div>
+            </form>
         </div>
+    </div>
 
     <footer class="bg-dark fixed-bottom">
         <div class="p-2">
@@ -105,9 +110,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
+
   </body>
 </html>
