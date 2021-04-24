@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="icon" href="{{ asset('img/logo.png') }}">
     <title>delibrary</title>
   </head>
   <body style='background-image: url("{{asset('img/bglogin.png')}}");'>
@@ -18,10 +19,12 @@
     <form class="form container" method="POST" action="{{route('login')}}">
         @csrf
         <div class="loginbody">
-        <label for=""><i class="fas fa-user-circle"></i> Username</label>
-        <input class="form-control border-top-0" type="email" name="email"><br>
-        <label for=""><i class="fas fa-key"></i> Password</label>
-        <input class="form-control" type="password" name="password"><br><br>
+        <label for="username"><i class="fas fa-user-circle"></i> Username</label>
+        <input id="username" class="form-control border-top-0" type="email" name="email"><br>
+        <label class="show-icon" for="show-password"> <i class="fas fa-eye"></i></label>
+          <input style="display: none;" type="checkbox" id="show-password">
+        <label for="password"><i class="fas fa-key"></i> Password</label>
+        <input id="password" class="form-control" type="password" name="password"><br><br>
         <center><button class="btn btn">Login</button></center><br>
         @if (session('message'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -30,8 +33,9 @@
           </div>
         @endif
     </form>
-
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
+  <script type="" src="{{ asset('js/script.js') }}"></script>
 </html>

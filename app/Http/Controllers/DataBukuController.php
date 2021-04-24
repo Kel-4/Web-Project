@@ -13,7 +13,7 @@ class DataBukuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $data = DataBuku::all();
         return view('DataBuku.index', ['data'=>$data]);
     }

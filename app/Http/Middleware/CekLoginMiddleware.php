@@ -18,8 +18,10 @@ class CekLoginMiddleware
     {
         if (!session('berhasil_login')) {
             return redirect('/');
+         }else {
+            return $next($request);
          }
 
-        return $next($request);
+        
     }
 }
