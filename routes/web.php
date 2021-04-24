@@ -56,11 +56,13 @@ Route::get('/daftarbuku/hapus/{id}', 'DataBukuController@destroy');
 // Route::get('/daftarbuku/hapus/{id}', 'DataBukuController@destroy');
 
 
+//DataPengunjung
 Route::get('/DataPengunjung', 'PengunjungController@index');
-
 Route::get('/DataPengunjung/tambah', 'PengunjungController@create');
-
-Route::delete('/DataPengunjung/{DataPengunjung}', 'PengunjungController@destroy');
+Route::post('/DataPengunjung/simpan', 'PengunjungController@store');
+Route::get('/DataPengunjung/hapus/{id}', 'PengunjungController@destroy');
+Route::get('/DataPengunjung/ubah/{id}', 'PengunjungController@edit');
+Route::post('/DataPengunjung/update/{id}', 'PengunjungController@update');
 
 
 });

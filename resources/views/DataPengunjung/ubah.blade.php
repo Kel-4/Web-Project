@@ -16,76 +16,75 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
-        <title>Halaman Daftar Buku</title>
+
+        <title>Halaman Data Pengunjung</title>
     </head>
-  <body>
+    <body>
     
-    <nav class="navbar">
+        <nav class="navbar">
+            <div class="container">
+                <label for="menu-bar" style="cursor: pointer;">
+                <i class="fas fa-bars fa-2x"></i>
+                </label>
+                <h1 class="fw-bold" style="color: blue;"><img src="{{asset('images/logo.png')}}" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
+                <div class="navbar2">
+                <div class="d-flex">
+                    <h5><i class="fas fa-user-circle"></i> User</h5>
+                </div>
+                </div>
+            </div>
+        </nav>
+
+        <input type="checkbox" id="menu-bar" style="display: none;">
+        <div class="side-navbar container">
+            <ul>
+                <br>
+                <li><a href=""><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
+                <li><a href=""><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+                <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
+                <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
+            </ul>
+        </div> 
+
         <div class="container">
-            <label for="menu-bar" style="cursor: pointer;">
-            <i class="fas fa-bars fa-2x"></i>
-            </label>
-            <h1 class="fw-bold" style="color: blue;"><img src="{{asset('images/logo.png')}}" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
-            <div class="navbar2">
-            <div class="d-flex">
-                <h5><i class="fas fa-user-circle"></i> User</h5>
-            </div>
-            </div>
-        </div>
-    </nav>
-
-    <input type="checkbox" id="menu-bar" style="display: none;">
-    <div class="side-navbar container">
-        <ul>
             <br>
-            <li><a href=""><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href=""><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
-            <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
-            <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
-        </ul>
-    </div> 
-
-    <div class="container">
-        <br>
-        <center><h1><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;TAMBAH DATA</h1></center><br><br>
-        <h4><a href="/daftarbuku" class="badge bg-info">Kembali</a></h4><br><br>
-        
-        <div class="hero rounded-3 px-5 pb-5 pt-5">
-            <form enctype="multipart/form-data" action="/daftarbuku/simpan" method="post">
+            <center><h1>UBAH DATA PENGUNJUNG</h1></center><br><br>
+            <a href="/DataPengunjung" class="badge bg-info">Kembali</a><br><br>
+            
+            <form action="/DataPengunjung/update/{{ $pengunjung->id }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label>ID</label>
-                    <input type="text" name="id_buku" class="form-control">
+                    <label>ID Pengunjung</label>
+                    <input type="text" name="id_pengunjung" class="form-control" value="{{ $pengunjung->id_pengunjung }}">
                 </div>
                 <div class="form-group">
-                    <label>Judul</label>
-                    <input type="text" name="judul" class="form-control">
+                    <label>Nama</label>
+                    <input type="text" name="nama" class="form-control" value="{{ $pengunjung->nama }}">
                 </div>
                 <div class="form-group">
-                    <label>Penerbit</label>
-                    <input type="text" name="penerbit" class="form-control">
+                    <label>Tanggal terdaftar</label>
+                    <input type="text" name="tanggal_terdaftar" class="form-control" value="{{ $pengunjung->tanggal_terdaftar }}">
                 </div>
                 <div class="form-group">
-                    <label>Rak</label>
-                    <input type="text" name="rak" class="form-control">
+                    <label>Kontak</label>
+                    <input type="text" name="kontak" class="form-control" value="{{ $pengunjung->kontak }}">
                 </div>
                 <div class="form-group">
-                    <label>Gambar</label>
-                    <input type="file" name="gambar" class="form-control">
+                    <label>Alamat</label>
+                    <input type="file" name="alamat" class="form-control" value="{{ $pengunjung->alamat }}">
                 </div>
                 <div class="form-group">
                 <br><br>
-                    <button type="submit" class="btn btn-success px-5">Tambah</button>
+                    <button type="submit" class="btn btn-warning">Ubah</button>
                 </div>
             </form>
         </div>
-    </div>
 
-    <footer class="bg-dark fixed-bottom mt-5">
+        <footer class="bg-dark fixed-bottom">
         <div class="p-2">
             <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
         </div>
-    </footer>
+        </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -97,5 +96,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
-  </body>
+    </body>
 </html>

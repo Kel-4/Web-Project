@@ -15,7 +15,7 @@
         <!-- Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
         <title>Data Pengunjung</title>
     </head>
@@ -70,8 +70,8 @@
                     <td>{{ $data->kontak }}</td>
                     <td>{{ $data->alamat }}</td>
                     <td>
-                        <a href="" class="badge bg-danger">hapus</a>
-                        <a href="" class="badge bg-warning">ubah</a>
+                        <a href="/DataPengunjung/ubah/{{ $data->id }}"><i class="far fa-edit btn btn-success"></i></a>
+                        <a href="/DataPengunjung/hapus/{{ $data->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
                 </tr>
                 @endforeach
