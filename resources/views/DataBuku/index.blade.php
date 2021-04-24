@@ -29,7 +29,7 @@
             <h1 class="fw-bold" style="color: blue;"><img src="{{asset('images/logo.png')}}" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
             <div class="navbar2">
             <div class="d-flex">
-                <h5><i class="fas fa-user-circle"></i> {{ Auth::user()->name }} <a href="{{ route('logout') }}" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a> </h5>
+                <h5><i class="fas fa-user-circle"></i> {{ Auth::user()->name }} &nbsp;<a href="{{ route('logout') }}" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a> </h5>
             </div>
             </div>
         </div>
@@ -107,9 +107,22 @@
                 @endforeach
             </tbody>
         </table>
+        <br>
+        <div class="item rounded-3 fs-6">
+            &nbsp;Showing
+            {{ $data->firstItem() }}
+            to
+            {{ $data->lastItem() }}
+            of
+            {{ $data->total() }}
+            entries
+        </div>
+        <div class="pagination mt-3">
+            {{ $data->links() }}
+        </div>
     </div>
 
-    <footer class="bg-dark fixed-bottom">
+    <footer class="bg-dark">
     <div class="p-2">
         <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
     </div>

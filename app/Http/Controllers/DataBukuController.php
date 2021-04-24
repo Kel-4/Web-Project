@@ -15,10 +15,13 @@ class DataBukuController extends Controller
     public function index(Request $request)
     {   
         if($request->has('cari')){
-            $data = DataBuku::where('judul', 'LIKE', '%'.$request->cari.'%')->get();
+            $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')->get();
         } else {
-            $data = DataBuku::all();
-        } 
+            $data = DataBuku::paginate(5);
+        }
         return view('DataBuku.index', ['data'=>$data]);
     }
 
