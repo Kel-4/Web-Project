@@ -79,9 +79,6 @@ body {
     text-decoration: none;
     font-size: calc(13px + 6 * ((90vw - 280px) / 690));
 }
-.side-navbar {
-    /* margin-left: -100px; */
-}
 @media (min-width: 992px) {
     .side-navbar {
         top: 84px;

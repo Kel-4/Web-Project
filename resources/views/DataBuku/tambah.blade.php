@@ -55,23 +55,23 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>ID</label>
-                    <input type="text" name="id_buku" class="form-control">
+                    <input type="text" name="id_buku" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Judul</label>
-                    <input type="text" name="judul" class="form-control">
+                    <input type="text" name="judul" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Penerbit</label>
-                    <input type="text" name="penerbit" class="form-control">
+                    <input type="text" name="penerbit" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Rak</label>
-                    <input type="text" name="rak" class="form-control">
+                    <input type="text" name="rak" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Gambar</label>
-                    <input type="file" name="gambar" class="form-control">
+                    <input type="file" name="gambar" class="form-control" required>
                 </div>
                 <div class="form-group">
                 <br><br>
@@ -93,9 +93,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>

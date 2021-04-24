@@ -72,7 +72,8 @@
                     </div>
                     <div class="form-group">
                         <label>Gambar</label>
-                        <input type="file" name="gambar" class="form-control" value="{{ $DataBuku->gambar }}">
+                        <input type="file" name="gambar" class="form-control" value=" $DataBuku->gambar">
+                        <img src="{{asset('gambar')}}/{{ $DataBuku->gambar }}" alt="gambar buku" style="max-width:100px; margin-top:20px;">
                     </div>
                     <div class="form-group">
                     <br><br>

@@ -72,6 +72,14 @@
             </div>
         </div>
         
+        <div id="info">
+            <form class="form-inline" method="get">
+                <div class="info1"><input type="search" name="cari" size="50" class="form-control" placeholder="Ketik Keyword Pencarian...."></div>
+                <div class="info1"><button class="btn btn-outline-light" type="submit">Search</button></div>
+            </form>
+        </div>
+
+
         <table class="table table-bordered table-striped" style="text-align:center">
             <thead>
                 <tr>
@@ -90,7 +98,7 @@
                     <td>{{ $buku->judul }}</td>
                     <td>{{ $buku->penerbit }}</td>
                     <td>{{ $buku->rak }}</td>
-                    <td><img width="30px"src="data_file/novel.jpg"></td>
+                    <td><img width="50px"src="{{asset('gambar')}}/{{ $buku->gambar }}" alt="not found"></td>
                     <td>
                         <a href="/daftarbuku/hapus/{{ $buku->id }}" class="badge bg-danger">hapus</a>
                         <a href="/daftarbuku/ubah/{{ $buku->id }}" class="badge bg-warning">ubah</a>
@@ -117,5 +125,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
+    @include('sweetalert::alert')
   </body>
 </html>
