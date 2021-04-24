@@ -11,8 +11,7 @@ body {
     background-image: url("../images/bgmain.jpeg");
 
     background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed; 
+    background-size: cover; 
     top: 0; 
     left: 0; 
     min-width: 100%;
@@ -35,7 +34,7 @@ body {
     border: none;
 }
 .side-navbar {
-    position: fixed;
+    position: absolute;
     border: 1px;
     top: 82px;
     bottom: 0;
@@ -118,6 +117,15 @@ tr:nth-child(even) {
 }
 .table thead th { 
     background-color: #df80ff;
+}
+.item {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.pagination {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media (max-width: 576px) {
     .side-navbar {
