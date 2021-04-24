@@ -18,6 +18,15 @@
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
         <title>Data Pengunjung</title>
+        <style>
+            th, td{
+                color:black;
+                text-align:center;
+            }
+            #info{
+                float:right;
+            }
+        </style>
     </head>
     <body>
   
@@ -29,7 +38,7 @@
             <h1 class="fw-bold" style="color: blue;"><img src="images/logo.png" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
             <div class="navbar2">
             <div class="d-flex">
-                <h5><i class="fas fa-user-circle"></i> User</h5>
+            <h5><i class="fas fa-user-circle"></i> {{ Auth::user()->name }} <a href="{{ route('logout') }}" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a> </h5>
             </div>
             </div>
         </div>
@@ -49,9 +58,18 @@
     <div class="container">
         <br>
         <center><h1>DATA PENGUNJUNG</h1></center><br><br>
-        <a href="/DataPengunjung/tambah" class="badge bg-success">Tambah Data</a><br><br>
-        <table class="table rounded-3 table-bordered table-secondary ">
-            <thead class="table-dark">
+        <div class="info1"> <h4><a href="/DataPengunjung/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
+        <br>
+        <div id="info">
+            <form method="GET" action="">
+                <input type="hidden" name="_token" value="68laEZPlMUpkqexNGannJbCdojT3nzjmXwAQgbmK">                            
+                <input type="text" name="search" id="search" size="30" class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" placeholder="pencarian data" value="">
+                <button type="submit" class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
+        <table class="table rounded-3 table-striped">
+            <thead>
                 <tr>
                     <th>ID Pengunjung</th>
                     <th>Nama</th>
@@ -95,5 +113,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
+    @include('sweetalert::alert')
   </body>
 </html>

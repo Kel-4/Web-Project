@@ -42,6 +42,14 @@ class PengunjungController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'id_pengunjung' => 'required',
+            'nama' => 'required',
+            'tanggal_terdaftar' => 'required',
+            'kontak' => 'required',
+            'alamat' => 'required',
+        ]);
+
         Pengunjung::create([
             'id_pengunjung' => $request->id_pengunjung,
             'nama' => $request->nama,
@@ -50,7 +58,7 @@ class PengunjungController extends Controller
             'alamat' => $request->alamat
         ]);
 
-        return redirect('/DataPengunjung'); 
+        return redirect('/DataPengunjung')->with('success', 'Data Berhasil Ditambahkan!'); 
     }
 
     /**
@@ -94,7 +102,7 @@ class PengunjungController extends Controller
         $pengunjung->kontak = $request->kontak;
         $pengunjung->alamat = $request->alamat;
         $pengunjung->save();
-        return redirect('/DataPengunjung');
+        return redirect('/DataPengunjung')->with('success', 'Data Berhasil Diubah!');
     }
 
     /**
@@ -108,6 +116,6 @@ class PengunjungController extends Controller
         //
         $pengunjung = Pengunjung::find($id);
         $pengunjung->delete();
-        return redirect('/DataPengunjung');
+        return redirect('/DataPengunjung')->with('success', 'Data Telah Dihapus!');
     }
 }
