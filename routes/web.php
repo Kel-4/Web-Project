@@ -60,3 +60,14 @@ Route::get('/DataPengunjung/tambah', 'PengunjungController@create');
 
 Route::delete('/DataPengunjung/{DataPengunjung}', 'PengunjungController@destroy');
 
+Route::get('/DataPeminjaman', 'DataPeminjamanController@index');
+
+Route::get('/DataPeminjaman/tambah', 'DataPeminjamanController@create');
+
+Route::post('/DataPeminjaman/simpan', 'DataPeminjamanController@store');
+
+Route::get('/DataPeminjaman/ubah/{id}', 'DataPeminjamanController@edit');
+
+Route::post('/DataPeminjaman/update/{id}', 'DataPeminjamanController@update');
+
+Route::get('/DataPeminjaman/hapus/{id}', 'DataPeminjamanController@destroy');
