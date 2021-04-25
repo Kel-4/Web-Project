@@ -40,7 +40,7 @@
             <h1 class="fw-bold" style="color: blue;"><img src="images/logo.png" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
             <div class="navbar2">
             <div class="d-flex">
-                <h5><i class="fas fa-user-circle"></i> User</h5>
+            <h5><i class="fas fa-user-circle"></i> {{ Auth::user()->name }} <a href="{{ route('logout') }}" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a> </h5>
             </div>
             </div>
         </div>
@@ -57,11 +57,22 @@
         </ul>
     </div> 
 
+
     <div class="container">
+    
         <br>
         <center><h1>DATA PENGEMBALIAN</h1></center><br><br>
         <table class="table rounded-3 table-bordered table-secondary" style="text-align:center;">
             <thead class="table-dark">
+            
+            <div id="info">
+            <form method="GET" action="">
+                <input type="hidden" name="_token" value="68laEZPlMUpkqexNGannJbCdojT3nzjmXwAQgbmK">                            
+                <input type="text" name="search" id="search" size="30" class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" placeholder="Cari di sini..." value="">
+                <button type="submit" class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+            
                 <tr>
                     <th>ID</th>
                     <th>Nama</th>
