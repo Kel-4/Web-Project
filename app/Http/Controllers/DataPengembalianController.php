@@ -36,8 +36,8 @@ class DataPengembalianController extends Controller
         DataPengembalian::create([
             'id_peminjaman' => $request->id_peminjaman,
             'nama' => $request->nama,
-            'tgl_kembali' => $request->tgl_kembali
-            'judul_buku' => $request->judul_buku,
+            'tgl_kembali' => $request->tgl_kembali,
+            'judul_buku' => $request->judul_buku
         ]);
 
         return redirect('/DataPengembalian');
