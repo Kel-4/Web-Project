@@ -83,6 +83,7 @@ class DataPeminjamanController extends Controller
         $DataPeminjaman = DataPeminjaman::find($id);
         $DataPeminjaman->id_peminjaman = $request->id_peminjaman;
         $DataPeminjaman->nama = $request->nama;
+        $DataPeminjaman->judul_buku = $request->judul_buku;
         $DataPeminjaman->tgl_pinjam = $request->tgl_pinjam;
         $DataPeminjaman->tgl_jatuh_tempo = $request->tgl_jatuh_tempo;
         $DataPeminjaman->tgl_kembali = $request->tgl_kembali;
