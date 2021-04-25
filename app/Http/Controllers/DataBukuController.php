@@ -15,10 +15,7 @@ class DataBukuController extends Controller
     public function index(Request $request)
     {   
         if($request->has('cari')){
-            $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')->get();
+            $data = DataBuku::where('judul', 'LIKE', '%'.$request->cari.'%')->get();
         } else {
             $data = DataBuku::paginate(5);
         }
@@ -94,14 +91,13 @@ class DataBukuController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // 
         $DataBuku = DataBuku::find($id);
         $DataBuku->id_buku = $request->id_buku;
         $DataBuku->judul = $request->judul;
         $DataBuku->penerbit = $request->penerbit;
         $DataBuku->rak = $request->rak;
-        $gambar = $request->file('gambar');
-        $NamaGambar = time().'.'.$gambar->extension();
-        $DataBuku->gambar = $request->file('gambar');
+        $gambar = $request->gambar;
 
         $DataBuku->save();
         return redirect('/daftarbuku')->with('success', 'Data Berhasil Diubah!');

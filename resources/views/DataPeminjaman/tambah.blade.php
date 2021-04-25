@@ -60,7 +60,7 @@
             </div>
             <div class="form-group">
                 <label>Nama</label>
-                <input type="text" name="nama" class="form-control">
+                <input type="text" name="nama" class="form-control" autocomplete="off">
             </div>
             <div class="form-group">
                 <label>Judul Buku</label>
