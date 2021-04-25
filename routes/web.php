@@ -74,6 +74,4 @@ Route::post('/DataPeminjaman/simpan', 'DataPeminjamanController@store');
 Route::get('/DataPeminjaman/ubah/{id}', 'DataPeminjamanController@edit');
 
 Route::post('/DataPeminjaman/update/{id}', 'DataPeminjamanController@update');
-
-Route::get('/DataPeminjaman/hapus/{id}', 'DataPeminjamanController@destroy');
 });

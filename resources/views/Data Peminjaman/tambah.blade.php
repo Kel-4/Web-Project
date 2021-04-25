@@ -17,8 +17,8 @@
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="{{asset('css/style.css')}}">
-        <title>Halaman Daftar Peminjaman</title>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Halaman Data Peminjaman</title>
     </head>
   <body>
     
@@ -40,23 +40,23 @@
     <div class="side-navbar container">
         <ul>
             <br>
-            <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
-            <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
-            <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
+            <li><a href=""><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
+            <li><a href=""><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+            <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
+            <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
     </div> 
 
     <div class="container">
         <br>
         <center><h1>TAMBAH DATA</h1></center><br><br>
-        <a href="/DataPeminjaman" class="badge bg-info">Kembali</a><br><br>
+        <a href="/" class="badge bg-info">Kembali</a><br><br>
         
-        <form action="/DataPeminjaman/simpan" method="post">
+        <form action="/simpan" method="post">
             {{ csrf_field() }}
             <div class="form-group">
                 <label>ID</label>
-                <input type="text" name="id_peminjaman" class="form-control">
+                <input type="text" name="id_pinjam" class="form-control">
             </div>
             <div class="form-group">
                 <label>Nama</label>
@@ -76,10 +76,10 @@
             </div>
             <div class="form-group">
                 <label>Tgl Kembali</label>
-                <input type="text" name="tgl_kembali" class="form-control">
+                <input type="file" name="tgl_kembali" class="form-control">
             </div>
             <div class="form-group">
-            <br>
+            <br><br>
                 <button type="submit" class="btn btn-success">Tambah</button>
             </div>
         </form>

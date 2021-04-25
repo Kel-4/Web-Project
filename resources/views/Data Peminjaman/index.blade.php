@@ -12,16 +12,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-        <!-- Iconify Script -->
-        <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
-
+        <!-- Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="{{asset('css/style.css')}}">
-        <title>Halaman Daftar Peminjaman</title>
+        <link rel="stylesheet" href="css/style.css">
+
+        <title>Halaman Data Peminjaman</title>
     </head>
-  <body>
-    
+    <body>
+  
     <nav class="navbar">
         <div class="container">
             <label for="menu-bar" style="cursor: pointer;">
@@ -40,55 +39,52 @@
     <div class="side-navbar container">
         <ul>
             <br>
-            <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
-            <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
-            <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
+            <li><a href=""><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
+            <li><a href=""><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+            <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
+            <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
     </div> 
 
     <div class="container">
         <br>
-        <center><h1>TAMBAH DATA</h1></center><br><br>
-        <a href="/DataPeminjaman" class="badge bg-info">Kembali</a><br><br>
-        
-        <form action="/DataPeminjaman/simpan" method="post">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <label>ID</label>
-                <input type="text" name="id_peminjaman" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Nama</label>
-                <input type="text" name="nama" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Judul Buku</label>
-                <input type="text" name="judul_buku" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Tgl Pinjam</label>
-                <input type="text" name="tgl_pinjam" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Tgl Jatuh Tempo</label>
-                <input type="text" name="tgl_jatuh_tempo" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Tgl Kembali</label>
-                <input type="text" name="tgl_kembali" class="form-control">
-            </div>
-            <div class="form-group">
-            <br>
-                <button type="submit" class="btn btn-success">Tambah</button>
-            </div>
-        </form>
+        <center><h1>Data Pengunjung</h1></center><br><br>
+        <a href="/tambah" class="badge bg-success">Tambah Buku</a><br><br>
+        <table class="table rounded-3 table-bordered table-secondary ">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Judul Buku</th>
+                    <th>Tgl Pinjam</th>
+                    <th>Tgl Jatuh Tempo</th>
+                    <th>Tgl Kembali</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($data as $pinjam)
+                <tr>
+                    <td>{{ $pinjam->id_peminjaman }}</td>
+                    <td>{{ $pinjam->nama }}</td>
+                    <td>{{ $pinjam->judul_buku }}</td>
+                    <td>{{ $pinjam->tgl_pinjam }}</td>
+                    <td>{{ $pinjam->tgl_jatuh_tempo }}</td>
+                    <td>{{ $pinjam->tgl_kembali }}</td>
+                    <td>
+                        <a href="/hapus/{{ $buku->id }}" class="badge bg-danger">hapus</a>
+                        <a href="/ubah/{{ $buku->id }}" class="badge bg-warning">ubah</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 
     <footer class="bg-dark fixed-bottom">
-        <div class="p-2">
-            <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
-        </div>
+    <div class="p-2">
+        <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
+    </div>
     </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->

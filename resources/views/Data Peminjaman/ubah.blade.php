@@ -15,7 +15,7 @@
         <!-- Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="css/style.css">
 
         <title>Halaman Data Peminjaman</title>
     </head>
@@ -39,43 +39,43 @@
         <div class="side-navbar container">
             <ul>
                 <br>
-                <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-                <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
-                <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
-                <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
+                <li><a href=""><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
+                <li><a href=""><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+                <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
+                <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
             </ul>
         </div> 
 
         <div class="container">
             <br>
-            <center><h1>UBAH DATA PEMINJAMAN</h1></center><br><br>
-            <a href="/DataPeminjaman" class="badge bg-info">Kembali</a><br><br>
+            <center><h1>UBAH DATA BUKU</h1></center><br><br>
+            <a href="/" class="badge bg-info">Kembali</a><br><br>
             
-            <form action="/DataPeminjaman/update/{{ $DataPeminjaman->id }}" method="post">
+            <form action="/update/{{ $DataPinjam->id }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>ID</label>
-                    <input type="text" name="id_peminjaman" class="form-control" value="{{ $DataPeminjaman->id_peminjaman }}">
+                    <input type="text" name="id_pinjam" class="form-control" value="{{ $DataPinjam->id_pinjam }}">
                 </div>
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" name="nama" class="form-control" value="{{ $DataPeminjaman->nama }}">
+                    <input type="text" name="nama" class="form-control" value="{{ $DataPinjam->nama }}">
                 </div>
                 <div class="form-group">
                     <label>Judul Buku</label>
-                    <input type="text" name="judul_buku" class="form-control" value="{{ $DataPeminjaman->judul_buku }}">
+                    <input type="text" name="judul_buku" class="form-control" value="{{ $DataPinjam->judul_buku }}">
                 </div>
                 <div class="form-group">
                     <label>Tgl Pinjam</label>
-                    <input type="text" name="tgl_pinjam" class="form-control" value="{{ $DataPeminjaman->tgl_pinjam }}">
+                    <input type="text" name="tgl_pinjam" class="form-control" value="{{ $DataPinjam->tgl_pinjam }}">
                 </div>
                 <div class="form-group">
                     <label>Tgl Jatuh Tempo</label>
-                    <input type="text" name="tgl_jatuh_tempo" class="form-control" value="{{ $DataPeminjaman->tgl_jatuh_tempo }}">
+                    <input type="text" name="tgl_jatuh_tempo" class="form-control" value="{{ $DataPinjam->tgl_jatuh_tempo }}">
                 </div>
                 <div class="form-group">
                     <label>Tgl Kembali</label>
-                    <input type="text" name="tgl_kembali" class="form-control" value="{{ $DataPeminjaman->tgl_kembali }}">
+                    <input type="file" name="tgl_kembali" class="form-control" value="{{ $DataPinjam->tgl_kembali }}">
                 </div>
                 <div class="form-group">
                 <br><br>
