@@ -99,7 +99,10 @@ class DataBukuController extends Controller
         $DataBuku->judul = $request->judul;
         $DataBuku->penerbit = $request->penerbit;
         $DataBuku->rak = $request->rak;
-        $DataBuku->gambar = $request->gambar;
+        $gambar = $request->file('gambar');
+        $NamaGambar = time().'.'.$gambar->extension();
+        $DataBuku->gambar = $request->file('gambar');
+
         $DataBuku->save();
         return redirect('/daftarbuku')->with('success', 'Data Berhasil Diubah!');
     }
