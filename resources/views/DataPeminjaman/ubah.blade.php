@@ -15,7 +15,7 @@
         <!-- Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
         <title>Halaman Data Peminjaman</title>
     </head>
@@ -51,31 +51,31 @@
             <center><h1>UBAH DATA PEMINJAMAN</h1></center><br><br>
             <a href="/DataPeminjaman" class="badge bg-info">Kembali</a><br><br>
             
-            <form action="/DataPeminjaman/update/{{ $DataBuku->id }}" method="post">
+            <form action="/DataPeminjaman/update/{{ $DataPeminjaman->id }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>ID</label>
-                    <input type="text" name="id_peminjaman" class="form-control" value="{{ $DataBuku->id_peminjaman }}">
+                    <input type="text" name="id_peminjaman" class="form-control" value="{{ $DataPeminjaman->id_peminjaman }}">
                 </div>
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" name="nama" class="form-control" value="{{ $DataBuku->nama }}">
+                    <input type="text" name="nama" class="form-control" value="{{ $DataPeminjaman->nama }}">
                 </div>
                 <div class="form-group">
                     <label>Judul Buku</label>
-                    <input type="text" name="judul_buku" class="form-control" value="{{ $DataBuku->judul_buku }}">
+                    <input type="text" name="judul_buku" class="form-control" value="{{ $DataPeminjaman->judul_buku }}">
                 </div>
                 <div class="form-group">
                     <label>Tgl Pinjam</label>
-                    <input type="text" name="tgl_pinjam" class="form-control" value="{{ $DataBuku->tgl_pinjam }}">
+                    <input type="text" name="tgl_pinjam" class="form-control" value="{{ $DataPeminjaman->tgl_pinjam }}">
                 </div>
                 <div class="form-group">
                     <label>Tgl Jatuh Tempo</label>
-                    <input type="text" name="tgl_jatuh_tempo" class="form-control" value="{{ $DataBuku->tgl_jatuh_tempo }}">
+                    <input type="text" name="tgl_jatuh_tempo" class="form-control" value="{{ $DataPeminjaman->tgl_jatuh_tempo }}">
                 </div>
                 <div class="form-group">
                     <label>Tgl Kembali</label>
-                    <input type="text" name="tgl_kembali" class="form-control" value="{{ $DataBuku->tgl_kembali }}">
+                    <input type="text" name="tgl_kembali" class="form-control" value="{{ $DataPeminjaman->tgl_kembali }}">
                 </div>
                 <div class="form-group">
                 <br><br>
