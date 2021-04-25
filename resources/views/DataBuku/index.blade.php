@@ -14,6 +14,7 @@
 
         <!-- Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
@@ -41,8 +42,8 @@
             <br>
             <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
             <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
-            <li><a href=""><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
-            <li><a href=""><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
+            <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
+            <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
     </div> 
 
@@ -74,8 +75,8 @@
         
         <div id="info">
             <form class="form-inline" method="get">
-                <div class="info1"><input type="search" name="cari" size="50" class="form-control" placeholder="Ketik Keyword Pencarian...."></div>
-                <div class="info1"><button class="btn btn-outline-light" type="submit">Search</button></div>
+                <div class="info1"><input type="search" name="cari" size="50" class="form-control" style="font-family: Arial, FontAwesome;" placeholder="&#xf002 Ketik Keyword Pencarian...."></div>
+                <div class="info1"><button class="btn btn-outline-light" type="submit">Cari !</button></div>
             </form>
         </div>
 
