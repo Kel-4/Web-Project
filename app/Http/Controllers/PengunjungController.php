@@ -12,13 +12,22 @@ class PengunjungController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //$pengunjung = DB::table('data_pengunjung')->get();
         //return view('DataPengunjung.index', ['pengunjung' => $pengunjung]);
 
-        $pengunjung = Pengunjung::all();
-        return view('DataPengunjung.index', ['pengunjung'=>$pengunjung]);
+        if($request->has('cari')){
+            $data= Pengunjung::where('nama', 'LIKE','%'.$request->cari.'%')
+            ->orWhere('tanggal_terdaftar', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('kontak', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('alamat', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('id_pengunjung', 'LIKE', '%'.$request->cari.'%')
+            ->paginate(5);
+        }else{
+            $data = Pengunjung::paginate();
+        }
+        return view('DataPengunjung.index', ['data'=>$data]);
 
     }
 
