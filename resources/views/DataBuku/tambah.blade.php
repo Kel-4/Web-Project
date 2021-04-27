@@ -53,25 +53,42 @@
         <div class="hero rounded-3 px-5 pb-5 pt-5">
             <form enctype="multipart/form-data" action="/daftarbuku/simpan" method="post">
                 {{ csrf_field() }}
+
                 <div class="form-group">
-                    <label>ID</label>
-                    <input type="text" name="id_buku" class="form-control" required>
+                    <label for="id_buku">ID</label>
+                    <input type="text" name="id_buku" id="id_buku" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label>Judul</label>
-                    <input type="text" name="judul" class="form-control" required>
+                @error('id_buku')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
+                    <label for="judul">Judul</label>
+                    <input type="text" name="judul" id="judul" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label>Penerbit</label>
-                    <input type="text" name="penerbit" class="form-control" required>
+                @error('judul')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
+                    <label for="penerbit">Penerbit</label>
+                    <input type="text" name="penerbit" id="penerbit" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label>Rak</label>
-                    <input type="text" name="rak" class="form-control" required>
+                @error('penerbit')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
+                    <label for="rak">Rak</label>
+                    <input type="text" name="rak" id="rak" class="form-control">
                 </div>
-                <div class="form-group">
+                @error('rak')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
                     <label>Gambar</label>
-                    <input type="file" name="gambar" class="form-control" required>
+                    <input type="file" name="gambar" class="form-control">
                 </div>
                 <div class="form-group">
                 <br><br>

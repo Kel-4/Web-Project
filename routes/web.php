@@ -40,20 +40,9 @@ Route::get('/daftarbuku/ubah/{id}', 'DataBukuController@edit');
 
 Route::post('/daftarbuku/update/{id}', 'DataBukuController@update');
 
-Route::get('logout', 'login\LoginController@logout')->name('logout');
-
 Route::get('/daftarbuku/hapus/{id}', 'DataBukuController@destroy');
 
-
-// Route::get('/daftarbuku/tambah', 'DataBukuController@create');
-
-// Route::post('/daftarbuku/simpan', 'DataBukuController@store');
-
-// Route::get('/daftarbuku/ubah/{id}', 'DataBukuController@edit');
-
-// Route::post('/daftarbuku/update/{id}', 'DataBukuController@update');
-
-// Route::get('/daftarbuku/hapus/{id}', 'DataBukuController@destroy');
+Route::get('logout', 'login\LoginController@logout')->name('logout');
 
 
 //DataPengunjung
