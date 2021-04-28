@@ -48,9 +48,18 @@
 
     <div class="container">
         <br>
-        <center><h1>DATA PEMINJAMAN</h1></center><br><br>
-        <a href="/DataPeminjaman/tambah" class="badge bg-success">Tambah Data</a><br><br>
-        <table class="table rounded-3 table-bordered table-secondary ">
+        <center><h1>DATA PEMINJAMAN</h1></center><br>
+        <div id="info">
+            <div class="info1"> <h4><a href="/DataPeminjaman/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Buku</a></h4></div>
+        </div>
+        <div id="info">
+            <form class="form-inline" method="get">
+                <div class="info1"><input type="search" name="cari" size="50" class="form-control" style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="&#xf002 Ketik Keyword Pencarian...."></div>
+                <div class="info1"><button class="btn btn-outline-light" type="submit">Cari !</button></div>
+            </form>
+        </div>
+
+        <table class="table table-bordered table-striped" style="text-align:center">
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
@@ -79,7 +88,21 @@
                 @endforeach
             </tbody>
         </table>
+        <br>
+        <div class="item rounded-3 fs-6">
+            &nbsp;Showing
+            {{ $data->firstItem() }}
+            to
+            {{ $data->lastItem() }}
+            of
+            {{ $data->total() }}
+            entries
+        </div>
+        <div class="pagination mt-3">
+            {{ $data->links() }}
+        </div>
     </div>
+    <br><br><br><br>
 
     <footer class="bg-dark fixed-bottom">
     <div class="p-2">
@@ -97,5 +120,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
+    @include('sweetalert::alert')
   </body>
 </html>

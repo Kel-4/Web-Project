@@ -48,42 +48,44 @@
 
         <div class="container">
             <br>
-            <center><h1>UBAH DATA PEMINJAMAN</h1></center><br><br>
-            <a href="/DataPeminjaman" class="badge bg-info">Kembali</a><br><br>
+            <center><h1><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;UBAH DATA</h1></center><br><br>
+            <h4><a href="/DataPeminjaman" class="badge bg-info">Kembali</a></h4><br><br>
             
-            <form action="/DataPeminjaman/update/{{ $DataPeminjaman->id }}" method="post">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label>ID</label>
-                    <input type="text" name="id_peminjaman" class="form-control" value="{{ $DataPeminjaman->id_peminjaman }}">
-                </div>
-                <div class="form-group">
-                    <label>Nama</label>
-                    <input type="text" name="nama" class="form-control" value="{{ $DataPeminjaman->nama }}">
-                </div>
-                <div class="form-group">
-                    <label>Judul Buku</label>
-                    <input type="text" name="judul_buku" class="form-control" value="{{ $DataPeminjaman->judul_buku }}">
-                </div>
-                <div class="form-group">
-                    <label>Tgl Pinjam</label>
-                    <input type="text" name="tgl_pinjam" class="form-control" value="{{ $DataPeminjaman->tgl_pinjam }}">
-                </div>
-                <div class="form-group">
-                    <label>Tgl Jatuh Tempo</label>
-                    <input type="text" name="tgl_jatuh_tempo" class="form-control" value="{{ $DataPeminjaman->tgl_jatuh_tempo }}">
-                </div>
-                <div class="form-group">
-                    <label>Tgl Kembali</label>
-                    <input type="text" name="tgl_kembali" class="form-control" value="{{ $DataPeminjaman->tgl_kembali }}">
-                </div>
-                <div class="form-group">
-                <br><br>
-                    <button type="submit" class="btn btn-warning">Ubah</button>
-                </div>
-            </form>
+            <div class="hero rounded-3 px-5 pb-5 pt-5">
+                <form  enctype="multipart/form-data" action="/DataPeminjaman/update/{{ $DataPeminjaman->id }}" method="post">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label>ID</label>
+                        <input type="text" name="id_peminjaman" class="form-control" value="{{ $DataPeminjaman->id_peminjaman }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input type="text" name="nama" class="form-control" value="{{ $DataPeminjaman->nama }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Buku</label>
+                        <input type="text" name="judul_buku" class="form-control" value="{{ $DataPeminjaman->judul_buku }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Tgl Pinjam</label>
+                        <input type="text" name="tgl_pinjam" class="form-control" value="{{ $DataPeminjaman->tgl_pinjam }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Tgl Jatuh Tempo</label>
+                        <input type="text" name="tgl_jatuh_tempo" class="form-control" value="{{ $DataPeminjaman->tgl_jatuh_tempo }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Tgl Kembali</label>
+                        <input type="text" name="tgl_kembali" class="form-control" value="{{ $DataPeminjaman->tgl_kembali }}">
+                    </div>
+                    <div class="form-group">
+                    <br><br>
+                        <button type="submit" class="btn btn-warning px-5">Ubah</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
+        
         <footer class="bg-dark fixed-bottom">
         <div class="p-2">
             <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>

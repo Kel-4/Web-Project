@@ -12,9 +12,19 @@ class DataPeminjamanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = DataPeminjaman::all();
+        if($request->has('cari')) {
+            $data = DataPeminjaman::where('id_peminjaman', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('nama', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul_buku', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('tgl_pinjam', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('tgl_jatuh_tempo', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('tgl_kembali', 'LIKE', '%'.$request->cari.'%')
+            ->paginate(5);
+        } else {
+            $data = DataPeminjaman::paginate(5);
+        }
         return view('DataPeminjaman.index', ['data'=>$data]);
     }
 
@@ -36,6 +46,15 @@ class DataPeminjamanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_peminjaman'=>'required',
+            'nama'=>'required',
+            'judul_buku'=>'required',
+            'tgl_pinjam'=>'required',
+            'tgl_jatuh_tempo'=>'required',
+            'tgl_kembali'=>'required',
+        ]);
+
         DataPeminjaman::create([
             'id_peminjaman' => $request->id_peminjaman,
             'nama' => $request->nama,
@@ -45,7 +64,7 @@ class DataPeminjamanController extends Controller
             'tgl_kembali' => $request->tgl_kembali
         ]);
 
-        return redirect('/DataPeminjaman');
+        return redirect('/DataPeminjaman')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -88,7 +107,7 @@ class DataPeminjamanController extends Controller
         $DataPeminjaman->tgl_jatuh_tempo = $request->tgl_jatuh_tempo;
         $DataPeminjaman->tgl_kembali = $request->tgl_kembali;
         $DataPeminjaman->save();
-        return redirect('/DataPeminjaman');
+        return redirect('/DataPeminjaman')->with('success', 'Data Berhasil Diubah!');
     }
 
     /**
@@ -101,6 +120,6 @@ class DataPeminjamanController extends Controller
     {
         $DataPeminjaman = DataPeminjaman::find($id);
         $DataPeminjaman->delete();
-        return redirect('/DataPeminjaman');
+        return redirect('/DataPeminjaman')->with('success', 'Data Telah Dihapus!');
     }
 }

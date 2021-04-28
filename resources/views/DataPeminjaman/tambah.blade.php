@@ -50,39 +50,66 @@
     <div class="container">
         <br>
         <center><h1>TAMBAH DATA</h1></center><br><br>
-        <a href="/DataPeminjaman" class="badge bg-info">Kembali</a><br><br>
+        <h4><a href="/DataPeminjaman" class="badge bg-info">Kembali</a></h4><br><br>
         
-        <form action="/DataPeminjaman/simpan" method="post">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <label>ID</label>
-                <input type="text" name="id_peminjaman" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Nama</label>
-                <input type="text" name="nama" class="form-control" autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label>Judul Buku</label>
-                <input type="text" name="judul_buku" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Tgl Pinjam</label>
-                <input type="text" name="tgl_pinjam" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Tgl Jatuh Tempo</label>
-                <input type="text" name="tgl_jatuh_tempo" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Tgl Kembali</label>
-                <input type="text" name="tgl_kembali" class="form-control">
-            </div>
-            <div class="form-group">
-            <br>
-                <button type="submit" class="btn btn-success">Tambah</button>
-            </div>
-        </form>
+        <div class="hero rounded-3 px-5 pb-5 pt-5">
+            <form enctype="multipart/form-data" action="/DataPeminjaman/simpan" method="post">
+                {{ csrf_field() }}
+
+                <div class="form-group">
+                    <label for="id_peminjaman">ID</label>
+                    <input type="text" name="id_peminjaman" id="id_peminjaman" class="form-control">
+                </div>
+                @error('id_peminjaman')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group">
+                    <label for="nama">Nama</label>
+                    <input type="text" name="nama" id="nama" class="form-control">
+                </div>
+                @error('id_peminjaman')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
+                    <label for="judul_buku">Judul Buku</label>
+                    <input type="text" name="judul_buku" id="judul_buku" class="form-control">
+                </div>
+                @error('judul_buku')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
+                    <label for="tgl_pinjam">Tgl Pinjam</label>
+                    <input type="text" name="tgl_pinjam" id="tgl_pinjam" class="form-control">
+                </div>
+                @error('tgl_pinjam')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
+                    <label for="tgl_jatuh_tempo">Tgl Jatuh Tempo</label>
+                    <input type="text" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo" class="form-control">
+                </div>
+                @error('tgl_jatuh_tempo')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
+                    <label for="tgl_kembali">Tgl Kembali</label>
+                    <input type="text" name="tgl_kembali" id="tgl_kembali" class="form-control">
+                </div>
+                @error('tgl_kembali')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group">
+                <br><br>
+                    <button type="submit" class="btn btn-success px-5">Tambah</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <footer class="bg-dark fixed-bottom">
