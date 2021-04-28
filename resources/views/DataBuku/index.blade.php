@@ -75,7 +75,7 @@
         
         <div id="info">
             <form class="form-inline" method="get">
-                <div class="info1"><input type="search" name="InProgress" size="50" class="form-control" style="font-family: Arial, FontAwesome;" placeholder="&#xf002 Ketik Keyword Pencarian...."></div>
+                <div class="info1"><input type="search" name="cari" size="50" class="form-control" style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="&#xf002 Ketik Keyword Pencarian...."></div>
                 <div class="info1"><button class="btn btn-outline-light" type="submit">Cari !</button></div>
             </form>
         </div>
@@ -123,7 +123,7 @@
         </div>
     </div>
     <br><br><br><br>
-    <footer class="bg-dark fixed-bottom">
+    <footer class="bg-dark">
     <div class="p-2">
         <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
     </div>

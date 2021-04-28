@@ -13,9 +13,13 @@ class DataBukuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {   
-        if($request->has('cari')){
-            $data = DataBuku::where('judul', 'LIKE', '%'.$request->cari.'%')->get();
+    {
+        if($request->has('cari')) {
+            $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')
+            ->paginate(5);
         } else {
             $data = DataBuku::paginate(5);
         }
@@ -40,21 +44,40 @@ class DataBukuController extends Controller
      */
     public function store(Request $request)
     {
-        $id_buku = $request->id_buku;
-        $judul = $request->judul;
-        $penerbit = $request->penerbit;
-        $rak = $request->rak;
-        $gambar = $request->file('gambar');
-        $NamaGambar = time().'.'.$gambar->extension();
-        $gambar->move(public_path('gambar'),$NamaGambar);
+        $request->validate([
+            'id_buku'=>'required|unique:data_buku',
+            'judul'=>'required',
+            'penerbit'=>'required',
+            'rak'=>'required|unique:data_buku',
 
-        $DataBuku = new DataBuku();
-        $DataBuku->id_buku = $id_buku;
-        $DataBuku->judul = $judul;
-        $DataBuku->penerbit = $penerbit;
-        $DataBuku->rak = $rak;
-        $DataBuku->gambar = $NamaGambar;
-        $DataBuku->save();
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            DataBuku::create([
+                'id_buku' => $request->id_buku,
+                'judul' => $request->judul,
+                'penerbit' => $request->penerbit,
+                'rak' => $request->rak,
+                'gambar' => $request->gambar
+            ]);
+        } else {
+            $id_buku = $request->id_buku;
+            $judul = $request->judul;
+            $penerbit = $request->penerbit;
+            $rak = $request->rak;
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('gambar'),$NamaGambar);
+
+            $DataBuku = new DataBuku();
+            $DataBuku->id_buku = $id_buku;
+            $DataBuku->judul = $judul;
+            $DataBuku->penerbit = $penerbit;
+            $DataBuku->rak = $rak;
+            $DataBuku->gambar = $NamaGambar;
+            $DataBuku->save();
+        }
+        
 
         return redirect('/daftarbuku')->with('success', 'Data Berhasil Ditambahkan!');
     }
@@ -92,15 +115,40 @@ class DataBukuController extends Controller
     public function update(Request $request, $id)
     {
         // 
-        $DataBuku = DataBuku::find($id);
-        $DataBuku->id_buku = $request->id_buku;
-        $DataBuku->judul = $request->judul;
-        $DataBuku->penerbit = $request->penerbit;
-        $DataBuku->rak = $request->rak;
-        $gambar = $request->gambar;
+       
+        
+        if ($request->file('gambar')==NULL) {
+            $DataBuku = DataBuku::find($id);
+            $DataBuku->id_buku = $request->id_buku;
+            $DataBuku->judul = $request->judul;
+            $DataBuku->penerbit = $request->penerbit;
+            $DataBuku->rak = $request->rak;
+            $gambar = $request->gambar;
 
-        $DataBuku->save();
-        return redirect('/daftarbuku')->with('success', 'Data Berhasil Diubah!');
+            $DataBuku->save();
+            return redirect('/daftarbuku')->with('success', 'Data Berhasil Diubah!');
+
+        } else {
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('gambar'), $NamaGambar);
+    
+            $id_buku = $request->id_buku;
+            $judul = $request->judul;
+            $penerbit = $request->penerbit;
+            $rak = $request->rak;
+    
+            $DataBuku = DataBuku::find($id);
+            $DataBuku->id_buku = $id_buku;
+            $DataBuku->judul = $judul;
+            $DataBuku->penerbit = $penerbit;
+            $DataBuku->rak = $rak;
+            $DataBuku->gambar = $NamaGambar;
+    
+            $DataBuku->save();
+            return redirect('/daftarbuku')->with('success', 'Data Berhasil Diubah!');
+        }
+       
     }
 
     /**

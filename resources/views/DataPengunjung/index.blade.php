@@ -38,7 +38,7 @@
             <h1 class="fw-bold" style="color: blue;"><img src="images/logo.png" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
             <div class="navbar2">
             <div class="d-flex">
-            <h5><i class="fas fa-user-circle"></i> {{ Auth::user()->name }} <a href="{{ route('logout') }}" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a> </h5>
+            <h5><i class="fas fa-user-circle"></i> {{ Auth::user()->name }};<a href="{{ route('logout') }}" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a> </h5>
             </div>
             </div>
         </div>
@@ -63,8 +63,8 @@
         <div id="info">
             <form method="GET" action="">
                 <input type="hidden" name="_token" value="68laEZPlMUpkqexNGannJbCdojT3nzjmXwAQgbmK">                            
-                <input type="text" name="search" id="search" size="30" class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" placeholder="pencarian data" value="">
-                <button type="submit" class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04"><i class="fas fa-search"></i></button>
+                <input type="search" name="cari" id="search" size="30" class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" placeholder="Kolom pencarian data" value="{{Request::get('cari')}}">
+                <button type="submit" class="btn btn-outline-light"><i class="fas fa-search"></i></button>
             </form>
         </div>
 
@@ -80,24 +80,37 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pengunjung as $data)
+                @foreach ($data as $pengunjung)
                 <tr>
-                    <td>{{ $data->id_pengunjung }}</td>
-                    <td>{{ $data->nama }}</td>
-                    <td>{{ $data->tanggal_terdaftar }}</td>
-                    <td>{{ $data->kontak }}</td>
-                    <td>{{ $data->alamat }}</td>
+                    <td>{{ $pengunjung->id_pengunjung }}</td>
+                    <td>{{ $pengunjung->nama }}</td>
+                    <td>{{ $pengunjung->tanggal_terdaftar }}</td>
+                    <td>{{ $pengunjung->kontak }}</td>
+                    <td>{{ $pengunjung->alamat }}</td>
                     <td>
-                        <a href="/DataPengunjung/ubah/{{ $data->id }}"><i class="far fa-edit btn btn-success"></i></a>
-                        <a href="/DataPengunjung/hapus/{{ $data->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
+                        <a href="/DataPengunjung/ubah/{{ $pengunjung->id }}"><i class="far fa-edit btn btn-success"></i></a>
+                        <a href="/DataPengunjung/hapus/{{ $pengunjung->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        <br>
+        <div class="item rounded-3 fs-6">
+            &nbsp;Showing
+            {{ $data->firstItem() }}
+            to
+            {{ $data->lastItem() }}
+            of
+            {{ $data->total() }}
+            entries
+        </div>
+        <div class="pagination mt-3">
+            {{ $data->links() }}
+        </div>
     </div>
 
-    <footer class="bg-dark fixed-bottom">
+    <footer class="bg-dark">
     <div class="p-2">
         <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
     </div>
