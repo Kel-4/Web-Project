@@ -12,9 +12,17 @@ class DataPengembalianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = DataPengembalian::all();
+        if($request->has('cari')) {
+            $data = DataPengembalian::where('id_peminjaman', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('nama', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('tgl_kembali', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul_buku', 'LIKE', '%'.$request->cari.'%')
+            ->paginate(5);
+        } else {
+            $data = DataPengembalian::paginate(5);
+        }
         return view('DataPengembalian.index', ['data'=>$data]);
     }
 
