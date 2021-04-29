@@ -29,7 +29,7 @@
                 <h1 class="fw-bold" style="color: blue;"><img src="images/logo.png" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
                 <div class="navbar2">
                 <div class="d-flex">
-                    <h5><i class="fas fa-user-circle"></i> User</h5>
+                    <h5><i class="fas fa-user-circle"></i> {{ Auth::user()->name }} &nbsp;<a href="{{ route('logout') }}" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a> </h5>
                 </div>
                 </div>
             </div>
