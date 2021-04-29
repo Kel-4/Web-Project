@@ -66,10 +66,9 @@
             <thead class="table-dark">
             
             <div id="info">
-            <form method="GET" action="">
-                <input type="hidden" name="_token" value="68laEZPlMUpkqexNGannJbCdojT3nzjmXwAQgbmK">                            
-                <input type="text" name="search" id="search" size="30" class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" placeholder="Cari di sini..." value="">
-                <button type="submit" class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04"><i class="fas fa-search"></i></button>
+            <form class="form-inline" method="get">
+                <div class="info1"><input type="search" name="cari" size="50" class="form-control" style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="&#xf002 Ketik Keyword Pencarian...."></div>
+                <div class="info1"><button class="btn btn-outline-light" type="submit">Cari !</button></div>
             </form>
         </div>
             
