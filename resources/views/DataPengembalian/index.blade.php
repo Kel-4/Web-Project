@@ -96,6 +96,22 @@
                 @endforeach
             </tbody>
         </table>
+        <br>
+        <div class="item rounded-3 fs-6">
+            &nbsp;Showing
+            {{ $data->firstItem() }}
+            to
+            {{ $data->lastItem() }}
+            of
+            {{ $data->total() }}
+            entries
+        </div>
+        <div class="pagination mt-3">
+            {{ $data->links() }}
+        </div>
+    </div>
+    <br><br><br><br>
+
     </div>
 
 
