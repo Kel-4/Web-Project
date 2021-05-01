@@ -26,22 +26,37 @@ label {
 input:focus {
     border-width: 0 0 4px;
 }
-.btn {
+#login{
     background-color: #18fb00;
     color: white;
-    font-weight: bold;
+    border: 2px solid #18fb00;
+}
+.btn {
+    font-weight: bolder;
     width: 14rem;
     border-radius: 20px;
     letter-spacing: 3px;
-    box-shadow: rgba(112, 204, 94, 0.938) 0px 14px 10px;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+   
 }
-.btn:hover {
+#login:hover {
     background-color: white;
     color: rgb(14, 182, 14);
+}
+#guest{
+    background-color: yellow;
+    border: 2px solid yellow;
+   
+}
+#guest:hover {
+    background-color: white;
+    border: 2px solid yellow;
+   
 }
 .show-icon {
     position: absolute;
     right: 12%;
-    top: 60%;
+    top: 51%;
     cursor: pointer;
 }

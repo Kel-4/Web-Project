@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/','login\LoginController@login')->name('login');
 Route::get('/','login\LoginController@index')->name('login');
 
-
+Route::get('/guest', 'DataBukuController@guest')->name('guest');
 
 // Route::post('/logout','login\LoginController@logout')->name('logout');
 // Route::group(['middleware' => 'CekLoginMiddleware'], function(){
