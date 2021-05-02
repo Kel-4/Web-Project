@@ -97,20 +97,20 @@
         </table>
         <br>
         <div class="item rounded-3 fs-6">
-            &nbsp;Showing
+            &nbsp;Menampilkan
             {{ $data->firstItem() }}
-            to
+            -
             {{ $data->lastItem() }}
-            of
+            dari
             {{ $data->total() }}
-            entries
+            entri data
         </div>
         <div class="pagination mt-3">
             {{ $data->links() }}
         </div>
     </div>
-
-    <footer class="bg-dark">
+    <br><br>
+    <footer class="bg-dark fixed-bottom">
     <div class="p-2">
         <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
     </div>

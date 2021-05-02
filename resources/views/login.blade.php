@@ -11,7 +11,7 @@
     <title>delibrary</title>
   </head>
   <body style='background-image: url("{{asset('img/bglogin.png')}}");'>
-    <br><br><br><br><br>
+    <br><br><br>
     <div class="container card" style="width: 23rem;">
     <center>
         <h2><img src="{{ asset('img/logo.png')}}" width="80px" alt="">&nbsp;&nbsp;<b class="title" style="color: navy;">del<b style="color: red;">ibr</b><b style="color: #07C8E3;">ary</b></b></h2>
@@ -26,8 +26,12 @@
           <input style="display: none;" type="checkbox" id="show-password">
         <label for="password"><i class="fas fa-key"></i> Password</label>
         <input id="password" class="form-control" type="password" name="password"><br><br>
-        <center><button class="btn btn">Login</button></center><br>
-        
+        <center><button id="login" class="btn btn">Login</button></center>
+        <center>OR
+          <br>
+          <a href="{{ route('guest') }}" id="guest" class="btn btn text-dark"><i class="fas fa-user-check"></i> Guest</a>
+        </center>
+        <br>
         {{-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
              <strong>{{ session('message') }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
