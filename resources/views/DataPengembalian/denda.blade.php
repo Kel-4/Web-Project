@@ -1,3 +1,23 @@
+<?php
+
+
+$conn = new mysqli('localhost', 'root', '', 'db_delibrary');
+
+if (isset($_POST['submit'])) {
+$id_peminjaman = $_POST['id_peminjaman'];
+$nama= $_POST['nama'];
+ $tgl_pinjam = $_POST['tgl_pinjam'];
+ $tgl_kembali = strtotime("+6 day", strtotime($tgl_pinjam)); 
+ $tgl_kembali = date('Y-m-d', $tgl_kembali); 
+
+
+ $q = $conn->query("INSERT INTO data_peminjaman (id_peminjaman, nama, tgl_pinjam, tgl_kembali) VALUES ('$id_peminjaman', '$nama', '$tgl_pinjam', '$tgl_kembali')");
+ unset($_POST['submit']);
+}
+?>
+
+
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -17,7 +37,7 @@
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
         
-        <title>Halaman Data Pengembalian</title>
+        <title>Halaman Daftar Denda</title>
     </head>
     <style>
 .button {
@@ -61,7 +81,8 @@
     <div class="container">
     
         <br>
-        <center><h1>DATA PENGEMBALIAN</h1></center><br><br>
+        <center><h1>DAFTAR DENDA</h1></center><br><br>
+        <h4><a href="/DataPengembalian" class="badge bg-info">Kembali</a></h4><br>
         <table class="table rounded-3 table-bordered table-secondary" style="text-align:center;">
             <thead class="table-dark">
             
@@ -75,30 +96,42 @@
                 <tr>
                     <th>ID</th>
                     <th>Nama</th>
-                    <th>Tanggal Kembali</th> 
-                    <th>Judul Buku</th>
-                    <th>Status</th>
+                    <th>Tanggal Jatuh Tempo</th> 
+                    <th>Tanggal Kembali</th>
+                    <th>Terlambat (Hari) </th>
+                    <th>Denda</th>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $buku)
-                <tr>
-                    <td>{{ $buku->id_peminjaman }}</td>
-                    <td>{{ $buku->nama }}</td>
-                    <td>{{ $buku->tgl_kembali }}</td>
-                    <td>{{ $buku->judul_buku }}</td> 
-                    <td>
-                    
-                    <button class="btn btn-danger" id="my-button">NEW</button>
-                       
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
+
+                </thead>
+                <?php
+
+    $q = $conn->query("SELECT id_peminjaman, nama, tgl_jatuh_tempo, tgl_kembali FROM data_peminjaman WHERE tgl_kembali > tgl_jatuh_tempo");
+  
+
+    while($r = $q->fetch_assoc()) {
+    $id_peminjaman = ($r['id_peminjaman']);
+    $nama = ($r['nama']);
+     $t = date_create($r['tgl_kembali']);
+     $n = date_create($r['tgl_jatuh_tempo']);
+     $terlambat = date_diff($t, $n);
+     $hari = $terlambat->format("%a");
+
+   
+     $denda = $hari * 2000;
+    ?>
+<tr>
+     <td><?=$r['id_peminjaman'] ?></td>
+     <td><?=$r['nama'] ?></td>
+     <td><?= $r['tgl_jatuh_tempo'] ?></td>
+     <td><?= $r['tgl_kembali'] ?></td>
+     <td><?= $hari ?></td>
+     <td><?= $denda ?></td>
+    </tr>
+
+    <?php
+    }
+    ?>
         </table>
-        <div id="info">
-            <div class="info1"> <h4><a href="/DataPengembalian/denda" class="btn btn-success">&nbsp;Daftar Denda</a></h4></div>
-        </div>
         <br>
         <div class="item rounded-3 fs-6">
             &nbsp;Showing
@@ -113,7 +146,7 @@
             {{ $data->links() }}
         </div>
     </div>
-    <br><br><br><br>
+        
 
     </div>
 
@@ -135,21 +168,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
-    <script>
-        var button = document.getElementById('my-button');
-
-        button.addEventListener('click', function() {
-            if (button.classList.contains('btn-danger')) {   
-                button.classList.remove('btn-danger');
-                button.classList.add('btn-success');
-                button.innerHTML = 'VER';
-                }
-            else {
-                button.classList.remove('btn-success');
-                button.classList.add('btn-danger');
-                button.innerHTML = 'NEW';
-            }
-        });
-    </script>
+ 
   </body>
 </html>

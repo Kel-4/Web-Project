@@ -67,4 +67,6 @@ Route::post('/DataPeminjaman/update/{id}', 'DataPeminjamanController@update');
 Route::get('/DataPeminjaman/hapus/{id}', 'DataPeminjamanController@destroy');
 
 Route::get('/DataPengembalian', 'DataPengembalianController@index');
+
+Route::get('/DataPengembalian/denda', 'DataPengembalianController@denda');
 });
