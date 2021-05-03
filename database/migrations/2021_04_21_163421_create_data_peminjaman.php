@@ -18,9 +18,9 @@ class CreateDataPeminjaman extends Migration
             $table->string('id_peminjaman');
             $table->string('nama',100);
             $table->string('judul_buku',100);
-            $table->string('tgl_pinjam',10);
-            $table->string('tgl_jatuh_tempo',10);
-            $table->string('tgl_kembali',10);
+            $table->date('tgl_pinjam',10);
+            $table->date('tgl_jatuh_tempo',10);
+            $table->date('tgl_kembali',10);
             $table->timestamps();
         });
     }
