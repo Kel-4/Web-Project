@@ -69,21 +69,21 @@
                 </div>
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" name="nama" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('nama') }}">
+                    <input type="text" name="nama" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('nama') }}" autocomplete="off">
                     @error('nama')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Tanggal terdaftar</label>
-                    <input type="text" name="tanggal_terdaftar" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('tanggal_terdaftar') }}" placeholder="YYYY-MM-DD">
+                    <input type="text" name="tanggal_terdaftar" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('tanggal_terdaftar') }}" placeholder="YYYY-MM-DD" autocomplete="off">
                     @error('tanggal_terdaftar')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Kontak</label>
-                    <input type="text" name="kontak" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('kontak') }}" placeholder="+62 | ">
+                    <input type="text" name="kontak" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('kontak') }}" placeholder="+62 | " autocomplete="off">
                     @error('kontak')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror

@@ -58,7 +58,7 @@
 
                 <div class="form-group">
                     <label for="id_peminjaman">ID</label>
-                    <input type="text" name="id_peminjaman" id="id_peminjaman" class="form-control">
+                    <input type="text" name="id_peminjaman" id="id_peminjaman" class="form-control" autocomplete="off">
                 </div>
                 @error('id_peminjaman')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -66,7 +66,7 @@
 
                 <div class="form-group">
                     <label for="nama">Nama</label>
-                    <input type="text" name="nama" id="nama" class="form-control">
+                    <input type="text" name="nama" id="nama" class="form-control" autocomplete="off">
                 </div>
                 @error('id_peminjaman')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -74,7 +74,7 @@
 
                 <div class="form-group mt-3">
                     <label for="judul_buku">Judul Buku</label>
-                    <input type="text" name="judul_buku" id="judul_buku" class="form-control">
+                    <input type="text" name="judul_buku" id="judul_buku" class="form-control" autocomplete="off">
                 </div>
                 @error('judul_buku')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -82,7 +82,7 @@
 
                 <div class="form-group mt-3">
                     <label for="tgl_pinjam">Tgl Pinjam</label>
-                    <input type="text" name="tgl_pinjam" id="tgl_pinjam" class="form-control">
+                    <input type="text" name="tgl_pinjam" id="tgl_pinjam" class="form-control" autocomplete="off">
                 </div>
                 @error('tgl_pinjam')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -90,7 +90,7 @@
 
                 <div class="form-group mt-3">
                     <label for="tgl_jatuh_tempo">Tgl Jatuh Tempo</label>
-                    <input type="text" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo" class="form-control">
+                    <input type="text" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo" class="form-control" autocomplete="off">
                 </div>
                 @error('tgl_jatuh_tempo')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -98,7 +98,7 @@
 
                 <div class="form-group mt-3">
                     <label for="tgl_kembali">Tgl Kembali</label>
-                    <input type="text" name="tgl_kembali" id="tgl_kembali" class="form-control">
+                    <input type="text" name="tgl_kembali" id="tgl_kembali" class="form-control" autocomplete="off">
                 </div>
                 @error('tgl_kembali')
                     <div class="alert-danger mt-1">{{$message}}</div>
