@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataPengembalian;
+use Carbon\Carbon;
 
 class DataPengembalianController extends Controller
 {
@@ -17,7 +18,6 @@ class DataPengembalianController extends Controller
         if($request->has('cari')) {
             $data = DataPengembalian::where('id_peminjaman', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('nama', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('tgl_kembali', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul_buku', 'LIKE', '%'.$request->cari.'%')
             ->paginate(5);
         } else {
@@ -46,6 +46,22 @@ class DataPengembalianController extends Controller
         return view('DataPengembalian.denda', ['data'=>$data]);
     }
 
+    public function status($id)
+    {
+        $data = DataPengembalian::find($id);
+        if ($data->status == 0) {
+            $data->status = 1;
+            $data->save();
+            return redirect('/DataPengembalian')->with("Buku Telah Dikembalikan", "success");
+        } else {
+            $data->status = 0;
+            $data->save();
+            return redirect('/DataPengembalian')->with('warning', 'Buku Belum Dikembalikan');
+        }
+        
+
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -55,14 +71,7 @@ class DataPengembalianController extends Controller
      */
     public function store(Request $request)
     {
-        DataPengembalian::create([
-            'id_peminjaman' => $request->id_peminjaman,
-            'nama' => $request->nama,
-            'tgl_kembali' => $request->tgl_kembali,
-            'judul_buku' => $request->judul_buku
-        ]);
-
-        return redirect('/DataPengembalian');
+        // 
     }
 
  
@@ -82,12 +91,7 @@ class DataPengembalianController extends Controller
     
     public function update(Request $request, $id)
     {
-        $DataPengembalian = DataPeminjaman::find($id);
-        $DataPengembalian->id_peminjaman = $request->id_peminjaman;
-        $DataPengembalian->nama = $request->nama;
-        $DataPengembalian->tgl_kembali = $request->tgl_kembali;
-        $DataPeminjaman->save();
-        return redirect('/DataPengembalian');
+        //    
     }
 
 }

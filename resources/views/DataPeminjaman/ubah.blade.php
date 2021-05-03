@@ -68,15 +68,15 @@
                     </div>
                     <div class="form-group">
                         <label>Tgl Pinjam</label>
-                        <input type="text" name="tgl_pinjam" class="form-control" value="{{ $DataPeminjaman->tgl_pinjam }}">
+                        <input type="date" name="tgl_pinjam" class="form-control" value="{{ $DataPeminjaman->tgl_pinjam }}">
                     </div>
                     <div class="form-group">
                         <label>Tgl Jatuh Tempo</label>
-                        <input type="text" name="tgl_jatuh_tempo" class="form-control" value="{{ $DataPeminjaman->tgl_jatuh_tempo }}">
+                        <input type="date" name="tgl_jatuh_tempo" class="form-control" value="{{ $DataPeminjaman->tgl_jatuh_tempo }}">
                     </div>
                     <div class="form-group">
                         <label>Tgl Kembali</label>
-                        <input type="text" name="tgl_kembali" class="form-control" value="{{ $DataPeminjaman->tgl_kembali }}">
+                        <input type="date" name="tgl_kembali" class="form-control" value="{{ $DataPeminjaman->tgl_kembali }}">
                     </div>
                     <div class="form-group">
                     <br><br>
