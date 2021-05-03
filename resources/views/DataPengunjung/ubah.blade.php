@@ -61,23 +61,38 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label>ID Pengunjung</label>
-                        <input type="text" name="id_pengunjung" class="form-control" value="{{ $pengunjung->id_pengunjung }}">
+                        <input type="text" name="id_pengunjung" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ $pengunjung->id_pengunjung }}">
+                        @error('id_pengunjung')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" name="nama" class="form-control" value="{{ $pengunjung->nama }}">
+                        <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ $pengunjung->nama }}">
+                        @error('nama')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Tanggal terdaftar</label>
-                        <input type="text" name="tanggal_terdaftar" class="form-control" value="{{ $pengunjung->tanggal_terdaftar }}">
+                        <input type="text" name="tanggal_terdaftar" class="form-control @error('tanggal_terdaftar') is-invalid @enderror" value="{{ $pengunjung->tanggal_terdaftar }}">
+                        @error('tanggal_terdaftar')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Kontak</label>
-                        <input type="text" name="kontak" class="form-control" value="{{ $pengunjung->kontak }}">
+                        <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="{{ $pengunjung->kontak }}">
+                        @error('kontak')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
-                        <input type="text" name="alamat" class="form-control" value="{{ $pengunjung->alamat }}">
+                        <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ $pengunjung->alamat }}">
+                        @error('alamat')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                     <br><br>

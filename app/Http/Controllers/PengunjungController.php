@@ -104,6 +104,14 @@ class PengunjungController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'id_pengunjung' => 'required',
+            'nama' => 'required',
+            'tanggal_terdaftar' => 'required',
+            'kontak' => 'required',
+            'alamat' => 'required',
+        ]);
+
         $pengunjung = Pengunjung::find($id);
         $pengunjung->id_pengunjung = $request->id_pengunjung;
         $pengunjung->nama = $request->nama;
