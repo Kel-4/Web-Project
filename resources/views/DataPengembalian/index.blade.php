@@ -88,11 +88,12 @@
                     <td>{{ $buku->tgl_kembali }}</td>
                     <td>{{ $buku->judul_buku }}</td> 
                     <td>
-                    
-                    <button class="btn btn-danger" id="my-button">NEW</button>
-                       
+                        @if($buku->status == 1)
+                        <a href="{{ route('update-status', $buku->id) }}" class="btn btn-success kembali">KEMBALI</a>
+                        @else
+                        <a href="{{ route('update-status', $buku->id) }}" class="btn btn-danger baru">BARU</a>
+                        @endif
                     </td>
-                </tr>
                 @endforeach
             </tbody>
         </table>
@@ -135,21 +136,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
-    <script>
-        var button = document.getElementById('my-button');
-
-        button.addEventListener('click', function() {
-            if (button.classList.contains('btn-danger')) {   
-                button.classList.remove('btn-danger');
-                button.classList.add('btn-success');
-                button.innerHTML = 'VER';
-                }
-            else {
-                button.classList.remove('btn-success');
-                button.classList.add('btn-danger');
-                button.innerHTML = 'NEW';
-            }
-        });
-    </script>
   </body>
 </html>

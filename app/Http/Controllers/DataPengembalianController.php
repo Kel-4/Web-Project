@@ -46,6 +46,22 @@ class DataPengembalianController extends Controller
         return view('DataPengembalian.denda', ['data'=>$data]);
     }
 
+    public function status($id)
+    {
+        $data = DataPengembalian::find($id);
+        if ($data->status == 0) {
+            $data->status = 1;
+            $data->save();
+            return redirect('/DataPengembalian')->with("Buku Telah Dikembalikan", "success");
+        } else {
+            $data->status = 0;
+            $data->save();
+            return redirect('/DataPengembalian')->with('warning', 'Buku Belum Dikembalikan');
+        }
+        
+
+    }
+
 
     /**
      * Store a newly created resource in storage.
