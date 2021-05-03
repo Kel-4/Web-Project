@@ -75,8 +75,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Nama</th>
-                    <th>Tanggal Kembali</th> 
                     <th>Judul Buku</th>
+                    <th>Tanggal Kembali</th> 
+                    <th>Denda</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -85,8 +86,9 @@
                 <tr>
                     <td>{{ $buku->id_peminjaman }}</td>
                     <td>{{ $buku->nama }}</td>
-                    <td>{{ $buku->tgl_kembali }}</td>
                     <td>{{ $buku->judul_buku }}</td> 
+                    <td>{{ $buku->tgl_kembali }}</td>
+                    <td>ON PROGRESS</td>
                     <td>
                         @if($buku->status == 1)
                         <a href="{{ route('update-status', $buku->id) }}" class="btn btn-success kembali">KEMBALI</a>
