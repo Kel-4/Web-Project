@@ -46,9 +46,8 @@
                 </div>
                 <div class="container det-btn">
                     <button id="btn-detail" data-bs-toggle="modal" data-bs-target="#<?=$buku->id_buku?>" class="btn btn-outline-success btn-sm mb-2">
-                    <i class="fas fa-info-circle"></i>Detail</button>
+                    <i class="fas fa-info-circle"></i> Detail</button>
                   </div>
-
               </div>
 
         {{-- detail-modal --}}
@@ -64,7 +63,7 @@
                         <img width="100%" src="{{asset('gambar')}}/{{ $buku->gambar }}" alt="not found">
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <table class="table" cellpadding="10">
+                        <table class="table table-hover" cellpadding="10">
                             <tr>
                                 <td>ID Buku</td>
                                 <td>:</td>
@@ -77,7 +76,7 @@
                             </tr>
                             <tr>
                                 <td>Penerbit</td>
-                                <td></td>
+                                <td>:</td>
                                 <td>{{ $buku->penerbit }}</td>
                             </tr>
                             <tr>
@@ -94,11 +93,12 @@
               </div>
             </div>
           </div>
-
               @endforeach
             </div>
         </div>
         <br>
+        <center>
+        <div>
         <div class="item rounded-3 fs-6 container">
             &nbsp;Showing
             {{ $data->firstItem() }}
@@ -108,10 +108,12 @@
             {{ $data->total() }}
             entries
         </div>
-        <div class="pagination mt-3 container">
+        <div class="mt-3 container">
             {{ $data->links() }}
         </div>
     </div>
+</center>
+
     <br><br><br><br>
     <footer class="bg-dark">
     <div class="p-2">

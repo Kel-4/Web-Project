@@ -37,7 +37,10 @@ h1{
         transform: scale(0.7);
     }
 }
-/* #cari:active{
-    width: 80%;
-} */
+.pagination {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
