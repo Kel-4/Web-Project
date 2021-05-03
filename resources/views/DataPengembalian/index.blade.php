@@ -86,7 +86,7 @@
                     <td>{{ $buku->id_peminjaman }}</td>
                     <td>{{ $buku->nama }}</td>
                     <td>{{ $buku->tgl_kembali }}</td>
-                    <td>{{ $buku->judul_buku }}</td>    
+                    <td>{{ $buku->judul_buku }}</td> 
                     <td>
                     
                     <button class="btn btn-danger" id="my-button">NEW</button>
@@ -96,6 +96,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div id="info">
+            <div class="info1"> <h4><a href="/DataPengembalian/denda" class="btn btn-success">&nbsp;Daftar Denda</a></h4></div>
+        </div>
         <br>
         <div class="item rounded-3 fs-6">
             &nbsp;Showing

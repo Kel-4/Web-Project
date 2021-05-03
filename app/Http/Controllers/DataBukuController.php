@@ -19,9 +19,9 @@ class DataBukuController extends Controller
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')
-            ->paginate(8);
+            ->paginate(6);
         } else {
-            $data = DataBuku::paginate(8);
+            $data = DataBuku::paginate(6);
         }
         return view('DataBuku.guest',['data'=>$data]);
     }

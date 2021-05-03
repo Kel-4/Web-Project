@@ -22,13 +22,13 @@
             <h1 class="" style="color: blue;"><img src="{{asset('images/logo.png')}}" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
             <div class="navbar2">
             <div class="d-flex">
-                <h5><a href="/" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Exit</a> </h5>
+                <h5><a href="/" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Exit</a> </h5>
             </div>
             </div>
         </div>
     </nav><br><br>
 
-        <div class="container col-10 list-buku">
+        <div class="container col-8 list-buku">
         <center>
         <div id="info container row">
                 <form class="" method="get">
@@ -41,7 +41,7 @@
             @foreach ($data as $buku)
             <div class="card col-md-3 container" style="width: 12rem;">
                 <img src="{{ asset('gambar')}}/{{$buku->gambar}}" style="height: 200px" class="card-img-top" alt="not-found">
-                <div class="card-body">
+                <div class="card-body text-center">
                   <h6 class="fw-bold">{{$buku->judul}}</h6>
                 </div>
                 <div class="container det-btn">
@@ -52,7 +52,7 @@
 
         {{-- detail-modal --}}
         <div class="modal fade" id="<?=$buku->id_buku?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title fw-bold" id="exampleModalLabel">{{$buku->judul}}</h5>
@@ -115,7 +115,7 @@
 </center>
 
     <br><br><br><br>
-    <footer class="bg-dark">
+    <footer class="bg-dark fixed-bottom">
     <div class="p-2">
         <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
     </div>

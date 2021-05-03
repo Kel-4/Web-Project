@@ -18,6 +18,11 @@
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
         <title>Halaman Data Pengunjung</title>
+        <style>
+            button{
+                float: right;
+            }
+        </style>
     </head>
     <body>
     
@@ -80,9 +85,10 @@
                     </div>
                 </form>
             </div>
+            <br>
         </div>
-
-        <footer class="bg-dark">
+        <br><br>
+        <footer class="bg-dark fixed-bottom">
         <div class="p-2">
             <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
         </div>
