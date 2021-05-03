@@ -21,6 +21,7 @@ class CreateDataPeminjaman extends Migration
             $table->date('tgl_pinjam',10);
             $table->date('tgl_jatuh_tempo',10);
             $table->date('tgl_kembali',10);
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

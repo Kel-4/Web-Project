@@ -28,7 +28,7 @@
             <h1 class="fw-bold" style="color: blue;"><img src="{{asset('images/logo.png')}}" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>
             <div class="navbar2">
             <div class="d-flex">
-                <h5><i class="fas fa-user-circle"></i> User</h5>
+                <h5><i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</h5>
             </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
         </div>
     </div>
 
-    <footer class="bg-dark mt-5">
+    <footer class="bg-dark mt-5 fixed-bottom">
         <div class="p-2">
             <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
         </div>

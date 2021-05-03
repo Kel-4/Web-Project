@@ -19,6 +19,11 @@
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
         <title>Halaman Data Pengunjung</title>
+        <style>
+            button{
+                float: right;
+            }
+        </style>
     </head>
   <body>
     
@@ -64,21 +69,21 @@
                 </div>
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" name="nama" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('nama') }}">
+                    <input type="text" name="nama" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('nama') }}" autocomplete="off">
                     @error('nama')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Tanggal terdaftar</label>
-                    <input type="text" name="tanggal_terdaftar" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('tanggal_terdaftar') }}" placeholder="YYYY-MM-DD">
+                    <input type="text" name="tanggal_terdaftar" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('tanggal_terdaftar') }}" placeholder="YYYY-MM-DD" autocomplete="off">
                     @error('tanggal_terdaftar')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Kontak</label>
-                    <input type="text" name="kontak" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('kontak') }}" placeholder="+62 | ">
+                    <input type="text" name="kontak" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('kontak') }}" placeholder="+62 | " autocomplete="off">
                     @error('kontak')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
@@ -96,8 +101,9 @@
                 </div>
             </form>
         </div>
+        <br>
     </div>
-
+    <br><br>
     <footer class="bg-dark fixed-bottom">
         <div class="p-2">
             <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>

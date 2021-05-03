@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+*{
+    font-family: 'Quicksand',sans-serif;
+}
+body {
+    background-image: url("../images/bg_Guest.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+    background-attachment: fixed;
+}
+.navbar{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+h1{
+    font-weight: 1000;
+}
+.card{
+    transition:  0.5s;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+    margin-bottom: 20px;
+   
+}
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(8, 112, 184, 0.7);
+}
+#btn-detail{
+    border: 2px solid ;
+    font-weight: bold;
+    width: 100%;
+}
+.det-btn{
+    margin-top: -10px;
+}
+#cari{
+    /*transition: 0.5s; */
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+@media screen and (max-width : 768px){
+    .modal{
+        transform: scale(0.7);
+    }
+}
+.pagination {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

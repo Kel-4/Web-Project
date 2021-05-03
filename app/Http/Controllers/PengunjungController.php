@@ -23,9 +23,9 @@ class PengunjungController extends Controller
             ->orWhere('kontak', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('alamat', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('id_pengunjung', 'LIKE', '%'.$request->cari.'%')
-            ->paginate(5);
+            ->paginate(8);
         }else{
-            $data = Pengunjung::paginate();
+            $data = Pengunjung::paginate(8);
         }
         return view('DataPengunjung.index', ['data'=>$data]);
 

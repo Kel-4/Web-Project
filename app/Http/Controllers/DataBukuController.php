@@ -12,6 +12,20 @@ class DataBukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function guest(Request $request)
+    {   
+        if($request->has('cari')) {
+            $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')
+            ->paginate(6);
+        } else {
+            $data = DataBuku::paginate(6);
+        }
+        return view('DataBuku.guest',['data'=>$data]);
+    }
+
     public function index(Request $request)
     {
         if($request->has('cari')) {
@@ -19,7 +33,7 @@ class DataBukuController extends Controller
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')
-            ->paginate(5);
+            ->paginate(8);
         } else {
             $data = DataBuku::paginate(5);
         }
