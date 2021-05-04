@@ -82,7 +82,7 @@
 
                 <div class="form-group mt-3">
                     <label for="tgl_pinjam">Tgl Pinjam</label>
-                    <input type="text" name="tgl_pinjam" id="tgl_pinjam" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off">
+                    <input type="date" name="tgl_pinjam" id="tgl_pinjam" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off">
                 </div>
                 @error('tgl_pinjam')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -90,7 +90,7 @@
 
                 <div class="form-group mt-3">
                     <label for="tgl_jatuh_tempo">Tgl Jatuh Tempo</label>
-                    <input type="text" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off">
+                    <input type="date" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off">
                 </div>
                 @error('tgl_jatuh_tempo')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -98,11 +98,8 @@
 
                 <div class="form-group mt-3">
                     <label for="tgl_kembali">Tgl Kembali</label>
-                    <input type="text" name="tgl_kembali" id="tgl_kembali" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off">
+                    <input type="date" name="tgl_kembali" id="tgl_kembali" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off">
                 </div>
-                @error('tgl_kembali')
-                    <div class="alert-danger mt-1">{{$message}}</div>
-                @enderror
 
                 <div class="form-group">
                 <br><br>

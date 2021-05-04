@@ -52,7 +52,6 @@ class DataPeminjamanController extends Controller
             'judul_buku'=>'required',
             'tgl_pinjam'=>'required',
             'tgl_jatuh_tempo'=>'required',
-            'tgl_kembali'=>'required',
         ]);
 
         DataPeminjaman::create([
