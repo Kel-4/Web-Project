@@ -50,7 +50,7 @@
         <br>
         <center><h1>DATA PEMINJAMAN</h1></center><br>
         <div id="info">
-            <div class="info1"> <h4><a href="/DataPeminjaman/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Buku</a></h4></div>
+            <div class="info1"> <h4><a href="/DataPeminjaman/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
         </div>
         <div id="info">
             <form class="form-inline" method="get">
