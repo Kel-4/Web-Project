@@ -61,10 +61,9 @@
         <div class="info1"> <h4><a href="/DataPengunjung/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
         <br>
         <div id="info">
-            <form method="GET" action="">
-                <input type="hidden" name="_token" value="68laEZPlMUpkqexNGannJbCdojT3nzjmXwAQgbmK">                            
-                <input type="search" name="cari" id="search" size="30" class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" placeholder="Kolom pencarian data" value="{{Request::get('cari')}}">
-                <button type="submit" class="btn btn-outline-light"><i class="fas fa-search"></i></button>
+            <form method="GET" action="">  
+                <div class="info1"><input type="search" name="cari" id="search" size="35" class="form-control" placeholder="Kolom pencarian data" value="{{Request::get('cari')}}"></div>
+                <div class="info1"><button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button></div> 
             </form>
         </div>
 
