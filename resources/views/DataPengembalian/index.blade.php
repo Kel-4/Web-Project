@@ -14,6 +14,7 @@
 
         <!-- Icon -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
         
@@ -64,8 +65,33 @@
         <center><h1>DATA PENGEMBALIAN</h1></center><br><br>
         <table class="table rounded-3 table-bordered table-secondary" style="text-align:center;">
             <thead class="table-dark">
+
+        <div class="container"><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info</button></div>
             
-            <div id="info">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Informasi Pemberian Denda</h5>
+                    </div>
+                    <div class="modal-body justify-content">
+                        Bagi pengunjung yang mengembalikan buku melewati batas tempo yang telah ditetapkan akan dikenakan denda sesuai dengan ketentuan yang berlaku. <br><br>
+                        Dengan ketentuan sebagai berikut: <br>
+                        1. Denda Keterlambatan<br> 
+                        (Tanggal Kembali - Tanggal Jatuh Tempo) x Rp2.000,00<br>
+                        2. Denda Rusak/Hilang<br>
+                        Rp200.000,00 <br><br>
+                        Terima kasih ! 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div id="info">
             <form class="form-inline" method="get">
                 <div class="info1"><input type="search" name="cari" size="50" class="form-control" style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="&#xf002 Ketik Keyword Pencarian...."></div>
                 <div class="info1"><button class="btn btn-outline-light" type="submit">Cari !</button></div>
@@ -77,7 +103,7 @@
                     <th>Nama</th>
                     <th>Judul Buku</th>
                     <th>Tanggal Kembali</th> 
-                    <th>Denda</th>
+                    <th>Denda Terlambat</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -88,7 +114,11 @@
                     <td>{{ $buku->nama }}</td>
                     <td>{{ $buku->judul_buku }}</td> 
                     <td>{{ $buku->tgl_kembali }}</td>
-                    <td>ON PROGRESS</td>
+                    @if (!empty($buku->tgl_kembali))
+                    <td>Rp{{ Carbon\Carbon::parse($buku->tgl_jatuh_tempo)->diffInDays($buku->tgl_kembali)*2000 }}</td>
+                    @else
+                    <td>-</td>
+                    @endif
                     <td>
                         @if($buku->status == 1)
                         <a href="{{ route('update-status', $buku->id) }}" class="btn btn-success kembali">KEMBALI</a>
@@ -99,9 +129,6 @@
                 @endforeach
             </tbody>
         </table>
-        <div id="info">
-            <div class="info1"> <h4><a href="/DataPengembalian/denda" class="btn btn-success">&nbsp;Daftar Denda</a></h4></div>
-        </div>
         <br>
         <div class="item rounded-3 fs-6">
             &nbsp;Showing

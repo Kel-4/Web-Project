@@ -70,6 +70,5 @@ Route::get('/DataPengembalian', 'DataPengembalianController@index');
 
 Route::get('/DataPengembalian/status/{id}', 'DataPengembalianController@status')->name('update-status');
 
-Route::get('/DataPengembalian/denda', 'DataPengembalianController@denda');
 });
 
