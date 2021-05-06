@@ -47,7 +47,7 @@
 
     <div class="container">
         <br>
-        <center><h1><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;TAMBAH DATA</h1></center><br><br>
+        <center><h1>TAMBAH DATA</h1></center><br><br>
         <h4><a href="/daftarbuku" class="badge bg-info">Kembali</a></h4><br><br>
         
         <div class="hero rounded-3 px-5 pb-5 pt-5">
@@ -73,6 +73,7 @@
                 <div class="form-group mt-3">
                     <label for="tahun">Tahun</label>
                     <select name="tahun" id="tahun" class="form-control">
+                        <option value="NULL">Pilih tahun ...</option>
                         <option value="2015">2015</option>
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
@@ -82,6 +83,9 @@
                         <option value="2021">2021</option>
                     </select>
                 </div>
+                @error('tahun')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
 
                 <div class="form-group mt-3">
                     <label for="penerbit">Penerbit</label>
@@ -111,6 +115,7 @@
                 <div class="form-group mt-3">
                     <label for="bahasa">Bahasa</label>
                     <select name="bahasa" id="bahasa"  class="form-control">
+                        <option>Pilih bahasa ...</option>
                         <option value="Bahasa Indonesia">Bahasa Indonesia</option>
                         <option value="Bahasa Inggris">Bahasa Inggris</option>
                         <option value="Bahasa Perancis">Bahasa Perancis</option>
@@ -119,14 +124,21 @@
                         <option value="Bahasa Cina">Bahasa Cina</option>
                     </select>
                 </div>
+                @error('bahasa')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
 
                 <div class="form-group mt-3">
                     <label for="keterangan">Keterangan</label>
                     <select name="keterangan" id="keterangan" class="form-control">
+                        <option>Pilih keterangan ...</option>
                         <option value="Original">Original</option>
                         <option value="Copy">Copy</option>
                     </select>
                 </div>
+                @error('keterangan')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
                 
                 <div class="form-group mt-3">
                     <label for="lokasi">Lokasi</label>

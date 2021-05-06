@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label for="tahun">Tahun</label>
                         <select name="tahun" id="tahun" class="form-control">
-                            <option value="{{ $DataBuku->tahun }}">{{ $DataBuku->tahun }}</option>
+                            <option value="{{ $DataBuku->tahun }}">Pilih tahun ...</option>
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
                             <option value="2017">2017</option>
@@ -96,7 +96,7 @@
                     <div class="form-group">
                         <label for="bahasa">Bahasa</label>
                         <select name="bahasa" id="bahasa"  class="form-control">
-                            <option value="{{ $DataBuku->bahasa }}">{{ $DataBuku->bahasa }}</option>
+                            <option value="{{ $DataBuku->bahasa }}">Pilih bahasa ...</option>
                             <option value="Bahasa Indonesia">Bahasa Indonesia</option>
                             <option value="Bahasa Inggris">Bahasa Inggris</option>
                             <option value="Bahasa Perancis">Bahasa Perancis</option>
@@ -123,6 +123,21 @@
                     <div class="form-group">
                         <label for="jumlah_buku">Jumlah Buku</label>
                         <input type="text" name="jumlah_buku" id="jumlah_buku" class="form-control" value="{{ $DataBuku->jumlah_buku }}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="status_buku">Status</label>
+                        <select name="status_buku" id="status_buku" class="form-control">
+                            @if ($DataBuku->status_buku == 0) {
+                                <option value="{{$DataBuku->status_buku}}">Pilih status ...</option>
+                            }
+                            @else {
+                                <option value="{{$DataBuku->status_buku}}">Pilih status ...</option>
+                            }
+                            @endif
+                            <option value="0">Tersedia</option>
+                            <option value="1">Dipinjam</option>
+                        </select>
                     </div>
 
                     <div class="form-group">

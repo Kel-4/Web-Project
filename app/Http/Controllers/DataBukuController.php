@@ -69,7 +69,10 @@ class DataBukuController extends Controller
             'lokasi'=>'required|unique:data_buku',
             'subjek'=>'required',
             'kategori'=>'required',
-            'jumlah_buku'=>'required',
+            'keterangan'=>'required',
+            'tahun'=>'required',
+            'bahasa'=>'required',
+            'jumlah_buku'=>'required|numeric',
 
         ]);
 
@@ -170,6 +173,7 @@ class DataBukuController extends Controller
             $DataBuku->bahasa = $request->bahasa;
             $DataBuku->keterangan = $request->keterangan;
             $DataBuku->lokasi = $request->lokasi;
+            $DataBuku->status_buku = $request->status_buku;
             $DataBuku->jumlah_buku = $request->jumlah_buku;
             $DataBuku->deskripsi = $request->deskripsi;
             $gambar = $request->gambar;
@@ -191,6 +195,7 @@ class DataBukuController extends Controller
             $bahasa = $request->bahasa;
             $keterangan = $request->keterangan;
             $lokasi = $request->lokasi;
+            $status_buku = $request->status_buku;
             $jumlah_buku = $request->jumlah_buku;
             $deskripsi = $request->$deskripsi;
     
@@ -204,6 +209,7 @@ class DataBukuController extends Controller
             $DataBuku->bahasa = $request->bahasa;
             $DataBuku->keterangan = $request->keterangan;
             $DataBuku->lokasi = $request->lokasi;
+            $DataBuku->status_buku = $request->status_buku;
             $DataBuku->jumlah_buku = $request->jumlah_buku;
             $DataBuku->deskripsi = $request->deskripsi;
             $DataBuku->gambar = $NamaGambar;
