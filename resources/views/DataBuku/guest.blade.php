@@ -28,7 +28,7 @@
         </div>
     </nav><br><br>
 
-        <div class="container col-8 list-buku">
+        <div class="container col-10 list-buku">
         <center>
         <div id="info container row">
                 <form class="" method="get">
@@ -115,7 +115,7 @@
 </center>
 
     <br><br><br><br>
-    <footer class="bg-dark fixed-bottom">
+    <footer class="bg-dark">
     <div class="p-2">
         <h6 class="text-center text-light">delibrary Copyright&copy; Aplikasi Pengelolaan Perpustakaan. By <b class="text-warning">Kelompok 4</b> with <i class="fas fa-heart text-danger"></i></h6>
     </div>
