@@ -83,11 +83,11 @@
         <table class="table table-bordered table-striped" style="text-align:center">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>ID_Buku</th>
                     <th>Judul</th>
                     <th>Penerbit</th>
-                    <th>Rak</th>
-                    <th>Gambar</th>
+                    <th>Lokasi</th>
+                    <th>Status Buku</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -97,16 +97,89 @@
                     <td>{{ $buku->id_buku }}</td>
                     <td>{{ $buku->judul }}</td>
                     <td>{{ $buku->penerbit }}</td>
-                    <td>{{ $buku->rak }}</td>
-                    <td><img width="50px"src="{{asset('gambar')}}/{{ $buku->gambar }}" alt="not found"></td>
-                    <td>
-                        <a href="/daftarbuku/hapus/{{ $buku->id }}" class="badge bg-danger">hapus</a>
-                        <a href="/daftarbuku/ubah/{{ $buku->id }}" class="badge bg-warning">ubah</a>
+                    <td>{{ $buku->lokasi}}</td>
+                    @if($buku->status_buku==0)
+                        <td><a href="" class="btn btn-success kembali">TERSEDIA</a></td>
+                    @else
+                        <td><a href="" class="btn btn-danger baru">DIPINJAM</a></td>
+                    @endif
+                    <td>    
+                        <a href="/daftarbuku/ubah/{{ $buku->id }}" class="badge bg-info" data-bs-toggle="modal" data-bs-target="#ModalBuku"><i class="fa fa-info" aria-hidden="true"></i>&nbsp;detail</a>
+                        <a href="/daftarbuku/ubah/{{ $buku->id }}" class="badge bg-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;ubah</a>
+                        <a href="/daftarbuku/hapus/{{ $buku->id }}" class="badge bg-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;hapus</a>
                     </td>
                 </tr>
-                @endforeach
             </tbody>
         </table>
+
+        <!-- Modal -->
+        <div class="modal fade" id="ModalBuku" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">DETAIL BUKU</h3>
+                    </div>
+                    <div class="modal-body row">
+                        <div class="col-md-4 img-dtl mt-5">
+                            <img width="100%" src="{{asset('gambar')}}/{{ $buku->gambar }}" alt="not found">
+                        </div>
+                        <div class="col-md-8">
+                            <table class="table table-hover">
+                                <tr>
+                                    <td>ID Buku</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->id_buku }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Judul</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->judul }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tahun</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->tahun }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Penerbit</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->penerbit }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Kategori</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->kategori }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Subjek</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->subjek }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Bahasa</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->bahasa }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Keterangan</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->keterangan }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Deskripsi</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->deskripsi }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
         <br>
         <div class="item rounded-3 fs-6">
             &nbsp;Showing

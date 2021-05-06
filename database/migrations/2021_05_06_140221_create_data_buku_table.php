@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataBuku extends Migration
+class CreateDataBukuTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,19 @@ class CreateDataBuku extends Migration
     {
         Schema::create('data_buku', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('id_buku');
+            $table->string('id_buku', 5);
             $table->string('judul',100);
             $table->string('penerbit',100);
-            $table->string('rak');
+            $table->string('lokasi');
             $table->string('gambar')->nullable();
+            $table->boolean('status_buku')->default(0);
+            $table->string('kategori');
+            $table->integer('jumlah_buku');
+            $table->text('deskripsi')->nullable();
+            $table->string('bahasa');
+            $table->string('keterangan');
+            $table->string('tahun');
+            $table->string('subjek');
             $table->timestamps();
         });
     }

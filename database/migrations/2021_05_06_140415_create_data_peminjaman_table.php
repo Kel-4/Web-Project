@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataPeminjaman extends Migration
+class CreateDataPeminjamanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,9 @@ class CreateDataPeminjaman extends Migration
     {
         Schema::create('data_peminjaman', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('id_peminjaman');
+            $table->string('id_peminjaman',5);
+            $table->string('id_buku',5);
+            $table->string('id_pengunjung',5);
             $table->string('nama',100);
             $table->string('judul_buku',100);
             $table->date('tgl_pinjam',10);

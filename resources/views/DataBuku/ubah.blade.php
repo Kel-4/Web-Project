@@ -53,22 +53,83 @@
             <div class="hero rounded-3 px-5 pb-5 pt-5">
                 <form  enctype="multipart/form-data" action="/daftarbuku/update/{{ $DataBuku->id }}" method="post">
                     {{ csrf_field() }}
+
                     <div class="form-group">
-                        <label>ID</label>
-                        <input type="text" name="id_buku" class="form-control" value="{{ $DataBuku->id_buku }}">
+                        <label for="id_buku">ID</label>
+                        <input type="text" name="id_buku" id="id_buku" class="form-control" value="{{ $DataBuku->id_buku }}"> 
                     </div>
+
                     <div class="form-group">
-                        <label>Judul</label>
-                        <input type="text" name="judul" class="form-control" value="{{ $DataBuku->judul }}">
+                        <label for="judul">Judul</label>
+                        <input type="text" name="judul" id="judul" class="form-control" value="{{ $DataBuku->judul }}">
                     </div>
+
                     <div class="form-group">
-                        <label>Penerbit</label>
-                        <input type="text" name="penerbit" class="form-control" value="{{ $DataBuku->penerbit }}">
+                        <label for="tahun">Tahun</label>
+                        <select name="tahun" id="tahun" class="form-control">
+                            <option value="{{ $DataBuku->tahun }}">{{ $DataBuku->tahun }}</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                        </select>
                     </div>
+
                     <div class="form-group">
-                        <label>Rak</label>
-                        <input type="text" name="rak" class="form-control" value="{{ $DataBuku->rak }}">
+                        <label for="penerbit">Penerbit</label>
+                        <input type="text" name="penerbit" id="penerbit" class="form-control" value="{{ $DataBuku->penerbit }}">
                     </div>
+
+                    <div class="form-group">
+                        <label for="subjek">Subjek</label>
+                        <input type="text" name="subjek" id="subjek" class="form-control" value="{{ $DataBuku->subjek }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kategori">Kategori</label>
+                        <input type="text" name="kategori" id="kategori" value="{{ $DataBuku->kategori }}" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bahasa">Bahasa</label>
+                        <select name="bahasa" id="bahasa"  class="form-control">
+                            <option value="{{ $DataBuku->bahasa }}">{{ $DataBuku->bahasa }}</option>
+                            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                            <option value="Bahasa Inggris">Bahasa Inggris</option>
+                            <option value="Bahasa Perancis">Bahasa Perancis</option>
+                            <option value="Bahasa Jerman">Bahasa Jerman</option>
+                            <option value="Bahasa Jepang">Bahasa Jepang</option>
+                            <option value="Bahasa Cina">Bahasa Cina</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keterangan">Keterangan</label>
+                        <select name="keterangan" id="keterangan" class="form-control">
+                            <option value="{{ $DataBuku->keterangan }}">{{ $DataBuku->keterangan }}</option>
+                            <option value="Original">Original</option>
+                            <option value="Copy">Copy</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lokasi">Lokasi</label>
+                        <input type="text" name="lokasi" id="lokasi" class="form-control" value="{{ $DataBuku->lokasi }}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jumlah_buku">Jumlah Buku</label>
+                        <input type="text" name="jumlah_buku" id="jumlah_buku" class="form-control" value="{{ $DataBuku->jumlah_buku }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deskripsi">Deskripsi</label>
+                        <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="{{ $DataBuku->deskripsi }}">
+                    </div>
+
                     <div class="form-group">
                         <label>Gambar</label>
                         <input type="file" name="gambar" class="form-control" value=" $DataBuku->gambar">

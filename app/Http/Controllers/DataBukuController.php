@@ -32,7 +32,11 @@ class DataBukuController extends Controller
             $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('lokasi', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('status_buku', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('bahasa', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('CO', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('tahun', 'LIKE', '%'.$request->cari.'%')
             ->paginate(8);
         } else {
             $data = DataBuku::paginate(5);
@@ -62,7 +66,10 @@ class DataBukuController extends Controller
             'id_buku'=>'required|unique:data_buku',
             'judul'=>'required',
             'penerbit'=>'required',
-            'rak'=>'required|unique:data_buku',
+            'lokasi'=>'required|unique:data_buku',
+            'subjek'=>'required',
+            'kategori'=>'required',
+            'jumlah_buku'=>'required',
 
         ]);
 
@@ -71,14 +78,28 @@ class DataBukuController extends Controller
                 'id_buku' => $request->id_buku,
                 'judul' => $request->judul,
                 'penerbit' => $request->penerbit,
-                'rak' => $request->rak,
+                'subjek' => $request->subjek,
+                'kategori' => $request->kategori,
+                'bahasa' => $request->bahasa,
+                'keterangan' => $request->keterangan,
+                'lokasi' => $request->lokasi,
+                'tahun' => $request->tahun,
+                'jumlah_buku' => $request->jumlah_buku,
+                'deskripsi' => $request->deskripsi,
                 'gambar' => $request->gambar
             ]);
         } else {
             $id_buku = $request->id_buku;
             $judul = $request->judul;
             $penerbit = $request->penerbit;
-            $rak = $request->rak;
+            $subjek = $request->subjek;
+            $kategori = $request->kategori;
+            $bahasa = $request->bahasa;
+            $keterangan = $request->keterangan;
+            $jumlah_buku = $request->jumlah_buku;
+            $lokasi = $request->lokasi;
+            $tahun = $request->tahun;
+            $deskripsi = $request->deskripsi;
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('gambar'),$NamaGambar);
@@ -87,7 +108,14 @@ class DataBukuController extends Controller
             $DataBuku->id_buku = $id_buku;
             $DataBuku->judul = $judul;
             $DataBuku->penerbit = $penerbit;
-            $DataBuku->rak = $rak;
+            $DataBuku->subjek = $subjek;
+            $DataBuku->kategori = $kategori;
+            $DataBuku->bahasa = $bahasa;
+            $DataBuku->keterangan = $keterangan;
+            $DataBuku->jumlah_buku = $jumlah_buku;
+            $DataBuku->lokasi = $lokasi;
+            $DataBuku->tahun = $tahun;
+            $DataBuku->deskripsi = $deskripsi;
             $DataBuku->gambar = $NamaGambar;
             $DataBuku->save();
         }
@@ -135,8 +163,15 @@ class DataBukuController extends Controller
             $DataBuku = DataBuku::find($id);
             $DataBuku->id_buku = $request->id_buku;
             $DataBuku->judul = $request->judul;
+            $DataBuku->tahun = $request->tahun;
             $DataBuku->penerbit = $request->penerbit;
-            $DataBuku->rak = $request->rak;
+            $DataBuku->subjek = $request->subjek;
+            $DataBuku->kategori = $request->kategori;
+            $DataBuku->bahasa = $request->bahasa;
+            $DataBuku->keterangan = $request->keterangan;
+            $DataBuku->lokasi = $request->lokasi;
+            $DataBuku->jumlah_buku = $request->jumlah_buku;
+            $DataBuku->deskripsi = $request->deskripsi;
             $gambar = $request->gambar;
 
             $DataBuku->save();
@@ -149,14 +184,28 @@ class DataBukuController extends Controller
     
             $id_buku = $request->id_buku;
             $judul = $request->judul;
+            $tahun = $request->tahun;
             $penerbit = $request->penerbit;
-            $rak = $request->rak;
+            $subjek = $request->subjek;
+            $kategori = $request->kategori;
+            $bahasa = $request->bahasa;
+            $keterangan = $request->keterangan;
+            $lokasi = $request->lokasi;
+            $jumlah_buku = $request->jumlah_buku;
+            $deskripsi = $request->$deskripsi;
     
             $DataBuku = DataBuku::find($id);
-            $DataBuku->id_buku = $id_buku;
-            $DataBuku->judul = $judul;
-            $DataBuku->penerbit = $penerbit;
-            $DataBuku->rak = $rak;
+            $DataBuku->id_buku = $request->id_buku;
+            $DataBuku->judul = $request->judul;
+            $DataBuku->tahun = $request->tahun;
+            $DataBuku->penerbit = $request->penerbit;
+            $DataBuku->subjek = $request->subjek;
+            $DataBuku->kategori = $request->kategori;
+            $DataBuku->bahasa = $request->bahasa;
+            $DataBuku->keterangan = $request->keterangan;
+            $DataBuku->lokasi = $request->lokasi;
+            $DataBuku->jumlah_buku = $request->jumlah_buku;
+            $DataBuku->deskripsi = $request->deskripsi;
             $DataBuku->gambar = $NamaGambar;
     
             $DataBuku->save();

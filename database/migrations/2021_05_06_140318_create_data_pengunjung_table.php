@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePengunjungTable extends Migration
+class CreateDataPengunjungTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class CreatePengunjungTable extends Migration
     public function up()
     {
         Schema::create('pengunjung', function (Blueprint $table) {
-            $table->id();
-            $table->string('id_pengunjung');
+            $table->increments('id');
+            $table->string('id_pengunjung', 5);
             $table->string('nama');
             $table->date('tanggal_terdaftar');
             $table->string('kontak');
