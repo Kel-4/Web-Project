@@ -62,7 +62,7 @@
                 @csrf
                 <div class="form-group">
                     <label>ID Pengunjung</label>
-                    <input type="text" name="id_pengunjung" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('id_pengunjung') }}">
+                    <input type="text" name="id_pengunjung" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ old('id_pengunjung') }}" autocomplete="off">
                         @error('id_pengunjung')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
@@ -76,7 +76,7 @@
                 </div>
                 <div class="form-group">
                     <label>Tanggal terdaftar</label>
-                    <input type="text" name="tanggal_terdaftar" class="form-control @error('tanggal_terdaftar') is-invalid @enderror" value="{{ old('tanggal_terdaftar') }}" placeholder="YYYY-MM-DD" autocomplete="off">
+                    <input type="date" name="tanggal_terdaftar" class="form-control @error('tanggal_terdaftar') is-invalid @enderror" value="{{ old('tanggal_terdaftar') }}" autocomplete="off">
                     @error('tanggal_terdaftar')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
@@ -90,7 +90,7 @@
                 </div>
                 <div class="form-group">
                     <label>Alamat</label>
-                    <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ old('alamat') }}">
+                    <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ old('alamat') }}" autocomplete="off">
                     @error('alamat')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
