@@ -20,7 +20,6 @@
         <title>Data Pengunjung</title>
         <style>
             th, td{
-                color:black;
                 text-align:center;
             }
             #info{
@@ -61,11 +60,10 @@
         <div class="info1"> <h4><a href="/DataPengunjung/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
         <br>
         <div id="info">
-            <form method="GET" action="">  
-                <div class="info1"><input type="search" name="cari" id="search" size="35" class="form-control" placeholder="Kolom pencarian data" value="{{Request::get('cari')}}"></div>
-                <div class="info1"><button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button></div> 
+            <form method="GET">
+                <div class="info1container d-flex"><input type="search" id="cari" size="35" name="cari"class="form-control rounded-pill " style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="&#xf002 Ketik Keyword Pencarian....">&nbsp;&nbsp;<button id="bcari" class="btn btn-outline-primary rounded-circle" type="submit"><i class="fas fa-search"></i></button></div>
             </form>
-        </div>
+        </div> 
 
         <table class="table rounded-3 table-striped">
             <thead>
