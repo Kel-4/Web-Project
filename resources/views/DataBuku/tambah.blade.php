@@ -47,7 +47,7 @@
 
     <div class="container">
         <br>
-        <center><h1><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;TAMBAH DATA</h1></center><br><br>
+        <center><h1>TAMBAH DATA</h1></center><br><br>
         <h4><a href="/daftarbuku" class="badge bg-info">Kembali</a></h4><br><br>
         
         <div class="hero rounded-3 px-5 pb-5 pt-5">
@@ -71,6 +71,23 @@
                 @enderror
 
                 <div class="form-group mt-3">
+                    <label for="tahun">Tahun</label>
+                    <select name="tahun" id="tahun" class="form-control">
+                        <option value="NULL">Pilih tahun ...</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div>
+                @error('tahun')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
                     <label for="penerbit">Penerbit</label>
                     <input type="text" name="penerbit" id="penerbit" class="form-control">
                 </div>
@@ -79,12 +96,70 @@
                 @enderror
 
                 <div class="form-group mt-3">
-                    <label for="rak">Rak</label>
-                    <input type="text" name="rak" id="rak" class="form-control">
+                    <label for="subjek">Subjek</label>
+                    <input type="text" name="subjek" id="subjek" class="form-control">
                 </div>
-                @error('rak')
+                @error('subjek')
                     <div class="alert-danger mt-1">{{$message}}</div>
                 @enderror
+
+                <div class="form-group mt-3">
+                    <label for="kategori">Kategori</label>
+                    <input type="text" name="kategori" id="kategori" class="form-control">
+                </div>
+                @error('kategori')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+
+                <div class="form-group mt-3">
+                    <label for="bahasa">Bahasa</label>
+                    <select name="bahasa" id="bahasa"  class="form-control">
+                        <option>Pilih bahasa ...</option>
+                        <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                        <option value="Bahasa Inggris">Bahasa Inggris</option>
+                        <option value="Bahasa Perancis">Bahasa Perancis</option>
+                        <option value="Bahasa Jerman">Bahasa Jerman</option>
+                        <option value="Bahasa Jepang">Bahasa Jepang</option>
+                        <option value="Bahasa Cina">Bahasa Cina</option>
+                    </select>
+                </div>
+                @error('bahasa')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
+                    <label for="keterangan">Keterangan</label>
+                    <select name="keterangan" id="keterangan" class="form-control">
+                        <option>Pilih keterangan ...</option>
+                        <option value="Original">Original</option>
+                        <option value="Copy">Copy</option>
+                    </select>
+                </div>
+                @error('keterangan')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+                
+                <div class="form-group mt-3">
+                    <label for="lokasi">Lokasi</label>
+                    <input type="text" name="lokasi" id="lokasi" class="form-control">
+                </div>
+                @error('lokasi')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+                
+                <div class="form-group mt-3">
+                    <label for="jumlah_buku">Jumlah Buku</label>
+                    <input type="text" name="jumlah_buku" id="jumlah_buku" class="form-control">
+                </div>
+                @error('jumlah_buku')
+                    <div class="alert-danger mt-1">{{$message}}</div>
+                @enderror
+
+                <div class="form-group mt-3">
+                    <label for="deskripsi">Deskripsi</label>
+                    <input type="text" name="deskripsi" id="deskripsi" class="form-control">
+                </div>
 
                 <div class="form-group mt-3">
                     <label>Gambar</label>

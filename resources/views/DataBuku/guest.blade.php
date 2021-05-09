@@ -47,8 +47,8 @@
                 <div class="container det-btn">
                     <button id="btn-detail" data-bs-toggle="modal" data-bs-target="#<?=$buku->id_buku?>" class="btn btn-outline-success btn-sm mb-2">
                     <i class="fas fa-info-circle"></i> Detail</button>
-                  </div>
-              </div>
+                </div>
+            </div>
 
         {{-- detail-modal --}}
         <div class="modal fade" id="<?=$buku->id_buku?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
