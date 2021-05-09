@@ -122,6 +122,13 @@ class PengunjungController extends Controller
         return redirect('/DataPengunjung')->with('success', 'Data Berhasil Diubah!');
     }
 
+    public function cetak_kartu($id)
+    {
+        //
+        $pengunjung = Pengunjung::find($id);
+        return view('DataPengunjung.cetak_kartu', ['pengunjung' => $pengunjung]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -135,4 +142,5 @@ class PengunjungController extends Controller
         $pengunjung->delete();
         return redirect('/DataPengunjung')->with('success', 'Data Telah Dihapus!');
     }
+
 }

@@ -52,6 +52,7 @@ Route::post('/DataPengunjung/simpan', 'PengunjungController@store');
 Route::get('/DataPengunjung/hapus/{id}', 'PengunjungController@destroy');
 Route::get('/DataPengunjung/ubah/{id}', 'PengunjungController@edit');
 Route::post('/DataPengunjung/update/{id}', 'PengunjungController@update');
+Route::get('/DataPengunjung/cetak_kartu/{id}', 'PengunjungController@cetak_kartu')->name('cetak_kartu');
 
 
 Route::get('/DataPeminjaman', 'DataPeminjamanController@index');
