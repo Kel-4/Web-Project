@@ -55,8 +55,8 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label for="id_buku">ID</label>
-                    <input type="text" name="id_buku" id="id_buku" class="form-control">
+                    <label for="id">ID</label>
+                    <input type="text" name="id" id="id" class="form-control">
                 </div>
                 @error('id_buku')
                     <div class="alert-danger mt-1">{{$message}}</div>

@@ -115,6 +115,7 @@
     </div>
 
         <!-- Modal -->
+        @foreach ($data as $buku)
         <div class="modal fade" id="ModalBuku" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -127,11 +128,10 @@
                         </div>
                         <div class="col-md-8">
                             <table class="table table-hover">
-                            @foreach ($data as $buku)
                                 <tr>
                                     <td>ID Buku</td>
                                     <td>:</td>
-                                    <td>{{ $buku->id_buku }}</td>
+                                    <td>AA00{{ $buku->id }}</td>
                                 </tr>
                                 <tr>
                                     <td>Judul</td>
@@ -173,7 +173,6 @@
                                     <td>:</td>
                                     <td>{{ $buku->deskripsi }}</td>
                                 </tr>
-                                @endforeach
                             </table>
                         </div>
                     </div>
@@ -183,6 +182,7 @@
                 </div>
             </div>
         </div>
+        @endforeach
         <br>
         <div class="item rounded-3 fs-6">
             &nbsp;Showing

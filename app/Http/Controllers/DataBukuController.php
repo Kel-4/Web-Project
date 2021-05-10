@@ -35,7 +35,7 @@ class DataBukuController extends Controller
             ->orWhere('lokasi', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('status_buku', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('bahasa', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('CO', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('kategori', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('tahun', 'LIKE', '%'.$request->cari.'%')
             ->paginate(8);
         } else {
@@ -191,7 +191,7 @@ class DataBukuController extends Controller
             $lokasi = $request->lokasi;
             $status_buku = $request->status_buku;
             $jumlah_buku = $request->jumlah_buku;
-            $deskripsi = $request->$deskripsi;
+            $deskripsi = $request->deskripsi;
     
             $DataBuku = DataBuku::find($id);
             $DataBuku->judul = $request->judul;

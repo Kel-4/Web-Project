@@ -55,8 +55,8 @@
                     {{ csrf_field() }}
 
                     <div class="form-group">
-                        <label for="id_buku">ID</label>
-                        <input type="text" name="id_buku" id="id_buku" class="form-control" value="{{ $DataBuku->id_buku }}"> 
+                        <label for="id">ID</label>
+                        <input type="text" name="id" id="id" class="form-control" value="{{ $DataBuku->id }}"> 
                     </div>
 
                     <div class="form-group">
@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label for="tahun">Tahun</label>
                         <select name="tahun" id="tahun" class="form-control">
-                            <option value="{{ $DataBuku->tahun }}">Pilih tahun ...</option>
+                            <option value="{{ $DataBuku->tahun }}">{{ $DataBuku->tahun }} - Pilih tahun ...</option>
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
                             <option value="2017">2017</option>
@@ -96,7 +96,7 @@
                     <div class="form-group">
                         <label for="bahasa">Bahasa</label>
                         <select name="bahasa" id="bahasa"  class="form-control">
-                            <option value="{{ $DataBuku->bahasa }}">Pilih bahasa ...</option>
+                            <option value="{{ $DataBuku->bahasa }}">{{ $DataBuku->bahasa }} - Pilih bahasa ...</option>
                             <option value="Bahasa Indonesia">Bahasa Indonesia</option>
                             <option value="Bahasa Inggris">Bahasa Inggris</option>
                             <option value="Bahasa Perancis">Bahasa Perancis</option>
@@ -109,7 +109,7 @@
                     <div class="form-group">
                         <label for="keterangan">Keterangan</label>
                         <select name="keterangan" id="keterangan" class="form-control">
-                            <option value="{{ $DataBuku->keterangan }}">{{ $DataBuku->keterangan }}</option>
+                            <option value="{{ $DataBuku->keterangan }}">{{ $DataBuku->keterangan }} - Pilih Keterangan</option>
                             <option value="Original">Original</option>
                             <option value="Copy">Copy</option>
                         </select>
