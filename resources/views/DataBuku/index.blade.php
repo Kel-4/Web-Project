@@ -94,7 +94,7 @@
             <tbody>
                 @foreach ($data as $buku)
                 <tr>
-                    <td>{{ $buku->id_buku }}</td>
+                    <td>AA00{{ $buku->id }}</td>
                     <td>{{ $buku->judul }}</td>
                     <td>{{ $buku->penerbit }}</td>
                     <td>{{ $buku->lokasi}}</td>
@@ -109,8 +109,10 @@
                         <a href="/daftarbuku/hapus/{{ $buku->id }}" class="badge bg-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;hapus</a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
+    </div>
 
         <!-- Modal -->
         <div class="modal fade" id="ModalBuku" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
@@ -125,6 +127,7 @@
                         </div>
                         <div class="col-md-8">
                             <table class="table table-hover">
+                            @foreach ($data as $buku)
                                 <tr>
                                     <td>ID Buku</td>
                                     <td>:</td>
@@ -170,6 +173,7 @@
                                     <td>:</td>
                                     <td>{{ $buku->deskripsi }}</td>
                                 </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>
@@ -179,7 +183,6 @@
                 </div>
             </div>
         </div>
-        @endforeach
         <br>
         <div class="item rounded-3 fs-6">
             &nbsp;Showing
@@ -193,7 +196,7 @@
         <div class="pagination mt-3">
             {{ $data->links() }}
         </div>
-    </div>
+    
     <br><br><br><br>
     <footer class="bg-dark fixed-bottom">
     <div class="p-2">

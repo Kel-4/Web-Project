@@ -57,8 +57,8 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label>ID Pengunjung</label>
-                        <input type="text" name="id_pengunjung" class="form-control @error('id_pengunjung') is-invalid @enderror" value="{{ $pengunjung->id_pengunjung }}">
-                        @error('id_pengunjung')
+                        <input type="text" name="id" class="form-control @error('id') is-invalid @enderror" value="{{ $pengunjung->id }}">
+                        @error('id')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
                     </div>
@@ -70,8 +70,16 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label>Jenis Kelamin</label>
+                       <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                            <option value="{{ $pengunjung->jenis_kelamin }}">Pilih Jenis Kelamin</option>
+                            <option value="Pria">Pria</option>
+                            <option value="Wanita">Wanita</option>
+                       </select>
+                    </div>
+                    <div class="form-group">
                         <label>Tanggal terdaftar</label>
-                        <input type="text" name="tanggal_terdaftar" class="form-control @error('tanggal_terdaftar') is-invalid @enderror" value="{{ $pengunjung->tanggal_terdaftar }}">
+                        <input type="date" name="tanggal_terdaftar" class="form-control @error('tanggal_terdaftar') is-invalid @enderror" value="{{ $pengunjung->tanggal_terdaftar }}">
                         @error('tanggal_terdaftar')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror

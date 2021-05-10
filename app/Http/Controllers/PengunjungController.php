@@ -22,7 +22,7 @@ class PengunjungController extends Controller
             ->orWhere('tanggal_terdaftar', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('kontak', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('alamat', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('id_pengunjung', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('id', 'LIKE', '%'.$request->cari.'%')
             ->paginate(8);
         }else{
             $data = Pengunjung::paginate(8);
@@ -52,19 +52,21 @@ class PengunjungController extends Controller
     {
         //
         $request->validate([
-            'id_pengunjung' => 'required',
+            'id' => 'required',
             'nama' => 'required',
             'tanggal_terdaftar' => 'required',
             'kontak' => 'required',
-            'alamat' => 'required',
+            'alamat' => 'required'
         ]);
 
         Pengunjung::create([
-            'id_pengunjung' => $request->id_pengunjung,
+            'id' => $request->id,
             'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
             'tanggal_terdaftar' => $request->tanggal_terdaftar,
             'kontak' => $request->kontak,
-            'alamat' => $request->alamat
+            'alamat' => $request->alamat,
+            'status_pinjam' => $request->status_pinjam
         ]);
 
         return redirect('/DataPengunjung')->with('success', 'Data Berhasil Ditambahkan!'); 
@@ -113,11 +115,13 @@ class PengunjungController extends Controller
         ]);
 
         $pengunjung = Pengunjung::find($id);
-        $pengunjung->id_pengunjung = $request->id_pengunjung;
+        $pengunjung->id = $request->id;
         $pengunjung->nama = $request->nama;
+        $pengunjung->jenis_kelamin = $request->jenis_kelamin;
         $pengunjung->tanggal_terdaftar = $request->tanggal_terdaftar;
         $pengunjung->kontak = $request->kontak;
         $pengunjung->alamat = $request->alamat;
+        $pengunjung->status_pinjam = $request->status_pinjam;
         $pengunjung->save();
         return redirect('/DataPengunjung')->with('success', 'Data Berhasil Diubah!');
     }
