@@ -55,11 +55,6 @@
                     {{ csrf_field() }}
 
                     <div class="form-group">
-                        <label for="id">ID</label>
-                        <input type="text" name="id" id="id" class="form-control" value="{{ $DataBuku->id }}"> 
-                    </div>
-
-                    <div class="form-group">
                         <label for="judul">Judul</label>
                         <input type="text" name="judul" id="judul" class="form-control" value="{{ $DataBuku->judul }}">
                     </div>
