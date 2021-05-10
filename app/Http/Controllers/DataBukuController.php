@@ -15,7 +15,7 @@ class DataBukuController extends Controller
     public function guest(Request $request)
     {   
         if($request->has('cari')) {
-            $data = DataBuku::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')
@@ -29,13 +29,13 @@ class DataBukuController extends Controller
     public function index(Request $request)
     {
         if($request->has('cari')) {
-            $data = DataBuku::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('lokasi', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('status_buku', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('bahasa', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('kategori', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('CO', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('tahun', 'LIKE', '%'.$request->cari.'%')
             ->paginate(8);
         } else {
@@ -63,6 +63,7 @@ class DataBukuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id'=>'required|unique:data_buku',
             'judul'=>'required',
             'penerbit'=>'required',
             'lokasi'=>'required|unique:data_buku',
@@ -77,6 +78,7 @@ class DataBukuController extends Controller
 
         if ($request->file('gambar')==NULL) {
             DataBuku::create([
+                'id' => $request->id_buku,
                 'judul' => $request->judul,
                 'penerbit' => $request->penerbit,
                 'subjek' => $request->subjek,
@@ -90,6 +92,7 @@ class DataBukuController extends Controller
                 'gambar' => $request->gambar
             ]);
         } else {
+            $id_buku = $request->id_buku;
             $judul = $request->judul;
             $penerbit = $request->penerbit;
             $subjek = $request->subjek;
@@ -105,6 +108,7 @@ class DataBukuController extends Controller
             $gambar->move(public_path('gambar'),$NamaGambar);
 
             $DataBuku = new DataBuku();
+            $DataBuku->id_buku = $id_buku;
             $DataBuku->judul = $judul;
             $DataBuku->penerbit = $penerbit;
             $DataBuku->subjek = $subjek;
@@ -160,6 +164,7 @@ class DataBukuController extends Controller
         
         if ($request->file('gambar')==NULL) {
             $DataBuku = DataBuku::find($id);
+            $DataBuku->id_buku = $request->id_buku;
             $DataBuku->judul = $request->judul;
             $DataBuku->tahun = $request->tahun;
             $DataBuku->penerbit = $request->penerbit;
@@ -181,6 +186,7 @@ class DataBukuController extends Controller
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('gambar'), $NamaGambar);
     
+            $id_buku = $request->id_buku;
             $judul = $request->judul;
             $tahun = $request->tahun;
             $penerbit = $request->penerbit;
@@ -191,9 +197,10 @@ class DataBukuController extends Controller
             $lokasi = $request->lokasi;
             $status_buku = $request->status_buku;
             $jumlah_buku = $request->jumlah_buku;
-            $deskripsi = $request->deskripsi;
+            $deskripsi = $request->$deskripsi;
     
             $DataBuku = DataBuku::find($id);
+            $DataBuku->id_buku = $request->id_buku;
             $DataBuku->judul = $request->judul;
             $DataBuku->tahun = $request->tahun;
             $DataBuku->penerbit = $request->penerbit;
