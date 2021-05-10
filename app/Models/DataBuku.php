@@ -9,7 +9,7 @@ class DataBuku extends Model
     use HasFactory;
     protected $table = 'data_buku';
 
-    protected $fillable = ['id_buku', 'judul', 'penerbit', 'lokasi', 'gambar', 'status_buku', 'kategori', 'jumlah_buku', 'deskripsi', 'bahasa', 'keterangan', 'tahun', 'subjek'];
+    protected $fillable = ['id', 'judul', 'penerbit', 'lokasi', 'gambar', 'status_buku', 'kategori', 'jumlah_buku', 'deskripsi', 'bahasa', 'keterangan', 'tahun', 'subjek'];
 
     protected $primaryKey = 'id';
 }

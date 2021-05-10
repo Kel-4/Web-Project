@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label for="tahun">Tahun</label>
                         <select name="tahun" id="tahun" class="form-control">
-                            <option value="{{ $DataBuku->tahun }}">{{ $DataBuku->tahun }} - Pilih tahun ...</option>
+                            <option value="{{ $DataBuku->tahun }}">{{ $DataBuku->tahun }} (Ganti tahun)</option>
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
                             <option value="2017">2017</option>
@@ -96,7 +96,7 @@
                     <div class="form-group">
                         <label for="bahasa">Bahasa</label>
                         <select name="bahasa" id="bahasa"  class="form-control">
-                            <option value="{{ $DataBuku->bahasa }}">{{ $DataBuku->bahasa }} - Pilih bahasa ...</option>
+                            <option value="{{ $DataBuku->bahasa }}">{{ $DataBuku->bahasa }} (Ganti bahasa)</option>
                             <option value="Bahasa Indonesia">Bahasa Indonesia</option>
                             <option value="Bahasa Inggris">Bahasa Inggris</option>
                             <option value="Bahasa Perancis">Bahasa Perancis</option>
@@ -109,7 +109,7 @@
                     <div class="form-group">
                         <label for="keterangan">Keterangan</label>
                         <select name="keterangan" id="keterangan" class="form-control">
-                            <option value="{{ $DataBuku->keterangan }}">{{ $DataBuku->keterangan }} - Pilih Keterangan</option>
+                            <option value="{{ $DataBuku->keterangan }}">{{ $DataBuku->keterangan }} (Ganti Keterangan)</option>
                             <option value="Original">Original</option>
                             <option value="Copy">Copy</option>
                         </select>
@@ -129,10 +129,10 @@
                         <label for="status_buku">Status</label>
                         <select name="status_buku" id="status_buku" class="form-control">
                             @if ($DataBuku->status_buku == 0) {
-                                <option value="{{$DataBuku->status_buku}}">Pilih status ...</option>
+                                <option value="{{$DataBuku->status_buku}}">Tersedia (Ganti status)</option>
                             }
                             @else {
-                                <option value="{{$DataBuku->status_buku}}">Pilih status ...</option>
+                                <option value="{{$DataBuku->status_buku}}">Dipinjam (Ganti status)</option>
                             }
                             @endif
                             <option value="0">Tersedia</option>

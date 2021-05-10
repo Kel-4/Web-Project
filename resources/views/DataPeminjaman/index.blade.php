@@ -75,7 +75,7 @@
             <tbody>
                 @foreach ($data as $buku)
                 <tr>
-                    <td>{{ $buku->id_peminjaman }}</td>
+                    <td>{{ $buku->id_buku }}</td>
                     <td>{{ $buku->nama }}</td>
                     <td>{{ $buku->judul_buku }}</td>
                     <td>{{ $buku->tgl_pinjam }}</td>

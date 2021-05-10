@@ -21,6 +21,7 @@ class DataPeminjamanController extends Controller
             ->orWhere('tgl_pinjam', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('tgl_jatuh_tempo', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('tgl_kembali', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('status', 'LIKE', '%'.$request->cari.'%')
             ->paginate(5);
         } else {
             $data = DataPeminjaman::paginate(5);
@@ -47,7 +48,7 @@ class DataPeminjamanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_peminjaman'=>'required',
+            'id'=>'required',
             'nama'=>'required',
             'judul_buku'=>'required',
             'tgl_pinjam'=>'required',
