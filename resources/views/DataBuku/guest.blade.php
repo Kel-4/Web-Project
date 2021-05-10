@@ -45,13 +45,13 @@
                   <h6 class="fw-bold">{{$buku->judul}}</h6>
                 </div>
                 <div class="container det-btn">
-                    <button id="btn-detail" data-bs-toggle="modal" data-bs-target="#<?=$buku->id_buku?>" class="btn btn-outline-success btn-sm mb-2">
+                    <button id="btn-detail" data-bs-toggle="modal" data-bs-target="#abc<?= $buku->id ?>" class="btn btn-outline-success btn-sm mb-2">
                     <i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
         {{-- detail-modal --}}
-        <div class="modal fade" id="<?=$buku->id_buku?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="abc<?= $buku->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
@@ -67,7 +67,7 @@
                             <tr>
                                 <td>ID Buku</td>
                                 <td>:</td>
-                                <td>{{ $buku->id_buku }}</td>
+                                <td>{{ $buku->id }}</td>
                             </tr>
                             <tr>
                                 <td>Judul</td>
