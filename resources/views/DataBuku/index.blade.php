@@ -104,7 +104,7 @@
                         <td><a href="" class="btn btn-danger baru">DIPINJAM</a></td>
                     @endif
                     <td>    
-                        <a href="/daftarbuku/ubah/{{ $buku->id }}" class="badge bg-info" data-bs-toggle="modal" data-bs-target="#ModalBuku"><i class="fa fa-info" aria-hidden="true"></i>&nbsp;detail</a>
+                        <a href="/daftarbuku/detail/{{ $buku->id }}" class="badge bg-info" data-bs-toggle="modal" data-bs-target="#ModalBuku{{ $buku->id }}"><i class="fa fa-info" aria-hidden="true"></i>&nbsp;detail</a>
                         <a href="/daftarbuku/ubah/{{ $buku->id }}" class="badge bg-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;ubah</a>
                         <a href="/daftarbuku/hapus/{{ $buku->id }}" class="badge bg-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;hapus</a>
                     </td>
@@ -116,7 +116,7 @@
 
         <!-- Modal -->
         @foreach ($data as $buku)
-        <div class="modal fade" id="ModalBuku" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
+        <div class="modal fade" id="ModalBuku{{ $buku->id }}" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -126,7 +126,7 @@
                         <div class="col-md-4 img-dtl mt-5">
                             <img width="100%" src="{{asset('gambar')}}/{{ $buku->gambar }}" alt="not found">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 rounded-2">
                             <table class="table table-hover">
                                 <tr>
                                     <td>ID Buku</td>
