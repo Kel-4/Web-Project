@@ -68,22 +68,26 @@
         <table class="table rounded-3 table-striped">
             <thead>
                 <tr>
-                    <th>ID Pengunjung</th>
+                    <th>ID Anggota</th>
                     <th>Nama</th>
+                    <th>Jenis Kelamin</th>
                     <th>Tanggal terdaftar</th>
                     <th>Kontak</th>
                     <th>Alamat</th>
+                    <th>Status Pinjam</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($data as $pengunjung)
                 <tr>
-                    <td>{{ $pengunjung->id_pengunjung }}</td>
+                    <td>{{ $pengunjung->id }}</td>
                     <td>{{ $pengunjung->nama }}</td>
+                    <td>{{ $pengunjung->jenis_kelamin }}</td>
                     <td>{{ $pengunjung->tanggal_terdaftar }}</td>
                     <td>{{ $pengunjung->kontak }}</td>
                     <td>{{ $pengunjung->alamat }}</td>
+                    <td>{{ $pengunjung->status_pinjam }}</td>
                     <td>
                         <a href="/DataPengunjung/ubah/{{ $pengunjung->id }}"><i class="far fa-edit btn btn-success"></i></a>
                         <a href="/DataPengunjung/hapus/{{ $pengunjung->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
