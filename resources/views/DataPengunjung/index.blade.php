@@ -87,7 +87,7 @@
                     <td>
                         <a href="/DataPengunjung/ubah/{{ $pengunjung->id }}"><i class="far fa-edit btn btn-success"></i></a>
                         <a href="/DataPengunjung/hapus/{{ $pengunjung->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
-                        <a href="/DataPengunjung/cetak_kartu/{{ $pengunjung->id }}"><i class="fas fa-trash-alt btn btn-secondary"></i></a>
+                        <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Card Member" href="/DataPengunjung/cetak_kartu/{{ $pengunjung->id }}"> <i class="fas text-light fa-id-card btn btn-warning"></i></a>
                     </td>
                 </tr>
                 @endforeach

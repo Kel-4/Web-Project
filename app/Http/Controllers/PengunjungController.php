@@ -58,7 +58,7 @@ class PengunjungController extends Controller
             'kontak' => 'required',
             'alamat' => 'required',
         ]);
-
+        
         Pengunjung::create([
             'id_pengunjung' => $request->id_pengunjung,
             'nama' => $request->nama,
