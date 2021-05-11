@@ -56,33 +56,37 @@
             <form enctype="multipart/form-data" action="/DataPeminjaman/simpan" method="post">
                 {{ csrf_field() }}
 
-                <div class="form-group">
-                    <label for="id_peminjaman">ID</label>
-                    <input type="text" name="id_peminjaman" id="id_peminjaman" class="form-control" autocomplete="off">
+                <div class="form-group mt-3">
+                    <label for="nama">Nama Anggota Perpustakaan</label>
+                    <select name="nama" id="nama" class="form-control">
+                        <option value="">Pilih Nama Anggota</option>
+                        @foreach ($dataPengunjung
+                         as $pengunjung )
+                            <option value="{{ $pengunjung->nama }}" {{ old('nama') == $pengunjung->nama ? 'selected' : null }}>{{ $pengunjung->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
-                @error('id_peminjaman')
-                    <div class="alert-danger mt-1">{{$message}}</div>
-                @enderror
-
-                <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input type="text" name="nama" id="nama" class="form-control" autocomplete="off">
-                </div>
-                @error('id_peminjaman')
+                @error('nama')
                     <div class="alert-danger mt-1">{{$message}}</div>
                 @enderror
 
                 <div class="form-group mt-3">
-                    <label for="judul_buku">Judul Buku</label>
-                    <input type="text" name="judul_buku" id="judul_buku" class="form-control" autocomplete="off">
+                    <label for="judul">Judul Buku</label>
+                    <select name="judul" id="judul" class="form-control">
+                        <option value="">Pilih Judul Buku</option>
+                        @foreach ($dataBuku
+                         as $buku )
+                            <option value="{{ $buku->judul }}" {{ old('judul') == $buku->judul ? 'selected' : null }}>{{ $buku->judul }}</option>
+                        @endforeach
+                    </select>
                 </div>
-                @error('judul_buku')
+                @error('judul')
                     <div class="alert-danger mt-1">{{$message}}</div>
                 @enderror
 
                 <div class="form-group mt-3">
                     <label for="tgl_pinjam">Tgl Pinjam</label>
-                    <input type="date" name="tgl_pinjam" id="tgl_pinjam" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off">
+                    <input type="date" name="tgl_pinjam" id="tgl_pinjam" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off" value="{{ old('tgl_pinjam') }}">
                 </div>
                 @error('tgl_pinjam')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -90,7 +94,7 @@
 
                 <div class="form-group mt-3">
                     <label for="tgl_jatuh_tempo">Tgl Jatuh Tempo</label>
-                    <input type="date" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off">
+                    <input type="date" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off" value="{{ old('tgl_jatuh_tempo') }}">
                 </div>
                 @error('tgl_jatuh_tempo')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -98,7 +102,7 @@
 
                 <div class="form-group mt-3">
                     <label for="tgl_kembali">Tgl Kembali</label>
-                    <input type="date" name="tgl_kembali" id="tgl_kembali" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off">
+                    <input type="date" name="tgl_kembali" id="tgl_kembali" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off" value="{{ old('tgl_kembali') }}">
                 </div>
 
                 <div class="form-group">

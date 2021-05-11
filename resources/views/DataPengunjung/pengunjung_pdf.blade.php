@@ -21,14 +21,16 @@
                 </tr>
             </thead>
             <tbody>
+            <?php $i=1 ?>
                 @foreach ($pengunjung as $pengunjung)
                 <tr>
-                    <td>{{ $pengunjung->id_pengunjung }}</td>
+                    <td>PE00{{ $i }}</td>
                     <td>{{ $pengunjung->nama }}</td>
                     <td>{{ $pengunjung->tanggal_terdaftar }}</td>
                     <td>{{ $pengunjung->kontak }}</td>
                     <td>{{ $pengunjung->alamat }}</td>
                 </tr>
+                <?php $i++ ?>
                 @endforeach
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>

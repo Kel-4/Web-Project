@@ -73,19 +73,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data as $buku)
+                <?php $i=1 ?>
+                @foreach ($data as $pinjam)
                 <tr>
-                    <td>{{ $buku->id_buku }}</td>
-                    <td>{{ $buku->nama }}</td>
-                    <td>{{ $buku->judul_buku }}</td>
-                    <td>{{ $buku->tgl_pinjam }}</td>
-                    <td>{{ $buku->tgl_jatuh_tempo }}</td>
-                    <td>{{ $buku->tgl_kembali }}</td>
+                    <td>PI00{{ $i }}</td>
+                    <td>{{ $pinjam->nama  }}</td>
+                    <td>{{ $pinjam->judul }}</td>
+                    <td>{{ $pinjam->tgl_pinjam }}</td>
+                    <td>{{ $pinjam->tgl_jatuh_tempo }}</td>
+                    <td>{{ $pinjam->tgl_kembali }}</td>
                     <td>
-                        <a href="/DataPeminjaman/hapus/{{ $buku->id }}" class="badge bg-danger">hapus</a>
-                        <a href="/DataPeminjaman/ubah/{{ $buku->id }}" class="badge bg-warning">ubah</a>
+                        <a href="/DataPeminjaman/hapus/{{ $pinjam->id }}" class="badge bg-danger">hapus</a>
+                        <a href="/DataPeminjaman/ubah/{{ $pinjam->id }}" class="badge bg-warning">ubah</a>
                     </td>
                 </tr>
+                <?php $i++ ?>
                 @endforeach
             </tbody>
         </table>

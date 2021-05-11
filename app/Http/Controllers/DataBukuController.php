@@ -33,8 +33,7 @@ class DataBukuController extends Controller
     public function index(Request $request)
     {
         if($request->has('cari')) {
-            $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+            $data = DataBuku::where('judul', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('lokasi', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('status_buku', 'LIKE', '%'.$request->cari.'%')

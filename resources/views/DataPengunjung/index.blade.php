@@ -79,9 +79,10 @@
                 </tr>
             </thead>
             <tbody>
+            <?php $i=1 ?>
                 @foreach ($data as $pengunjung)
                 <tr>
-                    <td>{{ $pengunjung->id }}</td>
+                    <td>PE00{{ $i }}</td>
                     <td>{{ $pengunjung->nama }}</td>
                     <td>{{ $pengunjung->jenis_kelamin }}</td>
                     <td>{{ $pengunjung->tanggal_terdaftar }}</td>
@@ -94,6 +95,7 @@
                         <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Card Member" href="/DataPengunjung/cetak_kartu/{{ $pengunjung->id }}"> <i class="fas text-light fa-id-card btn btn-warning"></i></a>
                     </td>
                 </tr>
+                <?php $i++ ?>
                 @endforeach
             </tbody>
         </table>
