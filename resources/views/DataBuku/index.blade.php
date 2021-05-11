@@ -83,7 +83,7 @@
         <table class="table table-bordered table-striped" style="text-align:center">
             <thead>
                 <tr>
-                    <th>ID_Buku</th>
+                    <th>ID</th>
                     <th>Judul</th>
                     <th>Penerbit</th>
                     <th>Lokasi</th>
@@ -129,7 +129,7 @@
                         <div class="col-md-8 rounded-2">
                             <table class="table table-hover">
                                 <tr>
-                                    <td>ID Buku</td>
+                                    <td>ID</td>
                                     <td>:</td>
                                     <td>AA00{{ $buku->id }}</td>
                                 </tr>

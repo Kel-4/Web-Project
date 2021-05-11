@@ -55,10 +55,6 @@
                 <form  enctype="multipart/form-data" action="/DataPeminjaman/update/{{ $DataPeminjaman->id }}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label>ID</label>
-                        <input type="text" name="id_peminjaman" class="form-control" value="{{ $DataPeminjaman->id_peminjaman }}">
-                    </div>
-                    <div class="form-group">
                         <label>Nama</label>
                         <input type="text" name="nama" class="form-control" value="{{ $DataPeminjaman->nama }}">
                     </div>

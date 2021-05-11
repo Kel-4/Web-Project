@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataPeminjaman;
+Use App\Models\DataBuku;
+Use App\Models\Pengunjung;
 
 class DataPeminjamanController extends Controller
 {
@@ -15,7 +17,7 @@ class DataPeminjamanController extends Controller
     public function index(Request $request)
     {
         if($request->has('cari')) {
-            $data = DataPeminjaman::where('id_peminjaman', 'LIKE', '%'.$request->cari.'%')
+            $data = DataPeminjaman::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('nama', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul_buku', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('tgl_pinjam', 'LIKE', '%'.$request->cari.'%')
@@ -36,7 +38,9 @@ class DataPeminjamanController extends Controller
      */
     public function create()
     {
-        return view('DataPeminjaman.tambah');
+        $dataBuku = DataBuku::all();
+        $dataPengunjung = Pengunjung::all();
+        return view('DataPeminjaman.tambah', compact('dataBuku', 'dataPengunjung'));
     }
 
     /**
@@ -48,17 +52,15 @@ class DataPeminjamanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id'=>'required',
             'nama'=>'required',
-            'judul_buku'=>'required',
+            'judul'=>'required',
             'tgl_pinjam'=>'required',
             'tgl_jatuh_tempo'=>'required',
         ]);
 
         DataPeminjaman::create([
-            'id_peminjaman' => $request->id_peminjaman,
             'nama' => $request->nama,
-            'judul_buku' => $request->judul_buku,
+            'judul' => $request->id_buku,
             'tgl_pinjam' => $request->tgl_pinjam,
             'tgl_jatuh_tempo' => $request->tgl_jatuh_tempo,
             'tgl_kembali' => $request->tgl_kembali
@@ -100,7 +102,6 @@ class DataPeminjamanController extends Controller
     public function update(Request $request, $id)
     {
         $DataPeminjaman = DataPeminjaman::find($id);
-        $DataPeminjaman->id_peminjaman = $request->id_peminjaman;
         $DataPeminjaman->nama = $request->nama;
         $DataPeminjaman->judul_buku = $request->judul_buku;
         $DataPeminjaman->tgl_pinjam = $request->tgl_pinjam;
