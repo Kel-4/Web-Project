@@ -62,11 +62,11 @@
                         <option value="">Pilih Nama Anggota</option>
                         @foreach ($dataPengunjung
                          as $pengunjung )
-                            <option value="{{ $pengunjung->id }}" {{ old('nama') == $pengunjung->id ? 'selected' : null }}>{{ $pengunjung->nama }}</option>
+                            <option value="{{ $pengunjung->nama }}" {{ old('nama') == $pengunjung->nama ? 'selected' : null }}>{{ $pengunjung->nama }}</option>
                         @endforeach
                     </select>
                 </div>
-                @error('judul')
+                @error('nama')
                     <div class="alert-danger mt-1">{{$message}}</div>
                 @enderror
 
@@ -76,7 +76,7 @@
                         <option value="">Pilih Judul Buku</option>
                         @foreach ($dataBuku
                          as $buku )
-                            <option value="{{ $buku->id }}" {{ old('judul') == $buku->id ? 'selected' : null }}>{{ $buku->judul }}</option>
+                            <option value="{{ $buku->judul }}" {{ old('judul') == $buku->judul ? 'selected' : null }}>{{ $buku->judul }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -94,7 +94,7 @@
 
                 <div class="form-group mt-3">
                     <label for="tgl_jatuh_tempo">Tgl Jatuh Tempo</label>
-                    <input type="date" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off" value="{{ old('jumlah_jatuh_tempo') }}">
+                    <input type="date" name="tgl_jatuh_tempo" id="tgl_jatuh_tempo" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off" value="{{ old('tgl_jatuh_tempo') }}">
                 </div>
                 @error('tgl_jatuh_tempo')
                     <div class="alert-danger mt-1">{{$message}}</div>

@@ -92,9 +92,10 @@
                 </tr>
             </thead>
             <tbody>
+            <?php $i=1 ?>
                 @foreach ($data as $buku)
                 <tr>
-                    <td>AA00{{ $buku->id }}</td>
+                    <td>AA00{{ $i }}</td>
                     <td>{{ $buku->judul }}</td>
                     <td>{{ $buku->penerbit }}</td>
                     <td>{{ $buku->lokasi}}</td>
@@ -109,6 +110,7 @@
                         <a href="/daftarbuku/hapus/{{ $buku->id }}" class="badge bg-danger"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;hapus</a>
                     </td>
                 </tr>
+                <?php $i++ ?>
                 @endforeach
             </tbody>
         </table>

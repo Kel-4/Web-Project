@@ -55,12 +55,22 @@
                 <form  enctype="multipart/form-data" action="/DataPeminjaman/update/{{ $DataPeminjaman->id }}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" name="nama" class="form-control" value="{{ $DataPeminjaman->nama }}">
+                        <label>Nama Anggota</label>
+                        <select name="nama" id="nama" class="form-control">
+                        @foreach ($dataPengunjung
+                         as $pengunjung )
+                            <option value="{{ $pengunjung->nama }}" {{ old('nama') == $pengunjung->nama ? 'selected' : null }}>{{ $pengunjung->nama }}</option>
+                        @endforeach
+                    </select>
                     </div>
                     <div class="form-group">
                         <label>Judul Buku</label>
-                        <input type="text" name="judul_buku" class="form-control" value="{{ $DataPeminjaman->judul_buku }}">
+                        <select name="judul" id="judul" class="form-control">
+                            @foreach ($dataBuku
+                            as $buku )
+                                <option value="{{ $buku->judul }}" {{ old('judul') == $buku->judul ? 'selected' : null }}>{{ $buku->judul }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Tgl Pinjam</label>

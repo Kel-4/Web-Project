@@ -10,7 +10,7 @@ class DataPengembalian extends Model
     use HasFactory;
     protected $table = 'data_peminjaman';
 
-    protected $fillable = ['id_peminjaman', 'nama', 'tgl_kembali', 'judul_buku'];
+    protected $fillable = ['id_peminjaman', 'tgl_kembali', 'judul_buku'];
 
     protected $primaryKey = 'id';
 }

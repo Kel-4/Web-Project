@@ -73,11 +73,12 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $i=1 ?>
                 @foreach ($data as $pinjam)
                 <tr>
-                    <td>{{ $pinjam->id }}</td>
-                    <td>{{ $pinjam->nama }}</td>
-                    <td>{{ $pinjam->DataBuku->judul }}</td>
+                    <td>PI00{{ $i }}</td>
+                    <td>{{ $pinjam->nama  }}</td>
+                    <td>{{ $pinjam->judul }}</td>
                     <td>{{ $pinjam->tgl_pinjam }}</td>
                     <td>{{ $pinjam->tgl_jatuh_tempo }}</td>
                     <td>{{ $pinjam->tgl_kembali }}</td>
@@ -86,6 +87,7 @@
                         <a href="/DataPeminjaman/ubah/{{ $pinjam->id }}" class="badge bg-warning">ubah</a>
                     </td>
                 </tr>
+                <?php $i++ ?>
                 @endforeach
             </tbody>
         </table>

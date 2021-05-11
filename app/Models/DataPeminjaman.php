@@ -10,7 +10,7 @@ class DataPeminjaman extends Model
     use HasFactory;
     protected $table = 'data_peminjaman';
     
-    protected $fillable = ['id', 'nama', 'tgl_pinjam', 'tgl_jatuh_tempo'];
+    protected $fillable = ['id', 'tgl_pinjam', 'tgl_jatuh_tempo', 'nama', 'judul', 'tgl_kembali'];
 
     protected $primaryKey = 'id';
 

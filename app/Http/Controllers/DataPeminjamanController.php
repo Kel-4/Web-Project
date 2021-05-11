@@ -60,7 +60,7 @@ class DataPeminjamanController extends Controller
 
         DataPeminjaman::create([
             'nama' => $request->nama,
-            'judul' => $request->id_buku,
+            'judul' => $request->judul,
             'tgl_pinjam' => $request->tgl_pinjam,
             'tgl_jatuh_tempo' => $request->tgl_jatuh_tempo,
             'tgl_kembali' => $request->tgl_kembali
@@ -88,8 +88,10 @@ class DataPeminjamanController extends Controller
      */
     public function edit($id)
     {
+        $dataBuku = DataBuku::all();
+        $dataPengunjung = Pengunjung::all();
         $DataPeminjaman = DataPeminjaman::find($id);
-        return view('DataPeminjaman.ubah', ['DataPeminjaman' => $DataPeminjaman]);
+        return view('DataPeminjaman.ubah', compact('DataPeminjaman', 'dataBuku', 'dataPengunjung'));
     }
 
     /**
@@ -103,7 +105,7 @@ class DataPeminjamanController extends Controller
     {
         $DataPeminjaman = DataPeminjaman::find($id);
         $DataPeminjaman->nama = $request->nama;
-        $DataPeminjaman->judul_buku = $request->judul_buku;
+        $DataPeminjaman->judul = $request->judul;
         $DataPeminjaman->tgl_pinjam = $request->tgl_pinjam;
         $DataPeminjaman->tgl_jatuh_tempo = $request->tgl_jatuh_tempo;
         $DataPeminjaman->tgl_kembali = $request->tgl_kembali;
