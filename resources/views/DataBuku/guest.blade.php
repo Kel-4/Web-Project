@@ -64,26 +64,52 @@
                     </div>
                     <div class="col-md-7 fw-bold">
                         <table class="table table-hover" cellpadding="10">
-                            <tr>
-                                <td>ID Buku</td>
-                                <td>:</td>
-                                <td>{{ $buku->id }}</td>
-                            </tr>
-                            <tr>
-                                <td>Judul</td>
-                                <td>:</td>
-                                <td>{{ $buku->judul }}</td>
-                            </tr>
-                            <tr>
-                                <td>Penerbit</td>
-                                <td>:</td>
-                                <td>{{ $buku->penerbit }}</td>
-                            </tr>
-                            <tr>
-                                <td>Rak</td>
-                                <td>:</td>
-                                <td>{{ $buku->rak }}</td>
-                            </tr>
+                        <tr>
+                                    <td>ID Buku</td>
+                                    <td>:</td>
+                                    <td>AA00{{ $buku->id }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Judul</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->judul }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tahun</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->tahun }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Penerbit</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->penerbit }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Kategori</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->kategori }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Subjek</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->subjek }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Bahasa</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->bahasa }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Keterangan</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->keterangan }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Deskripsi</td>
+                                    <td>:</td>
+                                    <td>{{ $buku->deskripsi }}</td>
+                                </tr>
+                     
                         </table>
                     </div>
                 </div>
