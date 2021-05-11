@@ -16,7 +16,7 @@ class DataPengembalianController extends Controller
     public function index(Request $request)
     {
         if($request->has('cari')) {
-            $data = DataPengembalian::where('id_peminjaman', 'LIKE', '%'.$request->cari.'%')
+            $data = DataPengembalian::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('nama', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul_buku', 'LIKE', '%'.$request->cari.'%')
             ->paginate(5);
