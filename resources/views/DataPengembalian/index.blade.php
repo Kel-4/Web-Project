@@ -108,11 +108,12 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $i=1 ?>
                 @foreach ($data as $buku)
                 <tr>
-                    <td>{{ $buku->id_peminjaman }}</td>
+                    <td>PI00{{ $i }}</td>
                     <td>{{ $buku->nama }}</td>
-                    <td>{{ $buku->judul_buku }}</td> 
+                    <td>{{ $buku->judul }}</td> 
                     <td>{{ $buku->tgl_kembali }}</td>
                     @if (!empty($buku->tgl_kembali))
                     <td>Rp{{ Carbon\Carbon::parse($buku->tgl_jatuh_tempo)->diffInDays($buku->tgl_kembali)*2000 }}</td>
@@ -126,6 +127,7 @@
                         <a href="{{ route('update-status', $buku->id) }}" class="btn btn-danger baru">BARU</a>
                         @endif
                     </td>
+                    <?php $i++ ?>
                 @endforeach
             </tbody>
         </table>
