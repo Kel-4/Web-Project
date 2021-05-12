@@ -14,8 +14,6 @@ class PengunjungController extends Controller
      */
     public function index(Request $request)
     {
-        //$pengunjung = DB::table('data_pengunjung')->get();
-        //return view('DataPengunjung.index', ['pengunjung' => $pengunjung]);
 
         if($request->has('cari')){
             $data= Pengunjung::where('nama', 'LIKE','%'.$request->cari.'%')
@@ -52,11 +50,11 @@ class PengunjungController extends Controller
     {
         //
         $request->validate([
-            'id' => 'required',
             'nama' => 'required',
             'tanggal_terdaftar' => 'required',
-            'kontak' => 'required',
-            'alamat' => 'required'
+            'kontak' => 'required|max:13',
+            'alamat' => 'required',
+            'jenis_kelamin' => 'required'
         ]);
         
         Pengunjung::create([
@@ -107,15 +105,13 @@ class PengunjungController extends Controller
     {
         //
         $request->validate([
-            'id_pengunjung' => 'required',
             'nama' => 'required',
             'tanggal_terdaftar' => 'required',
-            'kontak' => 'required',
+            'kontak' => 'required|max:13',
             'alamat' => 'required',
         ]);
 
         $pengunjung = Pengunjung::find($id);
-        $pengunjung->id = $request->id;
         $pengunjung->nama = $request->nama;
         $pengunjung->jenis_kelamin = $request->jenis_kelamin;
         $pengunjung->tanggal_terdaftar = $request->tanggal_terdaftar;

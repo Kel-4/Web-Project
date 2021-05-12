@@ -40,9 +40,15 @@
         <div class="container row">
             @foreach ($data as $buku)
             <div class="card col-md-3 container" style="width: 12rem;">
-                <img src="{{ asset('gambar')}}/{{$buku->gambar}}" style="height: 200px" class="card-img-top" alt="not-found">
+                <img src="{{ asset('gambar')}}/{{$buku->gambar}}" style="height: 200px" class="card-img-top mt-3" alt="not-found">
                 <div class="card-body text-center">
                   <h6 class="fw-bold">{{$buku->judul}}</h6>
+
+                    @if($buku->status_buku==0)
+                        <a href="" class="btn btn-success disabled">TERSEDIA</a>
+                    @else
+                        <a href="" class="btn btn-danger baru disabled">DIPINJAM</a>
+                    @endif
                 </div>
                 <div class="container det-btn">
                     <button id="btn-detail" data-bs-toggle="modal" data-bs-target="#abc<?= $buku->id ?>" class="btn btn-outline-success btn-sm mb-2">

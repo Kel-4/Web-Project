@@ -74,7 +74,7 @@ class DataBukuController extends Controller
             'keterangan'=>'required',
             'tahun'=>'required',
             'bahasa'=>'required',
-            'jumlah_buku'=>'required|numeric',
+            'jumlah_buku'=>'required|integer',
 
         ]);
 

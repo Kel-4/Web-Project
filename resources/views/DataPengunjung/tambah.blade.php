@@ -61,26 +61,22 @@
             <form enctype="multipart/form-data" action="/DataPengunjung/simpan" method="post">
                 @csrf
                 <div class="form-group">
-                    <label>ID Anggota</label>
-                    <input type="text" name="id" class="form-control @error('id') is-invalid @enderror" value="{{ old('id') }}" autocomplete="off">
-                        @error('id')
-                            <div class="invalid-feedback">{{  $message }}</div>
-                        @enderror
-                </div>
-                <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" autocomplete="off">
+                    <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" autocomplete="off" autofocus>
                     @error('nama')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
-                    <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                    <select name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror" value="{{ old('jenis_kelamin') }}">
                         <option value="">Pilih Jenis Kelamin</option>
                         <option value="Pria">Pria</option>
                         <option value="Wanita">Wanita</option>
                     </select>
+                    @error('jenis_kelamin')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label>Tanggal terdaftar</label>
@@ -103,15 +99,6 @@
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
                 </div>
-                <div class="form-group">
-                    <label>Status Pinjam</label>
-                    <select name="status_pinjam" id="status_pinjam" class="form-control">
-                        <option value="">Pilih Status Pinjam</option>
-                        <option value="Bebas">Bebas</option>
-                        <option value="Tertanggung">Tertanggung</option>
-                    </select>
-                </div>
-                <div class="form-group">
                 <br><br>
                     <button type="submit" class="btn btn-success">Tambah</button>
                 </div>

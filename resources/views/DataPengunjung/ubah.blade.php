@@ -56,13 +56,6 @@
                 <form enctype="multipart/form-data" action="/DataPengunjung/update/{{ $pengunjung->id }}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label>ID Pengunjung</label>
-                        <input type="text" name="id" class="form-control @error('id') is-invalid @enderror" value="{{ $pengunjung->id }}">
-                        @error('id')
-                            <div class="invalid-feedback">{{  $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
                         <label>Nama</label>
                         <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ $pengunjung->nama }}">
                         @error('nama')
@@ -72,7 +65,7 @@
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
-                            <option value="{{ $pengunjung->jenis_kelamin }}">Pilih Jenis Kelamin</option>
+                            <option value="{{ $pengunjung->jenis_kelamin }}">{{ $pengunjung->jenis_kelamin }} (Ubah Jenis Kelamin)</option>
                             <option value="Pria">Pria</option>
                             <option value="Wanita">Wanita</option>
                        </select>
@@ -97,6 +90,14 @@
                         @error('alamat')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Status Pinjam</label>
+                        <select name="status_pinjam" id="status_pinjam" class="form-control">
+                            <option value="{{ $pengunjung->status_pinjam }}">{{ $pengunjung->status_pinjam }} (Ubah Status Pinjam)</option>
+                            <option value="Bebas">Bebas</option>
+                            <option value="Tertanggung">Tertanggung</option>
+                        </select>
                     </div>
                     <div class="form-group">
                     <br><br>
