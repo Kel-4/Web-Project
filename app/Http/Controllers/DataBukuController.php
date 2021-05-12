@@ -15,10 +15,14 @@ class DataBukuController extends Controller
     public function guest(Request $request)
     {   
         if($request->has('cari')) {
-            $data = DataBuku::where('id_buku', 'LIKE', '%'.$request->cari.'%')
+            $data = DataBuku::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('penerbit', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('rak', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('lokasi', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('status_buku', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('bahasa', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('kategori', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('tahun', 'LIKE', '%'.$request->cari.'%')
             ->paginate(8);
         } else {
             $data = DataBuku::paginate(8);
