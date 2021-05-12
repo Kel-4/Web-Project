@@ -17,7 +17,6 @@
                     <th>Tanggal terdaftar</th>
                     <th>Kontak</th>
                     <th>Alamat</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>

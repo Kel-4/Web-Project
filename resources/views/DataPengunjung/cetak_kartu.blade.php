@@ -101,33 +101,41 @@
 
   <div class="card-member container">
   <p> &nbsp;&nbsp; <i class="fas fa-users"></i> Member Card</p>
-  <table cellpadding="5px">
-    <tr>
-      <td rowspan="4">
-      <center><div class="col-md-5" class="" style="width: 110px; height:120px; border: 1px solid; margin-left: 20px;"><p class="mt-2">FOTO</p></div></center>
-      <center>{{ $pengunjung->nama }}<br>
-            ID : {{ $pengunjung->id_pengunjung }}
-      </center>
-      </td>
-      <td>
-       <td rowspan="4"> <div class="visible-print text-center">
-         {!! QrCode::size(100)->generate(Request::url()); !!}
-      </div>
-      <p id="warning" class="text-danger" style="font-size: 10px; font-style: italic;">jangan melipat, merusak, ataupun menghilangkan kartu member anda</p>
-      </td>
-    </tr>
-    <tr>
-    <td class="text-light">Kontak</td>
-    </tr>
-    <tr>
-    <td class="text-light">Alamat</td>
-    </tr>
-  </table>
+  <div class="container mt-4">
+    <table cellpadding="5px">
+      <tr>
+        <td>ID Anggota</td>
+        <td>:</td>
+        <td>{{ $pengunjung->id }}</td>
+        <td rowspan=4><div class="col-md-5" style="width: 110px; height:120px; border: 2px solid; margin-left: 30px;"><p style="text-align:center;  vertical-align: middle; margin-top: 50%">FOTO</p></div></td>
+      </tr>
+      <tr>
+        <td>Nama</td>
+        <td>:</td>
+        <td>{{ $pengunjung->nama }}</td>
+      </tr>
+      <tr>
+        <td>Alamat</td>
+        <td>:</td>
+        <td>{{ $pengunjung->alamat }}</td>
+      </tr>
+      <tr>
+        <td>Kontak</td>
+        <td>:</td>
+        <td>{{ $pengunjung->kontak }}</td>
+      </tr>
+    </table>
   </div>
+
+  <footer class="container mt-3">
+      <div class="visible-print text-center">
+        <p id="warning" class="text-danger" style="font-size: 10px; font-style: italic; font-weight:bold;">Jangan melipat, merusak, ataupun menghilangkan kartu member Anda!</p>
+      </div>
+  </footer>
+
     <script type="text/javascript">
-    window.print();
+      // window.print();
     </script>
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
   </body>
 </html>
