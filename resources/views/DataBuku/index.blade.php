@@ -92,11 +92,11 @@
                 </tr>
             </thead>
             <tbody>
-            <?php $i=1 ?>
+            <?php $i=0 ?>
                 @foreach ($data as $buku)
                 <tr>
-                    <td>AA00{{ $i }}</td>
-                    <td>{{ $buku->judul }}</td>
+                    <td>AA00{{ $data->firstItem() + $i }}</td>
+                    <td style="text-align:left">{{ $buku->judul }}</td>
                     <td>{{ $buku->penerbit }}</td>
                     <td>{{ $buku->lokasi}}</td>
                     @if($buku->status_buku==0)
@@ -119,7 +119,7 @@
         <!-- Modal -->
         @foreach ($data as $buku)
         <div class="modal fade" id="ModalBuku{{ $buku->id }}" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">DETAIL BUKU</h3>
@@ -173,7 +173,7 @@
                                 <tr>
                                     <td>Deskripsi</td>
                                     <td>:</td>
-                                    <td>{{ $buku->deskripsi }}</td>
+                                    <td style="text-align:justify">{{ $buku->deskripsi }}</td>
                                 </tr>
                             </table>
                         </div>

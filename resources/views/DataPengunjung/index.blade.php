@@ -83,7 +83,7 @@
             <?php $i=1 ?>
                 @foreach ($data as $pengunjung)
                 <tr>
-                    <td>PE00{{ $i }}</td>
+                    <td>PE00{{ $data->firstItem() + $i }}</td>
                     <td>{{ $pengunjung->nama }}</td>
                     <td>{{ $pengunjung->jenis_kelamin }}</td>
                     <td>{{ $pengunjung->tanggal_terdaftar }}</td>
