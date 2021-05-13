@@ -18,7 +18,7 @@
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
-        <title>Data Pengunjung</title>
+        <title>Data Anggota Perpustakaan</title>
         <style>
             th, td{
                 text-align:center;
@@ -49,7 +49,7 @@
         <ul>
             <br>
             <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Anggota Perpustakaan</a> </li>
             <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
             <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
@@ -57,25 +57,26 @@
 
     <div class="container">
         <br>
-        <center><h1>DATA PENGUNJUNG</h1></center><br><br>
+        <center><h1>DATA ANGGOTA PERPUSTAKAAN</h1></center><br><br>
         <div class="info1"> <h4><a href="/DataPengunjung/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
         <br>
         <div id="info">
             <form method="GET">
-                <div class="info1container d-flex"><input type="search" id="cari" size="35" name="cari"class="form-control rounded-pill " style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="&#xf002 Ketik Keyword Pencarian....">&nbsp;&nbsp;<button id="bcari" class="btn btn-outline-primary rounded-circle" type="submit"><i class="fas fa-search"></i></button></div>
+                <div class="info1container d-flex"><input type="search" id="cari" size="35" name="cari"class="form-control rounded-pill " style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="Ketik Keyword Pencarian">&nbsp;&nbsp;<button id="bcari" class="btn btn-outline-light rounded-circle" type="submit"><i class="fas fa-search"></i></button></div>
             </form>
         </div> 
 
         <table class="table rounded-3 table-striped">
             <thead>
                 <tr>
-                    <th>ID Anggota</th>
+                    <th>ID</th>
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
                     <th>Tanggal terdaftar</th>
                     <th>Kontak</th>
                     <th>Alamat</th>
-                    <th>Status Pinjam</th>
+                    <th>Status Peminjaman</th>
+                    <th>Foto</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -83,13 +84,14 @@
             <?php $i=1 ?>
                 @foreach ($data as $pengunjung)
                 <tr>
-                    <td>PE00{{ $data->firstItem() + $i }}</td>
+                    <td>AP{{ $data->firstItem() + $i }}</td>
                     <td>{{ $pengunjung->nama }}</td>
                     <td>{{ $pengunjung->jenis_kelamin }}</td>
                     <td>{{ $pengunjung->tanggal_terdaftar }}</td>
                     <td>{{ $pengunjung->kontak }}</td>
                     <td>{{ $pengunjung->alamat }}</td>
-                    <td>{{ $pengunjung->status_pinjam }}</td>
+                    <td>{{ $pengunjung->status_peminjaman }}</td>
+                    <td><img width="60px"src="{{asset('foto')}}/{{ $pengunjung->foto }}" alt="not found"></td>
                     <td>
                         <a href="/DataPengunjung/ubah/{{ $pengunjung->id }}"><i class="far fa-edit btn btn-success"></i></a>
                         <a href="/DataPengunjung/hapus/{{ $pengunjung->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>

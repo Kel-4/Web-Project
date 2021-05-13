@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataAnggota;
 use Illuminate\Http\Request;
-use App\Models\Pengunjung;
 
 class PengunjungController extends Controller
 {
@@ -16,14 +16,14 @@ class PengunjungController extends Controller
     {
 
         if($request->has('cari')){
-            $data= Pengunjung::where('nama', 'LIKE','%'.$request->cari.'%')
+            $data= DataAnggota::where('nama', 'LIKE','%'.$request->cari.'%')
             ->orWhere('tanggal_terdaftar', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('kontak', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('alamat', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('id', 'LIKE', '%'.$request->cari.'%')
             ->paginate(8);
         }else{
-            $data = Pengunjung::paginate(8);
+            $data = DataAnggota::paginate(8);
         }
         return view('DataPengunjung.index', ['data'=>$data]);
 
@@ -57,7 +57,7 @@ class PengunjungController extends Controller
             'jenis_kelamin' => 'required'
         ]);
         
-        Pengunjung::create([
+        DataAnggota::create([
             'id' => $request->id,
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
@@ -90,7 +90,7 @@ class PengunjungController extends Controller
     public function edit($id)
     {
         //
-        $pengunjung = Pengunjung::find($id);
+        $pengunjung = DataAnggota::find($id);
         return view('DataPengunjung.ubah', ['pengunjung' => $pengunjung]);
     }
 
@@ -111,7 +111,7 @@ class PengunjungController extends Controller
             'alamat' => 'required',
         ]);
 
-        $pengunjung = Pengunjung::find($id);
+        $pengunjung = DataAnggota::find($id);
         $pengunjung->nama = $request->nama;
         $pengunjung->jenis_kelamin = $request->jenis_kelamin;
         $pengunjung->tanggal_terdaftar = $request->tanggal_terdaftar;
@@ -125,7 +125,7 @@ class PengunjungController extends Controller
     public function cetak_kartu($id)
     {
         //
-        $pengunjung = Pengunjung::find($id);
+        $pengunjung = DataAnggota::find($id);
         return view('DataPengunjung.cetak_kartu', ['pengunjung' => $pengunjung]);
     }
 
@@ -138,7 +138,7 @@ class PengunjungController extends Controller
     public function destroy($id)
     {
         //
-        $pengunjung = Pengunjung::find($id);
+        $pengunjung = DataAnggota::find($id);
         $pengunjung->delete();
         return redirect('/DataPengunjung')->with('success', 'Data Telah Dihapus!');
     }
