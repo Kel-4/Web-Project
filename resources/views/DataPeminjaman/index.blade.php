@@ -50,9 +50,32 @@
     <div class="container">
         <br>
         <center><h1>DATA PEMINJAMAN</h1></center><br>
+
         <div id="info">
-            <div class="info1"> <h4><a href="/DataPeminjaman/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
+        <div class="info1"> <h4><a href="/DataPeminjaman/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
+            <div class="info1"><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-question" aria-hidden="true"></i>&nbsp;Info</button></div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Peraturan Peminjaman Buku</h5>
+                    </div>
+                    <div class="modal-body justify-content">
+                       Peminjaman buku perpustakaan dapat dilakukan dengan syarat : <br><br>
+                       1. Memiliki kartu anggota perpustakaan <br>
+                       2. Data peminjam telah terdaftar di data perpustakaan <br>
+                       3. Setiap peminjam hanya boleh meminjam maksimal sebanyak 2 buku setiap peminjaman <br> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="info">
             <form class="form-inline" method="get">
                 <div class="info1"><input type="search" name="cari" size="50" class="form-control" style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="&#xf002 Ketik Keyword Pencarian...."></div>

@@ -55,20 +55,14 @@ Route::get('/DataAnggota/cetak_kartu/{id}', 'AnggotaController@cetak_kartu')->na
 
 
 Route::get('/DataPeminjaman', 'DataPeminjamanController@index');
-
 Route::get('/DataPeminjaman/tambah', 'DataPeminjamanController@create');
-
 Route::post('/DataPeminjaman/simpan', 'DataPeminjamanController@store');
-
 Route::get('/DataPeminjaman/ubah/{id}', 'DataPeminjamanController@edit');
-
 Route::post('/DataPeminjaman/update/{id}', 'DataPeminjamanController@update');
-
 Route::get('/DataPeminjaman/hapus/{id}', 'DataPeminjamanController@destroy');
 
 Route::get('/DataPengembalian', 'DataPengembalianController@index');
 
-Route::get('/DataPengembalian/status/{id}', 'DataPengembalianController@status')->name('update-status');
 
 });
 

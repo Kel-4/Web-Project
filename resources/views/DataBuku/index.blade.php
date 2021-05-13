@@ -100,9 +100,9 @@
                     <td>{{ $buku->penerbit }}</td>
                     <td>{{ $buku->lokasi}}</td>
                     @if($buku->status_buku==0)
-                        <td><a href="" class="btn btn-success disabled">TERSEDIA</a></td>
+                        <td><a href="#" class="btn btn-success">TERSEDIA</a></td>
                     @else
-                        <td><a href="" class="btn btn-danger disabled">DIPINJAM</a></td>
+                        <td><a href="#" class="btn btn-danger">DIPINJAM</a></td>
                     @endif
                     <td>    
                         <a href="/daftarbuku/detail/{{ $buku->id }}" class="badge bg-info" data-bs-toggle="modal" data-bs-target="#ModalBuku{{ $buku->id }}"><i class="fa fa-info" aria-hidden="true"></i>&nbsp;detail</a>

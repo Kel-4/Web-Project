@@ -102,14 +102,14 @@
   <div class="card-member container">
   <p> &nbsp;&nbsp; <i class="fas fa-users"></i> Member Card</p>
   <div class="container mt-4">
-    <table cellpadding="5px">
+    <table cellpadding="5px" style="width: 100%">
       <tr>
         <td>ID</td>
         <td>:</td>
         <td>AP00{{ $anggota->id }}</td>
-        <td rowspan=4><div class="col-md-5" style="margin-left: 30px;"><img src="{{asset('foto')}}/{{ $anggota->foto }}" style="width: 110px; height:120px; border: 2px solid" alt="Foto"></div></td>
+        <td rowspan=4><div class="col-md-5" style="margin-left: 30px;"><img src="{{asset('foto')}}/{{ $anggota->foto }}" class="rounded-2" style="width: 110px; height:120px; border: 1px solid" alt="Foto"></div></td>
       </tr>
-      <tr>
+      <tr width="50px">
         <td>Nama</td>
         <td>:</td>
         <td>{{ $anggota->nama }}</td>
@@ -129,12 +129,12 @@
 
   <footer class="container mt-3">
       <div class="visible-print text-center">
-        <p id="warning" class="text-danger" style="font-size: 10px; font-style: italic; font-weight:bold;">Jangan melipat, merusak, ataupun menghilangkan kartu member Anda!</p>
+        <p id="warning" class="text-danger" style="font-size: 8px; font-style: italic; font-weight:bold;">Jangan melipat, merusak, ataupun menghilangkan kartu member Anda!</p>
       </div>
   </footer>
 
     <script type="text/javascript">
-      window.print();
+      // window.print();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
   </body>
