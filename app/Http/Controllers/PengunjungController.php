@@ -51,10 +51,12 @@ class PengunjungController extends Controller
         //
         $request->validate([
             'nama' => 'required',
+            'jenis_kelamin' => 'required',
             'tanggal_terdaftar' => 'required',
-            'kontak' => 'required|max:13',
+            'kontak' => 'required',
             'alamat' => 'required',
-            'jenis_kelamin' => 'required'
+            'status_peminjaman' => 'required',
+            'foto' => 'required'
         ]);
         
         DataAnggota::create([
@@ -64,7 +66,8 @@ class PengunjungController extends Controller
             'tanggal_terdaftar' => $request->tanggal_terdaftar,
             'kontak' => $request->kontak,
             'alamat' => $request->alamat,
-            'status_pinjam' => $request->status_pinjam
+            'status_peminjaman' => $request->status_peminjaman,
+            'foto' => $request->foto
         ]);
 
         return redirect('/DataPengunjung')->with('success', 'Data Berhasil Ditambahkan!'); 
@@ -107,7 +110,7 @@ class PengunjungController extends Controller
         $request->validate([
             'nama' => 'required',
             'tanggal_terdaftar' => 'required',
-            'kontak' => 'required|max:13',
+            'kontak' => 'required',
             'alamat' => 'required',
         ]);
 
@@ -117,7 +120,8 @@ class PengunjungController extends Controller
         $pengunjung->tanggal_terdaftar = $request->tanggal_terdaftar;
         $pengunjung->kontak = $request->kontak;
         $pengunjung->alamat = $request->alamat;
-        $pengunjung->status_pinjam = $request->status_pinjam;
+        $pengunjung->status_peminjaman = $request->status_peminjaman;
+        $pengunjung->foto = $request->foto;
         $pengunjung->save();
         return redirect('/DataPengunjung')->with('success', 'Data Berhasil Diubah!');
     }

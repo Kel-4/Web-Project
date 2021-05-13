@@ -14,7 +14,7 @@
 
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
-        <title>Halaman Data Pengunjung</title>
+        <title>Halaman Data Anggota Perpustakaan</title>
         <style>
             button{
                 float: right;
@@ -66,8 +66,8 @@
                         <label>Jenis Kelamin</label>
                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
                             <option value="{{ $pengunjung->jenis_kelamin }}">{{ $pengunjung->jenis_kelamin }} (Ubah Jenis Kelamin)</option>
-                            <option value="Pria">Pria</option>
-                            <option value="Wanita">Wanita</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
                        </select>
                     </div>
                     <div class="form-group">
@@ -92,12 +92,17 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>Status Pinjam</label>
-                        <select name="status_pinjam" id="status_pinjam" class="form-control">
-                            <option value="{{ $pengunjung->status_pinjam }}">{{ $pengunjung->status_pinjam }} (Ubah Status Pinjam)</option>
-                            <option value="Bebas">Bebas</option>
-                            <option value="Tertanggung">Tertanggung</option>
+                        <label>Status Peminjaman</label>
+                        <select name="status_peminjaman" id="status_peminjaman" class="form-control">
+                            <option value="{{ $pengunjung->status_peminjaman }}">{{ $pengunjung->status_peminjaman }} (Ubah Status Pinjam)</option>
+                            <option value="Tidak ada">Tidak ada</option>
+                            <option value="Meminjam">Meminjam</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Foto</label>
+                        <input type="file" name="foto" class="form-control">
+                        <img src="{{asset('foto')}}" alt="Foto anggota" style="max-width:100px; margin-top:20px;">
                     </div>
                     <div class="form-group">
                     <br><br>
