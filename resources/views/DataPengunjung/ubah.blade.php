@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group mt-3">
                         <label>Kontak</label>
-                        <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="{{ $pengunjung->kontak }}" placeholder="+62">
+                        <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="+62{{ $pengunjung->kontak }}">
                         @error('kontak')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
@@ -101,8 +101,8 @@
                     </div>
                     <div class="form-group mt-3">
                         <label>Foto</label>
-                        <input type="file" name="foto" class="form-control">
-                        <img src="{{asset('foto')}}" alt="Foto anggota" style="max-width:100px; margin-top:20px;">
+                        <input type="file" name="foto" class="form-control" value="{{ $pengunjung->foto }}">
+                        <img src="{{asset('foto')}}/{{ $pengunjung->foto }}" alt="Foto anggota" style="max-width:100px; margin-top:20px;">
                     </div>
                     <div class="form-group mt-3">
                     <br><br>

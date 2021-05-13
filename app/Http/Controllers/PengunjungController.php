@@ -17,9 +17,11 @@ class PengunjungController extends Controller
 
         if($request->has('cari')){
             $data= DataAnggota::where('nama', 'LIKE','%'.$request->cari.'%')
+            ->orWhere('jenis_kelamin', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('tanggal_terdaftar', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('kontak', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('alamat', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('status_peminjaman', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('id', 'LIKE', '%'.$request->cari.'%')
             ->paginate(8);
         }else{
@@ -59,8 +61,8 @@ class PengunjungController extends Controller
             'foto' => 'required'
         ]);
         
-        DataAnggota::create([
-            'id' => $request->id,
+        if ($request->file('foto')==NULL) {
+            DataAnggota::create([
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
             'tanggal_terdaftar' => $request->tanggal_terdaftar,
@@ -69,7 +71,27 @@ class PengunjungController extends Controller
             'status_peminjaman' => $request->status_peminjaman,
             'foto' => $request->foto
         ]);
+        }else{
+            $nama = $request->nama;
+            $jenis_kelamin = $request->jenis_kelamin;
+            $tanggal_terdaftar = $request->tanggal_terdaftar;
+            $kontak = $request->kontak;
+            $alamat = $request->alamat;
+            $status_peminjaman = $request->status_peminjaman;
+            $foto = $request->file('foto');
+            $NamaFoto = time().'.'.$foto->extension();
+            $foto->move(public_path('foto'),$NamaFoto);
 
+            $DataAnggota = new DataAnggota();
+            $DataAnggota->nama = $nama;
+            $DataAnggota->jenis_kelamin = $jenis_kelamin;
+            $DataAnggota->tanggal_terdaftar = $tanggal_terdaftar;
+            $DataAnggota->kontak = $kontak;
+            $DataAnggota->alamat = $alamat;
+            $DataAnggota->status_peminjaman = $status_peminjaman;
+            $DataAnggota->foto = $NamaFoto;
+            $DataAnggota->save(); 
+        }
         return redirect('/DataPengunjung')->with('success', 'Data Berhasil Ditambahkan!'); 
     }
 
@@ -114,6 +136,7 @@ class PengunjungController extends Controller
             'alamat' => 'required',
         ]);
 
+        if ($request->file('gambar')==NULL) {
         $pengunjung = DataAnggota::find($id);
         $pengunjung->nama = $request->nama;
         $pengunjung->jenis_kelamin = $request->jenis_kelamin;
@@ -121,9 +144,35 @@ class PengunjungController extends Controller
         $pengunjung->kontak = $request->kontak;
         $pengunjung->alamat = $request->alamat;
         $pengunjung->status_peminjaman = $request->status_peminjaman;
-        $pengunjung->foto = $request->foto;
+        $foto = $request->foto;
+
         $pengunjung->save();
         return redirect('/DataPengunjung')->with('success', 'Data Berhasil Diubah!');
+
+        }else{
+            $foto = $request->file('foto');
+            $NamaFoto = time().'.'.$foto->extension();
+            $foto->move(public_path('foto'),$NamaFoto);
+
+            $nama = $request->nama;
+            $jenis_kelamin = $request->jenis_kelamin;
+            $tanggal_terdaftar = $request->tanggal_terdaftar;
+            $kontak = $request->kontak;
+            $alamat = $request->alamat;
+            $status_peminjaman = $request->status_peminjaman;
+
+            $pengunjung = DataAnggota::find($id);
+            $pengunjung->nama = $nama;
+            $pengunjung->jenis_kelamin = $jenis_kelamin;
+            $pengunjung->tanggal_terdaftar = $tanggal_terdaftar;
+            $pengunjung->kontak = $kontak;
+            $pengunjung->alamat = $alamat;
+            $pengunjung->status_peminjaman = $status_peminjaman;
+            $pengunjung->foto = $NamaFoto;
+
+            $pengunjung->save();
+            return redirect('/DataPengunjung')->with('success', 'Data Berhasil Diubah!');    
+        }
     }
 
     public function cetak_kartu($id)

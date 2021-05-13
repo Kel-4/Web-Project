@@ -81,7 +81,7 @@
                 </tr>
             </thead>
             <tbody>
-            <?php $i=1 ?>
+            <?php $i=0 ?>
                 @foreach ($data as $pengunjung)
                 <tr>
                     <td>AP{{ $data->firstItem() + $i }}</td>
@@ -91,7 +91,7 @@
                     <td>+62{{ $pengunjung->kontak }}</td>
                     <td>{{ $pengunjung->alamat }}</td>
                     <td>{{ $pengunjung->status_peminjaman }}</td>
-                    <td><img width="60px"src="{{asset('foto')}}/{{ $pengunjung->foto }}" alt="not found"></td>
+                    <td><img width="60px"src="{{asset('foto')}}/{{ $pengunjung->foto }}" alt="Foto anggota"></td>
                     <td>
                         <a href="/DataPengunjung/ubah/{{ $pengunjung->id }}"><i class="far fa-edit btn btn-success"></i></a>
                         <a href="/DataPengunjung/hapus/{{ $pengunjung->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
