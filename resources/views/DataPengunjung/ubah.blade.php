@@ -41,7 +41,7 @@
             <ul>
                 <br>
                 <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-                <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Pengunjung</a> </li>
+                <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Anggota Perpustakaan</a> </li>
                 <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
                 <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
             </ul>
@@ -49,8 +49,8 @@
 
         <div class="container">
             <br>
-            <center><h1><i class="far fa-edit" aria-hidden="true"></i>&nbsp; UBAH DATA PENGUNJUNG</h1></center><br><br>
-            <a href="/DataPengunjung" class="badge bg-info">Kembali</a><br><br>
+            <center><h1><i class="far fa-edit" aria-hidden="true"></i>&nbsp; UBAH DATA ANGGOTA PERPUSTAKAAN</h1></center><br><br>
+            <h5><a href="/DataPengunjung" class="badge bg-info">Kembali</a><br><br></h5>
             
             <div class="hero rounded-3 px-5 pb-5 pt-5">
                 <form enctype="multipart/form-data" action="/DataPengunjung/update/{{ $pengunjung->id }}" method="post">
@@ -62,7 +62,7 @@
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Jenis Kelamin</label>
                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
                             <option value="{{ $pengunjung->jenis_kelamin }}">{{ $pengunjung->jenis_kelamin }} (Ubah Jenis Kelamin)</option>
@@ -70,28 +70,28 @@
                             <option value="Perempuan">Perempuan</option>
                        </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Tanggal terdaftar</label>
                         <input type="date" name="tanggal_terdaftar" class="form-control @error('tanggal_terdaftar') is-invalid @enderror" value="{{ $pengunjung->tanggal_terdaftar }}">
                         @error('tanggal_terdaftar')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Kontak</label>
-                        <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="{{ $pengunjung->kontak }}">
+                        <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="{{ $pengunjung->kontak }}" placeholder="+62">
                         @error('kontak')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Alamat</label>
                         <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ $pengunjung->alamat }}">
                         @error('alamat')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Status Peminjaman</label>
                         <select name="status_peminjaman" id="status_peminjaman" class="form-control">
                             <option value="{{ $pengunjung->status_peminjaman }}">{{ $pengunjung->status_peminjaman }} (Ubah Status Pinjam)</option>
@@ -99,12 +99,12 @@
                             <option value="Meminjam">Meminjam</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Foto</label>
                         <input type="file" name="foto" class="form-control">
                         <img src="{{asset('foto')}}" alt="Foto anggota" style="max-width:100px; margin-top:20px;">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                     <br><br>
                         <button type="submit" class="btn btn-warning">Ubah</button>
                     </div>

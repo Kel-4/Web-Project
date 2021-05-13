@@ -54,13 +54,13 @@
 
     <div class="container">
         <br>
-        <center><h1><i class="fas fa-user-plus" aria-hidden="true"></i>&nbsp;TAMBAH DATA</h1></center><br><br>
-        <a href="/DataPengunjung" class="badge bg-info">Kembali</a><br><br>
+        <center><h1><i class="fas fa-user-plus" aria-hidden="true"></i>&nbsp;TAMBAH ANGGOTA</h1></center><br><br>
+        <h5><a href="/DataPengunjung" class="badge bg-info">Kembali</a><br><br></h5>
         
         <div class="hero rounded-3 px-5 pb-5 pt-5">
             <form enctype="multipart/form-data" action="/DataPengunjung/simpan" method="post">
                 @csrf
-                <div class="form-group mt-3">
+                <div class="form-group">
                     <label>Nama</label>
                     <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" autocomplete="off" autofocus>
                     @error('nama')
@@ -87,7 +87,7 @@
                 </div>
                 <div class="form-group mt-3">
                     <label>Kontak</label>
-                    <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="{{ old('kontak') }}" autocomplete="off">
+                    <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="{{ old('kontak') }}" placeholder="+62" autocomplete="off">
                     @error('kontak')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror

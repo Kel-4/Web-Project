@@ -106,7 +106,7 @@
       <tr>
         <td>ID Anggota</td>
         <td>:</td>
-        <td>PE00{{ $pengunjung->id }}</td>
+        <td>AP{{ $pengunjung->id }}</td>
         <td rowspan=4><div class="col-md-5" style="width: 110px; height:120px; border: 2px solid; margin-left: 30px;"><p style="text-align:center;  vertical-align: middle; margin-top: 50%">FOTO</p></div></td>
       </tr>
       <tr>

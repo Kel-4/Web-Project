@@ -88,7 +88,7 @@
                     <td>{{ $pengunjung->nama }}</td>
                     <td>{{ $pengunjung->jenis_kelamin }}</td>
                     <td>{{ $pengunjung->tanggal_terdaftar }}</td>
-                    <td>{{ $pengunjung->kontak }}</td>
+                    <td>+62{{ $pengunjung->kontak }}</td>
                     <td>{{ $pengunjung->alamat }}</td>
                     <td>{{ $pengunjung->status_peminjaman }}</td>
                     <td><img width="60px"src="{{asset('foto')}}/{{ $pengunjung->foto }}" alt="not found"></td>
