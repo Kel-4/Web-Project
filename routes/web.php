@@ -45,14 +45,13 @@ Route::get('/daftarbuku/hapus/{id}', 'DataBukuController@destroy');
 Route::get('logout', 'login\LoginController@logout')->name('logout');
 
 
-//DataPengunjung
-Route::get('/DataPengunjung', 'PengunjungController@index');
-Route::get('/DataPengunjung/tambah', 'PengunjungController@create');
-Route::post('/DataPengunjung/simpan', 'PengunjungController@store');
-Route::get('/DataPengunjung/hapus/{id}', 'PengunjungController@destroy');
-Route::get('/DataPengunjung/ubah/{id}', 'PengunjungController@edit');
-Route::post('/DataPengunjung/update/{id}', 'PengunjungController@update');
-Route::get('/DataPengunjung/cetak_kartu/{id}', 'PengunjungController@cetak_kartu')->name('cetak_kartu');
+Route::get('/DataAnggota', 'AnggotaController@index');
+Route::get('/DataAnggota/tambah', 'AnggotaController@create');
+Route::post('/DataAnggota/simpan', 'AnggotaController@store');
+Route::get('/DataAnggota/hapus/{id}', 'AnggotaController@destroy');
+Route::get('/DataAnggota/ubah/{id}', 'AnggotaController@edit');
+Route::post('/DataAnggota/update/{id}', 'AnggotaController@update');
+Route::get('/DataAnggota/cetak_kartu/{id}', 'AnggotaController@cetak_kartu')->name('cetak_kartu');
 
 
 Route::get('/DataPeminjaman', 'DataPeminjamanController@index');

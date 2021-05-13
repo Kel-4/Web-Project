@@ -15,15 +15,18 @@ class CreateDataPeminjamanTable extends Migration
     {
         Schema::create('data_peminjaman', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('id_peminjaman',5);
-            $table->string('id_buku',5);
-            $table->string('id_pengunjung',5);
             $table->string('nama',100);
-            $table->string('judul_buku',100);
+            $table->string('judul',100);
             $table->date('tgl_pinjam',10);
             $table->date('tgl_jatuh_tempo',10);
             $table->date('tgl_kembali')->nullable();
             $table->boolean('status')->default(0);
+            $table->unsignedInteger('id_buku');
+            $table->unsignedInteger('id_anggota')->references('id')->on('data_anggota')->onDelete('cascade');
+            $table->unsignedInteger('id_pegawai')->references('id')->on('data_pegawai')->onDelete('cascade');
+            $table->foreign('id_buku')->references('id')->on('data_buku')->onDelete('cascade');
+            $table->foreign('id_anggota')->references('id')->on('data_anggota')->onDelete('cascade');
+            $table->foreign('id_pegawai')->references('id')->on('data_pegawai')->onDelete('cascade');
             $table->timestamps();
         });
     }

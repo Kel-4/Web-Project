@@ -18,10 +18,10 @@ class CreateDataAnggotaTable extends Migration
             $table->string('nama')->nullable();
             $table->enum('jenis_kelamin',['Laki-laki','Perempuan']);
             $table->date('tanggal_terdaftar')->nullable();
-            $table->float('kontak',15)->nullable();
+            $table->string('kontak')->nullable();
             $table->string('alamat',50)->nullable();     
-            $table->enum('status_peminjaman',['Tidak ada','Meminjam']);
-            $table->string('foto');
+            $table->enum('status_peminjaman',['-','Meminjam']);
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

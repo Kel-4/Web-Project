@@ -40,7 +40,7 @@
             <ul>
                 <br>
                 <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-                <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Anggota Perpustakaan</a> </li>
+                <li><a href="/DataAnggota"><i class="fas fa-users"></i> &nbsp;Data Anggota</a> </li>
                 <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
                 <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
             </ul>
@@ -142,7 +142,7 @@
 
                     <div class="form-group">
                         <label>Gambar</label>
-                        <input type="file" name="gambar" class="form-control" value=" $DataBuku->gambar">
+                        <input type="file" name="gambar" class="form-control" value=" {{ $DataBuku->gambar }}">
                         <img src="{{asset('gambar')}}/{{ $DataBuku->gambar }}" alt="gambar buku" style="max-width:100px; margin-top:20px;">
                     </div>
                     <div class="form-group">

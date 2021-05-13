@@ -40,7 +40,7 @@
         <ul>
             <br>
             <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Anggota Perpustakaan</a> </li>
+            <li><a href="/DataAnggota"><i class="fas fa-users"></i> &nbsp;Data Anggota</a> </li>
             <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
             <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
@@ -63,7 +63,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">Aplikasi Pengelolaan Perpustakaan</h5>
                     </div>
                     <div class="modal-body justify-content">
-                        Selamat Datang !!! <br>Aplikasi ini adalah aplikasi yang ditujukan untuk melakukan pengelolaan data perpustakaan, seperti daftar buku, daftar pengunjung, peminjaman, dan pengembalian.
+                        Selamat Datang !!! <br>Aplikasi ini adalah aplikasi yang ditujukan untuk melakukan pengelolaan data perpustakaan, seperti daftar buku, data anggota, peminjaman, dan pengembalian.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

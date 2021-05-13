@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DataPeminjaman;
 Use App\Models\DataBuku;
-Use App\Models\Pengunjung;
+Use App\Models\DataAnggota;
 
 class DataPeminjamanController extends Controller
 {
@@ -39,8 +39,8 @@ class DataPeminjamanController extends Controller
     public function create()
     {
         $dataBuku = DataBuku::all();
-        $dataPengunjung = Pengunjung::all();
-        return view('DataPeminjaman.tambah', compact('dataBuku', 'dataPengunjung'));
+        $dataAnggota = DataAnggota::all();
+        return view('DataPeminjaman.tambah', compact('dataBuku', 'dataAnggota'));
     }
 
     /**
@@ -89,9 +89,9 @@ class DataPeminjamanController extends Controller
     public function edit($id)
     {
         $dataBuku = DataBuku::all();
-        $dataPengunjung = Pengunjung::all();
+        $dataAnggota = DataAnggota::all();
         $DataPeminjaman = DataPeminjaman::find($id);
-        return view('DataPeminjaman.ubah', compact('DataPeminjaman', 'dataBuku', 'dataPengunjung'));
+        return view('DataPeminjaman.ubah', compact('DataPeminjaman', 'dataBuku', 'dataAnggota'));
     }
 
     /**

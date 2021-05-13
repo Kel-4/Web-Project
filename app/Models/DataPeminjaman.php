@@ -19,8 +19,8 @@ class DataPeminjaman extends Model
         return $this->belongsTo('App\Models\DataBuku', 'id_buku');
     }
 
-    public function Pengunjung() 
+    public function DataAnggota() 
     {
-        return $this->belongsTo('App\Models\Pengunjung', 'id_pengunjung');
+        return $this->belongsTo('App\Models\DataAnggota', 'id_anggota');
     }
 }

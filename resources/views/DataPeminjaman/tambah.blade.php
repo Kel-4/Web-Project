@@ -41,7 +41,7 @@
         <ul>
             <br>
             <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Anggota Perpustakaan</a> </li>
+            <li><a href="/DataAnggota"><i class="fas fa-users"></i> &nbsp;Data Anggota</a> </li>
             <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
             <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
@@ -60,9 +60,9 @@
                     <label for="nama">Nama Anggota Perpustakaan</label>
                     <select name="nama" id="nama" class="form-control">
                         <option value="">Pilih Nama Anggota</option>
-                        @foreach ($dataPengunjung
-                         as $pengunjung )
-                            <option value="{{ $pengunjung->nama }}" {{ old('nama') == $pengunjung->nama ? 'selected' : null }}>{{ $pengunjung->nama }}</option>
+                        @foreach ($dataAnggota
+                         as $anggota )
+                            <option value="{{ $anggota->nama }}" {{ old('nama') == $anggota->nama ? 'selected' : null }}>{{ $anggota->nama }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -104,25 +104,25 @@
   <div class="container mt-4">
     <table cellpadding="5px">
       <tr>
-        <td>ID Anggota</td>
+        <td>ID</td>
         <td>:</td>
-        <td>AP{{ $pengunjung->id }}</td>
-        <td rowspan=4><div class="col-md-5" style="width: 110px; height:120px; border: 2px solid; margin-left: 30px;"><p style="text-align:center;  vertical-align: middle; margin-top: 50%">FOTO</p></div></td>
+        <td>AP00{{ $anggota->id }}</td>
+        <td rowspan=4><div class="col-md-5" style="margin-left: 30px;"><img src="{{asset('foto')}}/{{ $anggota->foto }}" style="width: 110px; height:120px; border: 2px solid" alt="Foto"></div></td>
       </tr>
       <tr>
         <td>Nama</td>
         <td>:</td>
-        <td>{{ $pengunjung->nama }}</td>
+        <td>{{ $anggota->nama }}</td>
       </tr>
       <tr>
         <td>Alamat</td>
         <td>:</td>
-        <td>{{ $pengunjung->alamat }}</td>
+        <td>{{ $anggota->alamat }}</td>
       </tr>
       <tr>
         <td>Kontak</td>
         <td>:</td>
-        <td>{{ $pengunjung->kontak }}</td>
+        <td>{{ $anggota->kontak }}</td>
       </tr>
     </table>
   </div>

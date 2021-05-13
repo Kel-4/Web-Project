@@ -49,7 +49,7 @@
         <ul>
             <br>
             <li><a href="/daftarbuku"><i class="fas fa-book"></i> &nbsp;Daftar Buku</a></li>
-            <li><a href="/DataPengunjung"><i class="fas fa-users"></i> &nbsp;Data Anggota Perpustakaan</a> </li>
+            <li><a href="/DataAnggota"><i class="fas fa-users"></i> &nbsp;Data Anggota</a> </li>
             <li><a href="/DataPeminjaman"><i class="fas fa-address-book"></i> &nbsp;Peminjaman</a> </li>
             <li><a href="/DataPengembalian"><i class="fas fa-calendar-check"></i> &nbsp;Pengembalian</a> </li>
         </ul>
@@ -58,7 +58,7 @@
     <div class="container">
         <br>
         <center><h1>DATA ANGGOTA PERPUSTAKAAN</h1></center><br><br>
-        <div class="info1"> <h4><a href="/DataPengunjung/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
+        <div class="info1"> <h4><a href="/DataAnggota/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
         <br>
         <div id="info">
             <form method="GET">
@@ -69,33 +69,37 @@
         <table class="table rounded-3 table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>ID Anggota</th>
+                    <th>Foto</th>
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
-                    <th>Tanggal terdaftar</th>
+                    <th>Tanggal Terdaftar</th>
                     <th>Kontak</th>
                     <th>Alamat</th>
                     <th>Status Peminjaman</th>
-                    <th>Foto</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-            <?php $i=1 ?>
-                @foreach ($data as $pengunjung)
+            <?php $i=0 ?>
+                @foreach ($data as $anggota)
                 <tr>
-                    <td>AP{{ $data->firstItem() + $i }}</td>
-                    <td>{{ $pengunjung->nama }}</td>
-                    <td>{{ $pengunjung->jenis_kelamin }}</td>
-                    <td>{{ $pengunjung->tanggal_terdaftar }}</td>
-                    <td>+62{{ $pengunjung->kontak }}</td>
-                    <td>{{ $pengunjung->alamat }}</td>
-                    <td>{{ $pengunjung->status_peminjaman }}</td>
-                    <td><img width="60px"src="{{asset('foto')}}/{{ $pengunjung->foto }}" alt="not found"></td>
+                    <td>AP00{{ $data->firstItem() + $i }}</td>
+                    <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $anggota->foto }}" alt=" foto"></td>
+                    <td>{{ $anggota->nama }}</td>
+                    <td>{{ $anggota->jenis_kelamin }}</td>
+                    <td>{{ $anggota->tanggal_terdaftar }}</td>
+                    <td>{{ $anggota->kontak }}</td>
+                    <td>{{ $anggota->alamat }}</td>
+                    @if($anggota->status_peminjaman=='Bebas')
+                        <td><a href="" class="btn btn-success">BEBAS</a></td>
+                    @else
+                        <td><a href="" class="btn btn-danger">MEMINJAM</a></td>
+                    @endif
                     <td>
-                        <a href="/DataPengunjung/ubah/{{ $pengunjung->id }}"><i class="far fa-edit btn btn-success"></i></a>
-                        <a href="/DataPengunjung/hapus/{{ $pengunjung->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
-                        <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Card Member" href="/DataPengunjung/cetak_kartu/{{ $pengunjung->id }}"> <i class="fas text-light fa-id-card btn btn-warning"></i></a>
+                        <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Card Member" href="/DataAnggota/cetak_kartu/{{ $anggota->id }}"> <i class="fas text-light fa-id-card btn btn-warning"></i></a>
+                        <a href="/DataAnggota/ubah/{{ $anggota->id }}"><i class="far fa-edit btn btn-success"></i></a>
+                        <a href="/DataAnggota/hapus/{{ $anggota->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
                 </tr>
                 <?php $i++ ?>
