@@ -87,7 +87,7 @@
                 </div>
                 <div class="form-group mt-3">
                     <label>Kontak</label>
-                    <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="{{ old('kontak') }}" placeholder="+62" autocomplete="off">
+                    <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="+62{{ old('kontak') }}" placeholder="+62" autocomplete="off">
                     @error('kontak')
                             <div class="invalid-feedback">{{  $message }}</div>
                     @enderror
