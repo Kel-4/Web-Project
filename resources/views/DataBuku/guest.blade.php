@@ -73,7 +73,7 @@
                         <tr>
                                     <td>ID Buku</td>
                                     <td>:</td>
-                                    <td>AA00{{ $buku->id }}</td>
+                                    <td>AA{{ $buku->id }}</td>
                                 </tr>
                                 <tr>
                                     <td>Judul</td>

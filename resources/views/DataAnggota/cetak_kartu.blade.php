@@ -122,7 +122,7 @@
       <tr>
         <td>Kontak</td>
         <td>:</td>
-        <td>+{{ $anggota->kontak }}</td>
+        <td>{{ $anggota->kontak }}</td>
       </tr>
     </table>
   </div>
