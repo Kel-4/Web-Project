@@ -20,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 //         return redirect('/');
 //     }
 // });
+// Route::get('/register',function(){
+//     return view('register');
+// });
+// Route::get('/welcome',function(){
+//     return view('welcome');
+// });
 
 Route::post('/','login\LoginController@login')->name('login');
 Route::get('/','login\LoginController@index')->name('login');
@@ -66,3 +72,7 @@ Route::get('/DataPengembalian', 'DataPengembalianController@index');
 
 });
 
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

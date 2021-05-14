@@ -16,7 +16,6 @@
         <title>Halaman Daftar Buku</title>
     </head>
     <body>
-  
     <nav class="navbar">
         <div class="container">
             <h1 class="" style="color: blue;"><img src="{{asset('images/logo.png')}}" style="width: 70px;" alt=""> del<span style="color: red;">ibr</span><span style="color: #41A0FF;">ary</h1>

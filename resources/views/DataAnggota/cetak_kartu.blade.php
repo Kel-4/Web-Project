@@ -127,7 +127,7 @@
     </table>
   </div>
 
-  <footer class="container mt-3">
+  <footer class="container">
       <div class="visible-print text-center">
         <p id="warning" class="text-danger" style="font-size: 8px; font-style: italic; font-weight:bold;">Jangan melipat, merusak, ataupun menghilangkan kartu member Anda!</p>
       </div>
