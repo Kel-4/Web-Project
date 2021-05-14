@@ -106,7 +106,7 @@
       <tr>
         <td>ID</td>
         <td>:</td>
-        <td>AP00{{ $anggota->id }}</td>
+        <td>AP{{ $anggota->id }}</td>
         <td rowspan=4><div class="col-md-5" style="margin-left: 30px;"><img src="{{asset('foto')}}/{{ $anggota->foto }}" class="rounded-2" style="width: 110px; height:120px; border: 1px solid" alt="Foto"></div></td>
       </tr>
       <tr width="50px">
@@ -122,7 +122,7 @@
       <tr>
         <td>Kontak</td>
         <td>:</td>
-        <td>{{ $anggota->kontak }}</td>
+        <td>+{{ $anggota->kontak }}</td>
       </tr>
     </table>
   </div>
