@@ -21,7 +21,7 @@
         @csrf
         <div class="loginbody">
         <label for="username"><i class="fas fa-user-circle"></i> Username</label>
-        <input id="username" value="{{ old('email') }}" class="form-control border-top-0  @error('email') is-invalid @enderror"type="email" name="email"><br>
+        <input id="username" value="{{ old('username') }}" class="form-control border-top-0  @error('username') is-invalid @enderror"type="text" name="username"><br>
         <label class="show-icon" for="show-password"> <i class="fas fa-eye"></i></label>
         <input style="display: none;" type="checkbox" id="show-password">
         <label for="password"><i class="fas fa-key"></i> Password</label>
@@ -44,7 +44,7 @@
     </form>
     </div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    @error ('email')
+    @error ('username')
     <script src="{{ asset('js/loginalert.js') }}"></script>
     @enderror
     @error ('password')
