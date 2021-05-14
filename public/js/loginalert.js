@@ -1,6 +1,6 @@
 swal({
     title: "Ooops",
-    text: "Password atau Email anda salah",
+    text: "Email anda salah",
     icon: "error",
     button: "Coba lagi",
 });

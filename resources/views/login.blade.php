@@ -21,15 +21,20 @@
         @csrf
         <div class="loginbody">
         <label for="username"><i class="fas fa-user-circle"></i> Username</label>
-        <input id="username" class="form-control border-top-0" type="email" name="email"><br>
+        <input id="username" value="{{ old('email') }}" class="form-control border-top-0  @error('email') is-invalid @enderror"type="email" name="email"><br>
         <label class="show-icon" for="show-password"> <i class="fas fa-eye"></i></label>
-          <input style="display: none;" type="checkbox" id="show-password">
+        <input style="display: none;" type="checkbox" id="show-password">
         <label for="password"><i class="fas fa-key"></i> Password</label>
-        <input id="password" class="form-control" type="password" name="password"><br><br>
+        <input id="password" value="{{ old('password') }}" class="form-control  @error('password') is-invalid @enderror" type="password" name="password"><br><br>
         <center><button id="login" class="btn btn">Login</button></center>
         <center>OR
           <br>
           <a href="{{ route('guest') }}" id="guest" class="btn btn text-dark"><i class="fas fa-user-check"></i> Guest</a>
+          <br><br>
+          {{-- <p style="margin-bottom: -20px;">Don't hava account? <a href="/register">Register here</a></p> --}}
+          @if (Route::has('register'))
+          Don't have an account? <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+          @endif
         </center>
         <br>
         {{-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -39,9 +44,12 @@
     </form>
     </div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    @if (session('message'))
+    @error ('email')
     <script src="{{ asset('js/loginalert.js') }}"></script>
-    @endif
+    @enderror
+    @error ('password')
+    <script src="{{ asset('js/loginalert2.js') }}"></script>
+    @enderror
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     @include('sweetalert::alert')
