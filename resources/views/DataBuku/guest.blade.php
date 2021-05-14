@@ -57,7 +57,7 @@
 
         {{-- detail-modal --}}
         <div class="modal fade" id="abc<?= $buku->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title fw-bold" id="exampleModalLabel">{{$buku->judul}}</h5>

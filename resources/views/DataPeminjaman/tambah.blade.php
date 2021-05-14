@@ -62,7 +62,9 @@
                         <option value="">Pilih Nama Anggota</option>
                         @foreach ($dataAnggota
                          as $anggota )
+                         @if($anggota->status_peminjaman=='Bebas')
                             <option value="{{ $anggota->nama }}" {{ old('nama') == $anggota->nama ? 'selected' : null }}>{{ $anggota->nama }}</option>
+                        @endif
                         @endforeach
                     </select>
                 </div>
@@ -76,7 +78,9 @@
                         <option value="">Pilih Judul Buku</option>
                         @foreach ($dataBuku
                          as $buku )
+                         @if($buku->status_buku==0)
                             <option value="{{ $buku->judul }}" {{ old('judul') == $buku->judul ? 'selected' : null }}>{{ $buku->judul }}</option>
+                        @endif
                         @endforeach
                     </select>
                 </div>

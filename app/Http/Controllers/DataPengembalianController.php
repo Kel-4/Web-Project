@@ -18,7 +18,10 @@ class DataPengembalianController extends Controller
         if($request->has('cari')) {
             $data = DataPengembalian::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('nama', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('judul_buku', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('tgl_jatuh_tempo', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('tgl_kembali', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('status', 'LIKE', '%'.$request->cari.'%')
             ->paginate(5);
         } else {
             $data = DataPengembalian::paginate(5);
@@ -31,37 +34,6 @@ class DataPengembalianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
-    public function denda(Request $request)
-    {
-        if($request->has('cari')) {
-            $data = DataPengembalian::where('id_peminjaman', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('nama', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('tgl_jatuh_tempo', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('tgl_kembali', 'LIKE', '%'.$request->cari.'%')
-            ->paginate(5);
-        } else {
-            $data = DataPengembalian::paginate(5);
-        }
-        return view('DataPengembalian.denda', ['data'=>$data]);
-    }
-
-    public function status($id)
-    {
-        $data = DataPengembalian::find($id);
-        if ($data->status == 0) {
-            $data->status = 1;
-            $data->save();
-            return redirect('/DataPengembalian')->with("Buku Telah Dikembalikan", "success");
-        } else {
-            $data->status = 0;
-            $data->save();
-            return redirect('/DataPengembalian')->with('warning', 'Buku Belum Dikembalikan');
-        }
-        
-
-    }
-
 
     /**
      * Store a newly created resource in storage.

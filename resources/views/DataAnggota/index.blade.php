@@ -84,12 +84,12 @@
             <?php $i=0 ?>
                 @foreach ($data as $anggota)
                 <tr>
-                    <td>AP00{{ $data->firstItem() + $i }}</td>
+                    <td>AP{{ $data->firstItem() + $i }}</td>
                     <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $anggota->foto }}" alt=" foto"></td>
                     <td>{{ $anggota->nama }}</td>
                     <td>{{ $anggota->jenis_kelamin }}</td>
                     <td>{{ $anggota->tanggal_terdaftar }}</td>
-                    <td>{{ $anggota->kontak }}</td>
+                    <td>+{{ $anggota->kontak }}</td>
                     <td>{{ $anggota->alamat }}</td>
                     @if($anggota->status_peminjaman=='Bebas')
                         <td><a href="" class="btn btn-success">BEBAS</a></td>

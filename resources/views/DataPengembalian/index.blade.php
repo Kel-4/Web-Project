@@ -117,16 +117,11 @@
                     <td>{{ $buku->tgl_kembali }}</td>
                     @if (!empty($buku->tgl_kembali))
                     <td>Rp{{ Carbon\Carbon::parse($buku->tgl_jatuh_tempo)->diffInDays($buku->tgl_kembali)*2000 }}</td>
+                    <td><a href="#" class="btn btn-success kembali">KEMBALI</a></td>
                     @else
                     <td>-</td>
+                    <td><a href="#" class="btn btn-danger baru">BARU</a></td>
                     @endif
-                    <td>
-                        @if($buku->status == 1)
-                        <a href="{{ route('update-status', $buku->id) }}" class="btn btn-success kembali">KEMBALI</a>
-                        @else
-                        <a href="{{ route('update-status', $buku->id) }}" class="btn btn-danger baru">BARU</a>
-                        @endif
-                    </td>
                     <?php $i++ ?>
                 @endforeach
             </tbody>

@@ -137,7 +137,7 @@
 
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="{{ $DataBuku->deskripsi }}">
+                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="form-control">{{ $DataBuku->deskripsi }}</textarea>
                     </div>
 
                     <div class="form-group">
