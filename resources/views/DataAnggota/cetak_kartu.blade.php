@@ -67,19 +67,29 @@
       background-size: cover;
       border-radius: 10px; 
       width: 400px;
-      height: 200px;
+      height: 225px;
       border: 4px solid lightgrey;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
 
     .card-member1{
-      background-image: url('{{ asset("images/cardbg.png") }}');
+      background-image: url('{{ asset("images/bgcard1.jpg") }}');
       background-size: cover;
       border-radius: 10px; 
       width: 400px;
-      height: 200px;
+      height: 225px;
       border: 4px solid lightgrey;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+    .cardtitle{
+      margin-left: -1%;
+      margin-top: 8px;
+      font-weight: 1000;
+      font-size: 26px;
+    }
+    .logocard{
+      margin-top: -13%;
+      margin-left: -3%;
     }
     table{
       margin-top: -20px;
@@ -87,19 +97,31 @@
     #warning{
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
+    .visible-print{
+      float: right;
+      margin-top: -32px;
+      margin-right: 14px
+    }
     </style>
   </head>
   <body>
   <br><br>
 
   <div class="card-member1 container">
+  <h5 class="cardtitle" style="color:#1F618D ;">Master <span style="color: #1A5276;">Member </span><br><b class="" style="color: #154360;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Card</b></h5>
+  <div class="logocard">
    <center><img class="mt-4" src="{{ asset('img/logo.png') }}" alt="" width="100px">
    <h2 class="text-primary">del<span class="text-danger">ibr</span><span class="text-info">ary</span></h2>
-   <h6 class="mt-2">member card</h6>
+   {{-- <h6 class="mt-2">member card</h6> --}}
+  </div>
+  <div class="visible-print">
+    {!! QrCode::size(60)->generate(Request::url()); !!}
+  </div>
    </center>
   </div>
 
-  <div class="card-member container">
+  <div class="card-member container"><br>
   <p> &nbsp;&nbsp; <i class="fas fa-users"></i> Member Card</p>
   <div class="container mt-4">
     <table cellpadding="5px" style="width: 100%">
