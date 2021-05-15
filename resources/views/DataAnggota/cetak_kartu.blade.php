@@ -83,7 +83,7 @@
     }
     .cardtitle{
       margin-left: -1%;
-      margin-top: 8px;
+      margin-top: 8px; 
       font-weight: 1000;
       font-size: 26px;
     }
