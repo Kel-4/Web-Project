@@ -55,6 +55,7 @@ class AnggotaController extends Controller
             'tanggal_terdaftar' => 'required',
             'kontak' => 'required',
             'alamat' => 'required',
+            'foto' => 'required',
         ]);
 
 

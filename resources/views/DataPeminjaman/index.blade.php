@@ -99,7 +99,7 @@
                 <?php $i=0 ?>
                 @foreach ($data as $pinjam)
                 <tr>
-                    <td>PI00{{ $data->firstItem() + $i }}</td>
+                    <td>PI{{ $data->firstItem() + $i }}</td>
                     <td>{{ $pinjam->nama  }}</td>
                     <td>{{ $pinjam->judul }}</td>
                     <td>{{ $pinjam->tgl_pinjam }}</td>

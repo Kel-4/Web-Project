@@ -95,14 +95,14 @@
             <?php $i=0 ?>
                 @foreach ($data as $buku)
                 <tr>
-                    <td>AA00{{ $data->firstItem() + $i }}</td>
+                    <td>AA{{ $data->firstItem() + $i }}</td>
                     <td style="text-align:left">{{ $buku->judul }}</td>
                     <td>{{ $buku->penerbit }}</td>
                     <td>{{ $buku->lokasi}}</td>
                     @if($buku->status_buku==0)
-                        <td><a href="#" class="btn btn-success">TERSEDIA</a></td>
+                        <td><a class="btn btn-success">TERSEDIA</a></td>
                     @else
-                        <td><a href="#" class="btn btn-danger">DIPINJAM</a></td>
+                        <td><a class="btn btn-danger">DIPINJAM</a></td>
                     @endif
                     <td>    
                         <a href="/daftarbuku/detail/{{ $buku->id }}" class="badge bg-info" data-bs-toggle="modal" data-bs-target="#ModalBuku{{ $buku->id }}"><i class="fa fa-info" aria-hidden="true"></i>&nbsp;detail</a>

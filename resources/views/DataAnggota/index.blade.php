@@ -84,17 +84,17 @@
             <?php $i=0 ?>
                 @foreach ($data as $anggota)
                 <tr>
-                    <td>AP{{ $data->firstItem() + $i }}</td>
+                    <td>AP{{ $anggota->id }}</td>
                     <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $anggota->foto }}" alt=" foto"></td>
                     <td>{{ $anggota->nama }}</td>
                     <td>{{ $anggota->jenis_kelamin }}</td>
                     <td>{{ $anggota->tanggal_terdaftar }}</td>
-                    <td>+{{ $anggota->kontak }}</td>
+                    <td>{{ $anggota->kontak }}</td>
                     <td>{{ $anggota->alamat }}</td>
                     @if($anggota->status_peminjaman=='Bebas')
-                        <td><a href="" class="btn btn-success">BEBAS</a></td>
+                        <td><a class="btn btn-danger">MEMINJAM</a></td>
                     @else
-                        <td><a href="" class="btn btn-danger">MEMINJAM</a></td>
+                        <td><a class="btn btn-success">TIDAK ADA</a></td>
                     @endif
                     <td>
                         <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Card Member" href="/DataAnggota/cetak_kartu/{{ $anggota->id }}"> <i class="fas text-light fa-id-card btn btn-warning"></i></a>
