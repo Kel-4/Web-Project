@@ -73,7 +73,7 @@
     }
 
     .card-member1{
-      background-image: url('{{ asset("images/bgcard1.jpg") }}');
+      background-image: url('{{ asset("images/bgcard.jpg") }}');
       background-size: cover;
       border-radius: 10px; 
       width: 400px;
@@ -108,8 +108,7 @@
   <br><br>
 
   <div class="card-member1 container">
-  <h5 class="cardtitle" style="color:#1F618D ;">Master <span style="color: #1A5276;">Member </span><br><b class="" style="color: #154360;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  Card</b></h5>
+  <h5 class="cardtitle mx-3" style="color:#1F618D; text-align: justify;">Master <span style="color: #1A5276;">Member</span><br><b class="mx-5" style="color: #154360;">&nbsp;&nbsp;Card</b></h5>
   <div class="logocard">
    <center><img class="mt-4" src="{{ asset('img/logo.png') }}" alt="" width="100px">
    <h2 class="text-primary">del<span class="text-danger">ibr</span><span class="text-info">ary</span></h2>
@@ -123,7 +122,7 @@
 
   <div class="card-member container"><br>
   <p> &nbsp;&nbsp; <i class="fas fa-users"></i> Member Card</p>
-  <div class="container mt-4">
+  <div class="container mt-3">
     <table cellpadding="5px" style="width: 100%">
       <tr>
         <td>ID</td>
@@ -150,7 +149,7 @@
   </div>
 
   <footer class="container">
-      <div class="visible-print text-center">
+      <div class="visible-print text-center mt-3">
         <p id="warning" class="text-danger" style="font-size: 8px; font-style: italic; font-weight:bold;">Jangan melipat, merusak, ataupun menghilangkan kartu member Anda!</p>
       </div>
   </footer>

@@ -19,7 +19,7 @@ class DataPeminjamanController extends Controller
         if($request->has('cari')) {
             $data = DataPeminjaman::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('nama', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('judul_buku', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('tgl_pinjam', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('tgl_jatuh_tempo', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('tgl_kembali', 'LIKE', '%'.$request->cari.'%')
