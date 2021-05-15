@@ -219,6 +219,13 @@ class DataBukuController extends Controller
        
     }
 
+    public function cetak_buku($id)
+    {
+        //
+        $DataBuku = DataBuku::find($id);
+        return view('DataBuku.cetak_buku', ['anggotaDataBuku' => $DataBuku]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

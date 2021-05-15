@@ -29,7 +29,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::REGISTER;
+    // protected $redirectTo = RouteServiceProvider::REGISTER;
+    
+    protected $redirectTo = '/register';
+
 
     /**
      * Create a new controller instance.
@@ -41,6 +44,18 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function postRegister(Request $request)
+    {
+        $validator = $this->registrar->validator($request->all());
+        if ($validator->fails())
+        {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+        $this->auth->login($this->registrar->create($request->all()));
+        return redirect('/register');
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -72,8 +87,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-    public function showRegistrationForm()
-    {
-        return view('register');
-    }
+  
 }
+

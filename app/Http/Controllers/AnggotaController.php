@@ -182,6 +182,12 @@ class AnggotaController extends Controller
         return view('DataAnggota.cetak_kartu', ['anggota' => $anggota]);
     }
 
+    public function cetak_anggota($id)
+    {
+        //
+        $anggota = DataAnggota::find($id);
+        return view('DataAnggota.cetak_anggota', ['anggota' => $anggota]);
+    }
     /**
      * Remove the specified resource from storage.
      *
