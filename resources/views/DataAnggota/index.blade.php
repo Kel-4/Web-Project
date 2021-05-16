@@ -81,10 +81,10 @@
                 </tr>
             </thead>
             <tbody>
-            <?php $i=0 ?>
+            <?php $i=1 ?>
                 @foreach ($data as $anggota)
                 <tr>
-                    <td>AP{{ $anggota->id }}</td>
+                    <td>AP{{ $i }}</td>
                     <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $anggota->foto }}" alt=" foto"></td>
                     <td>{{ $anggota->nama }}</td>
                     <td>{{ $anggota->jenis_kelamin }}</td>

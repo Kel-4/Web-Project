@@ -59,7 +59,7 @@
                         <select name="nama" id="nama" class="form-control">
                         @foreach ($dataAnggota
                          as $anggota )
-                            <option value="{{ $Anggota->nama }}" {{ old('nama') == $Anggota->nama ? 'selected' : null }}>{{ $anggota->nama }}</option>
+                            <option value="{{ $anggota->nama }}" {{ old('nama') == $anggota->nama ? 'selected' : null }}>{{ $anggota->nama }}</option>
                         @endforeach
                     </select>
                     </div>
