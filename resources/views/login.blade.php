@@ -21,7 +21,7 @@
         @csrf
         <div class="loginbody">
         <label for="username"><i class="fas fa-user-circle"></i> Username</label>
-        <input id="username" value="{{ old('username') }}" class="form-control border-top-0  @error('username') is-invalid @enderror"type="text" name="username"><br>
+        <input id="username" value="{{ old('username') }}" class="form-control border-top-0  @error('username') is-invalid @enderror"type="text" name="username" autocomplete="off"><br>
         <label class="show-icon" for="show-password"> <i class="fas fa-eye"></i></label>
         <input style="display: none;" type="checkbox" id="show-password">
         <label for="password"><i class="fas fa-key"></i> Password</label>
@@ -31,7 +31,7 @@
           <br>
           <a href="{{ route('guest') }}" id="guest" class="btn btn text-dark"><i class="fas fa-user-check"></i> Guest</a>
           <br><br>
-          {{-- <p style="margin-bottom: -20px;">Don't hava account? <a href="/register">Register here</a></p> --}}
+          {{-- <p style="margin-bottom: -20px;">Don't have an account? <a href="/register">Register here</a></p> --}}
           @if (Route::has('register'))
           Don't have an account? <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
           @endif

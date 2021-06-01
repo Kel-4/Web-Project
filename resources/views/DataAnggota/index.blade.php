@@ -97,7 +97,7 @@
                         <td><a class="btn btn-success">TIDAK ADA</a></td>
                     @endif
                     <td>
-                        <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Card Member" href="/DataAnggota/cetak_kartu/{{ $anggota->id }}"> <i class="fas text-light fa-id-card btn btn-warning"></i></a>
+                        <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Card Member" href="/DataAnggota/cetak_kartu/{{ $anggota->id }}" target="_blank"> <i class="fas text-light fa-id-card btn btn-warning"></i></a>
                         <a href="/DataAnggota/ubah/{{ $anggota->id }}"><i class="far fa-edit btn btn-success"></i></a>
                         <a href="/DataAnggota/hapus/{{ $anggota->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>

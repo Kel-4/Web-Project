@@ -111,7 +111,7 @@
                 <?php $i=0 ?>
                 @foreach ($data as $buku)
                 <tr>
-                    <td>PI{{ $data->firstItem() + $i }}</td>
+                    <td>PE{{ $data->firstItem() + $i }}</td>
                     <td>{{ $buku->nama }}</td>
                     <td>{{ $buku->judul }}</td> 
                     <td>{{ $buku->tgl_kembali }}</td>
