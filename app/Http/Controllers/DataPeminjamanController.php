@@ -93,7 +93,6 @@ class DataPeminjamanController extends Controller
         $DataPeminjaman = DataPeminjaman::find($id);
         return view('DataPeminjaman.ubah', compact('DataPeminjaman', 'dataBuku', 'dataAnggota'));
     }
-
     /**
      * Update the specified resource in storage.
      *
