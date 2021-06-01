@@ -74,7 +74,7 @@
         
         <div id="info">
             <form class="form-inline" method="get">
-                <div class="info1"><input type="search" name="cari" size="50" class="form-control" style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="&#xf002 Ketik Keyword Pencarian...."></div>
+                <div class="info1"><input type="search" name="cari" size="50" class="form-control" style="font-family: Arial, FontAwesome;" value="{{Request::get('cari')}}" placeholder="&#xf002 Ketik Keyword Pencarian...." autocomplete="off"></div>
                 <div class="info1"><button class="btn btn-outline-light" type="submit">Cari !</button></div>
             </form>
         </div>
@@ -125,11 +125,11 @@
                         <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">DETAIL BUKU</h3>
                     </div>
                     <div class="modal-body row">
-                        <div class="col-md-4 img-dtl mt-5">
+                        <div class="col-md-4 img-dtl">
                             <img width="100%" src="{{asset('gambar')}}/{{ $buku->gambar }}" alt="not found">
                         </div>
                         <div class="col-md-8 rounded-2">
-                            <table class="table table-hover">
+                            <table class="table table-light table-hover">
                                 <tr>
                                     <td>ID</td>
                                     <td>:</td>
@@ -170,13 +170,14 @@
                                     <td>:</td>
                                     <td>{{ $buku->keterangan }}</td>
                                 </tr>
-                                <tr>
-                                    <td>Deskripsi</td>
-                                    <td>:</td>
-                                    <td style="text-align:justify">{{ $buku->deskripsi }}</td>
-                                </tr>
                             </table>
                         </div>
+                        <center>
+                        <div class="col-md-10 mt-3">
+                            <label style="font-weight: bold">Deskripsi</label><br><br>
+                            <p style="text-align: justify">{{ $buku->deskripsi }}</p>
+                        </div>
+                        </center>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

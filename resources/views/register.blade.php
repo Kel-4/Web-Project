@@ -69,10 +69,12 @@
             <input type="text" class="form-control bg-transparent text-light" placeholder="YOUR NAME"><br>
             <label for=""><h6>USERNAME</h6></label>
             <input type="text" class="form-control bg-transparent text-light" placeholder="YOUR USERNAME"><br>
-        </div>
-        <div class="col-md-6">
             <label for=""><h6>EMAIL</h6></label>
             <input type="email" class="form-control bg-transparent text-light" placeholder="YOUR EMAIL"><br>
+        </div>
+        <div class="col-md-6">
+            <label for=""><h6>TOKEN</h6></label>
+            <input type="text" class="form-control bg-transparent text-light" placeholder="TYPE TOKEN"><br>
             <label for=""><h6>PASSWORD</h6></label>
             <input type="password" class="form-control bg-transparent text-light" placeholder="YOUR PASSWORD">
         </div>
@@ -84,7 +86,7 @@
             <div class="col-md-6 container">
                 <button type="reset" class="btn btn-outline-light"><i class="fas fa-times-circle"></i> &nbsp;<b id="reset">RESET</b></button>
             </div><br>
-            <h5 class="text-center mt-3">HAVE ACCOUNT? <a class="" href="/">LOGIN HERE</a></h5>
+            <h5 class="text-center mt-3">HAVE AN ACCOUNT? <a class="" href="/">LOGIN HERE</a></h5>
         </div>
     </div>
     </form>

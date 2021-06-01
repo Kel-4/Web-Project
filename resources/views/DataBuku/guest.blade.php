@@ -38,15 +38,16 @@
             <br><br>
         <div class="container row">
             @foreach ($data as $buku)
+            
             <div class="card col-md-3 container" style="width: 12rem;">
                 <img src="{{ asset('gambar')}}/{{$buku->gambar}}" style="height: 200px" class="card-img-top mt-3" alt="not-found">
                 <div class="card-body text-center">
                   <h6 class="fw-bold">{{$buku->judul}}</h6>
 
                     @if($buku->status_buku==0)
-                        <a href="" class="btn btn-success disabled">TERSEDIA</a>
+                        <a href="#" class="btn btn-success">TERSEDIA</a>
                     @else
-                        <a href="" class="btn btn-danger baru disabled">DIPINJAM</a>
+                        <a href="#" class="btn btn-danger">DIPINJAM</a>
                     @endif
                 </div>
                 <div class="container det-btn">
@@ -109,14 +110,15 @@
                                     <td>:</td>
                                     <td>{{ $buku->keterangan }}</td>
                                 </tr>
-                                <tr>
-                                    <td>Deskripsi</td>
-                                    <td>:</td>
-                                    <td>{{ $buku->deskripsi }}</td>
-                                </tr>
                      
                         </table>
                     </div>
+                    <center>
+                    <div class="col-md-10 mt-3">
+                        <label style="font-weight: bold">Deskripsi</label><br><br>
+                        <p style="text-align: justify">{{ $buku->deskripsi }}</p>
+                    </div>
+                    </center>
                 </div>
                 <div class="modal-footer">
                   <button style="width: 100%" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

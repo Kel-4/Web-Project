@@ -25,7 +25,7 @@ class DataBukuController extends Controller
             ->orWhere('tahun', 'LIKE', '%'.$request->cari.'%')
             ->paginate(8);
         } else {
-            $data = DataBuku::paginate(8);
+            $data = DataBuku::paginate(6);
         }
         return view('DataBuku.guest',['data'=>$data]);
     }

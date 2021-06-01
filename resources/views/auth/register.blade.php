@@ -168,14 +168,14 @@
         <div class="row">
         <div class="col-md-6">
             <label for=""><h6>NAMA</h6></label>
-            <input id="name" style="color: white;" type="text" class="form-control bg-transparent @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Your name"  autocomplete="name" autofocus>
+            <input id="name" style="color: white;" type="text" class="form-control bg-transparent @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Your name"  autocomplete="off" autofocus>
             @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror<br>
             <label for=""><h6>USERNAME</h6></label>
-            <input id="username" style="color: white;" type="text" class="form-control bg-transparent @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Your username"  autocomplete="username" autofocus>
+            <input id="username" style="color: white;" type="text" class="form-control bg-transparent @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Your username"  autocomplete="off" autofocus>
             @error('username')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -184,7 +184,7 @@
         </div>
         <div class="col-md-6">
             <label for=""><h6>EMAIL</h6></label>
-            <input id="email" style="color: white;" type="email" class="form-control bg-transparent @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Your email"  autocomplete="email">
+            <input id="email" style="color: white;" type="email" class="form-control bg-transparent @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Your email"  autocomplete="off">
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -192,7 +192,7 @@
             @enderror
             <br>
             <label for=""><h6>PASSWORD</h6></label>
-            <input id="password" style="color: white;" type="password" class="form-control bg-transparent @error('password') is-invalid @enderror" name="password" placeholder="Your password"  autocomplete="new-password">
+            <input id="password" style="color: white;" type="password" class="form-control bg-transparent @error('password') is-invalid @enderror" name="password" placeholder="Your password"  autocomplete="off">
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -201,7 +201,7 @@
             <br>
             <label for="password-confirm" class="col-md-12 col-form-label text-md-right"><h6>{{ __('CONFIRM PASSWORD') }}</h6></label>
                 <div class="">
-                    <input style="color: white;" id="password-confirm" type="password" class="form-control bg-transparent" name="password_confirmation" placeholder="Confirm your password" autocomplete="new-password">
+                    <input style="color: white;" id="password-confirm" type="password" class="form-control bg-transparent" name="password_confirmation" placeholder="Confirm your password" autocomplete="off">
                 </div>
           </div>
         <div class="mt-4 col-8 container">
@@ -215,7 +215,7 @@
             <div class="col-md-6 container">
                 <button type="reset" class="btn btn-outline-light"><i class="fas fa-times-circle"></i> &nbsp;<b id="reset">RESET</b></button>
             </div><br>
-            <h6 class="text-center mt-3">HAVE ACCOUNT? <a class="" href="/">LOGIN HERE</a></h6>
+            <h6 class="text-center mt-3">HAVE AN ACCOUNT? <a class="" href="/">LOGIN HERE</a></h6>
         </div>
     </div>
     </form>

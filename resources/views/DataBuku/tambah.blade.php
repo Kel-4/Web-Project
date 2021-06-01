@@ -56,7 +56,7 @@
 
                 <div class="form-group mt-3">
                     <label for="judul">Judul</label>
-                    <input type="text" name="judul" id="judul" class="form-control" value="{{ old('judul') }}" autofocus>
+                    <input type="text" name="judul" id="judul" class="form-control" value="{{ old('judul') }}" autofocus autocomplete="off">
                 </div>
                 @error('judul')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -81,7 +81,7 @@
 
                 <div class="form-group mt-3">
                     <label for="penerbit">Penerbit</label>
-                    <input type="text" name="penerbit" id="penerbit" class="form-control" value="{{ old('penerbit') }}">
+                    <input type="text" name="penerbit" id="penerbit" class="form-control" value="{{ old('penerbit') }}" autocomplete="off">
                 </div>
                 @error('penerbit')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -89,7 +89,7 @@
 
                 <div class="form-group mt-3">
                     <label for="subjek">Subjek</label>
-                    <input type="text" name="subjek" id="subjek" class="form-control" value="{{ old('subjek') }}">
+                    <input type="text" name="subjek" id="subjek" class="form-control" value="{{ old('subjek') }}" autocomplete="off">
                 </div>
                 @error('subjek')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -97,7 +97,7 @@
 
                 <div class="form-group mt-3">
                     <label for="kategori">Kategori</label>
-                    <input type="text" name="kategori" id="kategori" class="form-control" value="{{ old('kategori') }}">
+                    <input type="text" name="kategori" id="kategori" class="form-control" value="{{ old('kategori') }}" autocomplete="off">
                 </div>
                 @error('kategori')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -134,7 +134,7 @@
                 
                 <div class="form-group mt-3">
                     <label for="lokasi">Lokasi</label>
-                    <input type="text" name="lokasi" id="lokasi" class="form-control" value="{{ old('lokasi') }}">
+                    <input type="text" name="lokasi" id="lokasi" class="form-control" value="{{ old('lokasi') }}" autocomplete="off">
                 </div>
                 @error('lokasi')
                     <div class="alert-danger mt-1">{{$message}}</div>
@@ -142,7 +142,7 @@
                 
                 <div class="form-group mt-3">
                     <label for="jumlah_buku">Jumlah Buku</label>
-                    <input type="text" name="jumlah_buku" id="jumlah_buku" class="form-control" value="{{ old('jumlah_buku') }}">
+                    <input type="text" name="jumlah_buku" id="jumlah_buku" class="form-control" value="{{ old('jumlah_buku') }}" autocomplete="off">
                 </div>
                 @error('jumlah_buku')
                     <div class="alert-danger mt-1">{{$message}}</div>
