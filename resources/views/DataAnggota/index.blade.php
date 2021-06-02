@@ -81,9 +81,10 @@
                 </tr>
             </thead>
             <tbody>
+            <?php $i=0 ?>
                 @foreach ($data as $anggota)
                 <tr>
-                    <td>AP{{ $anggota->id }}</td>
+                    <td>AP{{ $data->firstItem() + $i }}</td>
                     <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $anggota->foto }}" alt=" foto"></td>
                     <td>{{ $anggota->nama }}</td>
                     <td>{{ $anggota->jenis_kelamin }}</td>
@@ -97,11 +98,12 @@
                     @endif
                     <td>
                         <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Card Member" href="/DataAnggota/cetak_kartu/{{ $anggota->id }}" target="_blank"> <i class="fas text-light fa-id-card btn btn-warning"></i></a>
-                        <a href="/DataAnggota/ubah/{{ $anggota->id }}"><i class="far fa-edit btn btn-success"></i></a>
-                        <a href="/DataAnggota/hapus/{{ $anggota->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/DataAnggota/ubah/{{ $anggota->id }}"><i class="far fa-edit btn btn-success"></i></a>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="/DataAnggota/hapus/{{ $anggota->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
                 </tr>
-                @endforeach
+                <?php $i++ ?>
+              @endforeach
             </tbody>
         </table>
         <br>
