@@ -81,10 +81,10 @@
                 </tr>
             </thead>
             <tbody>
-            <?php $i=1 ?>
+            <?php $i=0 ?>
                 @foreach ($data as $anggota)
                 <tr>
-                    <td>AP{{ $i }}</td>
+                    <td>AP{{ $data->firstItem() + $i }}</td>
                     <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $anggota->foto }}" alt=" foto"></td>
                     <td>{{ $anggota->nama }}</td>
                     <td>{{ $anggota->jenis_kelamin }}</td>
@@ -92,18 +92,18 @@
                     <td>{{ $anggota->kontak }}</td>
                     <td>{{ $anggota->alamat }}</td>
                     @if($anggota->status_peminjaman=='Bebas')
-                        <td><a class="btn btn-danger">MEMINJAM</a></td>
-                    @else
                         <td><a class="btn btn-success">TIDAK ADA</a></td>
+                    @else
+                        <td><a class="btn btn-danger">MEMINJAM</a></td>
                     @endif
                     <td>
                         <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Card Member" href="/DataAnggota/cetak_kartu/{{ $anggota->id }}" target="_blank"> <i class="fas text-light fa-id-card btn btn-warning"></i></a>
-                        <a href="/DataAnggota/ubah/{{ $anggota->id }}"><i class="far fa-edit btn btn-success"></i></a>
-                        <a href="/DataAnggota/hapus/{{ $anggota->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/DataAnggota/ubah/{{ $anggota->id }}"><i class="far fa-edit btn btn-success"></i></a>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="/DataAnggota/hapus/{{ $anggota->id }}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
                 </tr>
                 <?php $i++ ?>
-                @endforeach
+              @endforeach
             </tbody>
         </table>
         <br>

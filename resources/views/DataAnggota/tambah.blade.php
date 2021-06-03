@@ -64,7 +64,7 @@
                     <label>Nama</label>
                     <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" autocomplete="off" autofocus>
                     @error('nama')
-                            <div class="invalid-feedback">{{  $message }}</div>
+                            <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group mt-3">
@@ -75,35 +75,35 @@
                         <option value="Perempuan">Perempuan</option>
                     </select>
                     @error('jenis_kelamin')
-                            <div class="invalid-feedback">{{  $message }}</div>
+                            <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group mt-3">
                     <label>Tanggal terdaftar</label>
                     <input type="date" name="tanggal_terdaftar" class="form-control @error('tanggal_terdaftar') is-invalid @enderror" value="{{ old('tanggal_terdaftar') }}" autocomplete="off">
                     @error('tanggal_terdaftar')
-                            <div class="invalid-feedback">{{  $message }}</div>
+                            <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group mt-3">
                     <label>Kontak</label>
-                    <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="+62{{ old('kontak') }}" placeholder="+62" autocomplete="off">
+                    <input type="text" name="kontak" class="form-control @error('kontak') is-invalid @enderror" value="{{ old('kontak') }}" placeholder="Awali dengan +62" autocomplete="off">
                     @error('kontak')
-                            <div class="invalid-feedback">{{  $message }}</div>
+                            <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group mt-3">
                     <label>Alamat</label>
                     <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ old('alamat') }}" autocomplete="off">
                     @error('alamat')
-                            <div class="invalid-feedback">{{  $message }}</div>
+                            <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group mt-3">
                     <label>Foto</label>
                     <input type="file" name="foto" class="form-control @error('foto') is-invalid @enderror" value="{{ old('foto') }}" autocomplete="off">
                     @error('foto')
-                            <div class="invalid-feedback">{{  $message }}</div>
+                            <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
                 </div>
                 <br><br>
